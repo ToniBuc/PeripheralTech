@@ -14,5 +14,9 @@ namespace PeripheralTech.WebAPI.Database
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal Price { get; set; }
         public int AmountInStock { get; set; } //if 0, orders disabled
+        public int ProductTypeID { get; set; }
+        public ProductType ProductType { get; set; }
+        public int CompanyID { get; set; }
+        public Company Company{ get; set; }
     }
 }

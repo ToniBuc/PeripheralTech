@@ -7,7 +7,7 @@ namespace PeripheralTech.WebAPI.Database
 {
     public class UserReview
     {
-        public int ReviewID { get; set; }
+        public int UserReviewID { get; set; }
         public int ProductID { get; set; }
         public Product Product{ get; set; }
         public int UserID { get; set; }
