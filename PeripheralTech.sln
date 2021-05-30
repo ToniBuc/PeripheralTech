@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.WebAPI", "PeripheralTech.WebAPI\PeripheralTech.WebAPI.csproj", "{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.Model", "PeripheralTech.Model\PeripheralTech.Model.csproj", "{E741D685-A80E-473E-95AC-72D2EE0AF4C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63F3FAD2-B642-490E-A7BE-EF0BD13EEB9F}
+	EndGlobalSection
+EndGlobal
