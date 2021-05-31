@@ -38,7 +38,18 @@ namespace PeripheralTech.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeripheralTech API", Version = "v1" });
             });
 
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
+            services.AddScoped<IService<Model.ProductType, object>, BaseService<Model.ProductType, object, ProductType>>();
+            services.AddScoped<IService<Model.UserRole, object>, BaseService<Model.UserRole, object, UserRole>>();
+            services.AddScoped<IService<Model.OrderStatus, object>, BaseService<Model.OrderStatus, object, OrderStatus>>();
+
             services.AddScoped<ICRUDService<Model.City, CitySearchRequest, CityUpsertRequest, CityUpsertRequest>, CityService>();
+            services.AddScoped<ICRUDService<Model.Product, ProductSearchRequest, ProductUpsertRequest, ProductUpsertRequest>, ProductService>();
+            services.AddScoped<ICRUDService<Model.Company, CompanySearchRequest, CompanyUpsertRequest, CompanyUpsertRequest>, CompanyService>();
+            services.AddScoped<ICRUDService<Model.Order, OrderSearchRequest, OrderInsertRequest, OrderUpdateRequest>, OrderService>();
+
 
             var connection = Configuration.GetConnectionString("PeripheralTech");
             services.AddDbContext<PeripheralTechDbContext>(options => options.UseSqlServer(connection));
