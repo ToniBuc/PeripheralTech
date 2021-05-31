@@ -28,6 +28,18 @@ namespace PeripheralTech.WebAPI.Mappers
             CreateMap<Database.User, Model.User>();
             CreateMap<Database.User, UserInsertRequest>().ReverseMap();
             CreateMap<Database.User, UserUpdateRequest>().ReverseMap();
+            CreateMap<Database.UserFavoriteProduct, Model.UserFavoriteProduct>();
+            CreateMap<Database.UserFavoriteProduct, UserFavoriteProductUpsertRequest>().ReverseMap();
+            CreateMap<Database.UserReview, Model.UserReview>();
+            CreateMap<Database.UserReview, UserReviewUpsertRequest>().ReverseMap();
+            CreateMap<Database.StaffReview, Model.StaffReview>();
+            CreateMap<Database.StaffReview, StaffReviewUpsertRequest>().ReverseMap();
+            CreateMap<Database.ProductImage, Model.ProductImage>();
+            CreateMap<Database.ProductImage, ProductImageUpsertRequest>().ReverseMap();
+            CreateMap<Database.ProductVideo, Model.ProductVideo>();
+            CreateMap<Database.ProductVideo, ProductVideoUpsertRequest>().ReverseMap();
+            CreateMap<Database.Discount, Model.Discount>();
+            CreateMap<Database.Discount, DiscountUpsertRequest>().ReverseMap();
         }
     }
 }

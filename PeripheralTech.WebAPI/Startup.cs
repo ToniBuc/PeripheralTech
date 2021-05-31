@@ -49,7 +49,12 @@ namespace PeripheralTech.WebAPI
             services.AddScoped<ICRUDService<Model.Product, ProductSearchRequest, ProductUpsertRequest, ProductUpsertRequest>, ProductService>();
             services.AddScoped<ICRUDService<Model.Company, CompanySearchRequest, CompanyUpsertRequest, CompanyUpsertRequest>, CompanyService>();
             services.AddScoped<ICRUDService<Model.Order, OrderSearchRequest, OrderInsertRequest, OrderUpdateRequest>, OrderService>();
-
+            services.AddScoped<ICRUDService<Model.UserFavoriteProduct, UserFavoriteProductSearchRequest, UserFavoriteProductUpsertRequest, UserFavoriteProductUpsertRequest>, UserFavoriteProductService>();
+            services.AddScoped<ICRUDService<Model.UserReview, UserReviewSearchRequest, UserReviewUpsertRequest, UserReviewUpsertRequest>, UserReviewService>();
+            services.AddScoped<ICRUDService<Model.StaffReview, StaffReviewSearchRequest, StaffReviewUpsertRequest, StaffReviewUpsertRequest>, StaffReviewService>();
+            services.AddScoped<ICRUDService<Model.ProductImage, ProductImageSearchRequest, ProductImageUpsertRequest, ProductImageUpsertRequest>, ProductImageService>();
+            services.AddScoped<ICRUDService<Model.ProductVideo, ProductVideoSearchRequest, ProductVideoUpsertRequest, ProductVideoUpsertRequest>, ProductVideoService>();
+            services.AddScoped<ICRUDService<Model.Discount, DiscountSearchRequest, DiscountUpsertRequest, DiscountUpsertRequest>, DiscountService>();
 
             var connection = Configuration.GetConnectionString("PeripheralTech");
             services.AddDbContext<PeripheralTechDbContext>(options => options.UseSqlServer(connection));
