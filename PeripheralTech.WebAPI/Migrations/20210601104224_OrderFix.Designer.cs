@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeripheralTech.WebAPI.Database;
 
 namespace PeripheralTech.WebAPI.Migrations
 {
     [DbContext(typeof(PeripheralTechDbContext))]
-    partial class PeripheralTechDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210601104224_OrderFix")]
+    partial class OrderFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,28 +148,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderProduct", b =>
-                {
-                    b.Property<int>("OrderProductID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderProductID");
-
-                    b.HasIndex("OrderID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("OrderProduct");
-                });
-
             modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderStatus", b =>
                 {
                     b.Property<int>("OrderStatusID")
@@ -202,6 +182,9 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OrderID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(18,2)");
 
@@ -211,6 +194,8 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.HasKey("ProductID");
 
                     b.HasIndex("CompanyID");
+
+                    b.HasIndex("OrderID");
 
                     b.HasIndex("ProductTypeID");
 
@@ -478,25 +463,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderProduct", b =>
-                {
-                    b.HasOne("PeripheralTech.WebAPI.Database.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PeripheralTech.WebAPI.Database.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("PeripheralTech.WebAPI.Database.Product", b =>
                 {
                     b.HasOne("PeripheralTech.WebAPI.Database.Company", "Company")
@@ -504,6 +470,10 @@ namespace PeripheralTech.WebAPI.Migrations
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PeripheralTech.WebAPI.Database.Order", null)
+                        .WithMany("OrderProducts")
+                        .HasForeignKey("OrderID");
 
                     b.HasOne("PeripheralTech.WebAPI.Database.ProductType", "ProductType")
                         .WithMany()
@@ -610,6 +580,11 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("PeripheralTech.WebAPI.Database.Order", b =>
+                {
+                    b.Navigation("OrderProducts");
                 });
 #pragma warning restore 612, 618
         }

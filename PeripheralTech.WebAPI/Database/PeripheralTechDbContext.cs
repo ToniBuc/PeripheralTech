@@ -26,6 +26,7 @@ namespace PeripheralTech.WebAPI.Database
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
+        public virtual DbSet<OrderProduct> OrderProduct { get; set; }
         public virtual DbSet<Discount> Discount { get; set; }
         public virtual DbSet<Bill> Bill { get; set; }
         public virtual DbSet<User> User { get; set; }

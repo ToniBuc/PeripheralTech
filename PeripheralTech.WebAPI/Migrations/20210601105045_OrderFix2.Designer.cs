@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeripheralTech.WebAPI.Database;
 
 namespace PeripheralTech.WebAPI.Migrations
 {
     [DbContext(typeof(PeripheralTechDbContext))]
-    partial class PeripheralTechDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210601105045_OrderFix2")]
+    partial class OrderFix2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,28 +146,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Order");
-                });
-
-            modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderProduct", b =>
-                {
-                    b.Property<int>("OrderProductID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderProductID");
-
-                    b.HasIndex("OrderID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("OrderProduct");
                 });
 
             modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderStatus", b =>
@@ -476,25 +456,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Navigation("OrderStatus");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PeripheralTech.WebAPI.Database.OrderProduct", b =>
-                {
-                    b.HasOne("PeripheralTech.WebAPI.Database.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PeripheralTech.WebAPI.Database.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("PeripheralTech.WebAPI.Database.Product", b =>
