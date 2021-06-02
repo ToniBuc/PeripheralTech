@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.WebAPI", "PeripheralTech.WebAPI\PeripheralTech.WebAPI.csproj", "{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeripheralTech.WebAPI", "PeripheralTech.WebAPI\PeripheralTech.WebAPI.csproj", "{A38ACA22-072C-4E76-A54F-101EAE1CDD0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.Model", "PeripheralTech.Model\PeripheralTech.Model.csproj", "{E741D685-A80E-473E-95AC-72D2EE0AF4C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeripheralTech.Model", "PeripheralTech.Model\PeripheralTech.Model.csproj", "{E741D685-A80E-473E-95AC-72D2EE0AF4C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B0931FE5-2243-4DE9-8FC0-74AAAD852D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.WinUI", "PeripheralTech.WinUI\PeripheralTech.WinUI.csproj", "{86A88E44-02A7-427B-8AA8-A47EFB765D38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E741D685-A80E-473E-95AC-72D2EE0AF4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A88E44-02A7-427B-8AA8-A47EFB765D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A88E44-02A7-427B-8AA8-A47EFB765D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A88E44-02A7-427B-8AA8-A47EFB765D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A88E44-02A7-427B-8AA8-A47EFB765D38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86A88E44-02A7-427B-8AA8-A47EFB765D38} = {B0931FE5-2243-4DE9-8FC0-74AAAD852D91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {63F3FAD2-B642-490E-A7BE-EF0BD13EEB9F}
