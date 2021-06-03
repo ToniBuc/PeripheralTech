@@ -43,8 +43,9 @@
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.StaffMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,7 +101,7 @@
             // 
             this.dgvStaffMembers.AllowUserToAddRows = false;
             this.dgvStaffMembers.AllowUserToDeleteRows = false;
-            this.dgvStaffMembers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvStaffMembers.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvStaffMembers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStaffMembers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -144,7 +145,7 @@
             this.UserID.Name = "UserID";
             this.UserID.ReadOnly = true;
             this.UserID.Visible = false;
-            this.UserID.Width = 83;
+            this.UserID.Width = 84;
             // 
             // FirstName
             // 
@@ -213,16 +214,6 @@
             this.panel1.Size = new System.Drawing.Size(551, 31);
             this.panel1.TabIndex = 16;
             // 
-            // pbxLogo
-            // 
-            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
-            this.pbxLogo.Location = new System.Drawing.Point(449, 534);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(90, 90);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxLogo.TabIndex = 17;
-            this.pbxLogo.TabStop = false;
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.White;
@@ -239,11 +230,31 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
+            // pbxLogo
+            // 
+            this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
+            this.pbxLogo.Location = new System.Drawing.Point(449, 540);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(90, 90);
+            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxLogo.TabIndex = 17;
+            this.pbxLogo.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 636);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(551, 31);
+            this.panel2.TabIndex = 18;
+            // 
             // frmStaffMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 636);
+            this.ClientSize = new System.Drawing.Size(551, 667);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReport);
@@ -283,5 +294,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pbxLogo;
+        private System.Windows.Forms.Panel panel2;
     }
 }
