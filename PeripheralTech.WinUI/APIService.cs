@@ -100,7 +100,6 @@ namespace PeripheralTech.WinUI
 
         public async Task<T> Login<T>(object request)
         {
-
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
             var result = await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();

@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PeripheralTech.Model.Requests;
 using PeripheralTech.WebAPI.Database;
+using PeripheralTech.WebAPI.Filters;
 using PeripheralTech.WebAPI.Security;
 using PeripheralTech.WebAPI.Services;
 
@@ -33,6 +34,7 @@ namespace PeripheralTech.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddAutoMapper(typeof(Startup));
 
             services.AddSwaggerGen(c =>
