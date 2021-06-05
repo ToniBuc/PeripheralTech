@@ -23,5 +23,6 @@ namespace PeripheralTech.Model
         //
         public string UserRoleName { get; set; }
         public string FullName { get; set; }
+        public string CityName { get; set; }
     }
 }

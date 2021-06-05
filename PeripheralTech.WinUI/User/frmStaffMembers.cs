@@ -68,5 +68,39 @@ namespace PeripheralTech.WinUI.User
         {
             this.Close();
         }
+
+        private void btnAddStaff_Click(object sender, EventArgs e)
+        {
+            if (APIService.Role == "Administrator")
+            {
+                frmStaffMemberDetail frm = new frmStaffMemberDetail();
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission to access this function!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvStaffMembers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvStaffMembers.RowCount.Equals(0))
+            {
+                var id = dgvStaffMembers.SelectedRows[0].Cells[0].Value;
+                if (APIService.UserID == int.Parse(id.ToString()) || APIService.Role == "Administrator")
+                {
+                    frmStaffMemberDetail frm = new frmStaffMemberDetail(int.Parse(id.ToString()));
+                    frm.MaximizeBox = false;
+                    frm.MinimizeBox = false;
+                    frm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You do not have permission to access this user's information!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }

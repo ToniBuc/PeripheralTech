@@ -85,11 +85,12 @@ namespace PeripheralTech.WebAPI.Services
 
         public Model.User GetById(int id)
         {
-            //var entity = _context.User.Find(id);
-
             var entity = _context.User.Where(i => i.UserID == id).Include(i => i.UserRole).Include(i => i.City).FirstOrDefault();
 
             var result = _mapper.Map<Model.User>(entity);
+
+            result.UserRoleName = result.UserRole.Name;
+            result.CityName = result.City.Name;
 
             return _mapper.Map<Model.User>(result);
         }
@@ -138,10 +139,10 @@ namespace PeripheralTech.WebAPI.Services
         public Model.User Update(int id, UserUpdateRequest request)
         {
             var entity = _context.User.Find(id);
-            //if (request.ProfileImage == null)
-            //{
-            //    request.ProfileImage = entity.ProfileImage;
-            //}
+            if (request.ProfileImage == null)
+            {
+                request.ProfileImage = entity.ProfileImage;
+            }
             _context.User.Attach(entity);
             _context.User.Update(entity);
 
