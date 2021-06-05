@@ -14,5 +14,21 @@ namespace PeripheralTech.WebAPI.Services
         {
 
         }
+
+        public override List<Model.Company> Get(CompanySearchRequest request)
+        {
+            var query = _context.Company.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.CompanyName))
+            {
+                query = query.Where(x => x.Name.Contains(request.CompanyName));
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.Company>>(list);
+
+            return result;
+        }
     }
 }

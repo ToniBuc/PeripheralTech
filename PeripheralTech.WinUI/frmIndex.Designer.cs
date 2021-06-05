@@ -31,18 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCompanies = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCompanies);
             this.panel1.Controls.Add(this.btnStaff);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 572);
             this.panel1.TabIndex = 1;
+            // 
+            // btnCompanies
+            // 
+            this.btnCompanies.Location = new System.Drawing.Point(12, 181);
+            this.btnCompanies.Name = "btnCompanies";
+            this.btnCompanies.Size = new System.Drawing.Size(172, 46);
+            this.btnCompanies.TabIndex = 1;
+            this.btnCompanies.Text = "Companies";
+            this.btnCompanies.UseVisualStyleBackColor = true;
+            this.btnCompanies.Click += new System.EventHandler(this.btnCompanies_Click);
             // 
             // btnStaff
             // 
@@ -74,6 +86,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnStaff;
+        private System.Windows.Forms.Button btnCompanies;
     }
 }
 

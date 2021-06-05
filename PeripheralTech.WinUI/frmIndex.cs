@@ -1,4 +1,5 @@
-﻿using PeripheralTech.WinUI.User;
+﻿using PeripheralTech.WinUI.Company;
+using PeripheralTech.WinUI.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,6 +109,15 @@ namespace PeripheralTech.WinUI
         private void btnStaff_Click(object sender, EventArgs e)
         {
             frmStaffMembers frm = new frmStaffMembers();
+            frm.MdiParent = this;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void btnCompanies_Click(object sender, EventArgs e)
+        {
+            frmCompanyOverview frm = new frmCompanyOverview();
             frm.MdiParent = this;
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
