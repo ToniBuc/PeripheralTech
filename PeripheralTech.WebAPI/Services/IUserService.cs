@@ -10,6 +10,7 @@ namespace PeripheralTech.WebAPI.Services
     {
         List<Model.User> Get(UserSearchRequest request);
         Model.User GetById(int id);
+        List<Model.User> GetStaff(UserSearchRequest request);
         Model.User Insert(UserInsertRequest request);
         Model.User Update(int id, UserUpdateRequest request);
         Model.User Authenticate(string username, string pass);

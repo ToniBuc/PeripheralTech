@@ -48,6 +48,37 @@ namespace PeripheralTech.WinUI
             return result;
         }
 
+        public async Task<T> GetStaff<T>(object search)
+        {
+            try
+            {
+                var url = $"{Properties.Settings.Default.APIUrl}/{_route}/GetStaff";
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
+        }
+
         public async Task<T> Insert<T>(object request)
         {
             try

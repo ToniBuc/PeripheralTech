@@ -94,6 +94,29 @@ namespace PeripheralTech.WebAPI.Services
             return _mapper.Map<Model.User>(result);
         }
 
+        public List<Model.User> GetStaff(UserSearchRequest request)
+        {
+            var query = _context.User.Include(i => i.UserRole).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.FirstName) || !string.IsNullOrWhiteSpace(request.LastName))
+            {
+                query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.LastName) ||
+                request.FirstName.Contains(x.FirstName) || request.LastName.Contains(x.LastName));
+            }
+
+            query = query.Where(x => x.UserRole.Name != "Customer");
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.User>>(list);
+            foreach (var x in result)
+            {
+                x.UserRoleName = x.UserRole.Name;
+                x.FullName = x.FirstName + " " + x.LastName;
+            }
+
+            return result;
+        }
+
         public Model.User Insert(UserInsertRequest request)
         {
             var entity = _mapper.Map<Database.User>(request);

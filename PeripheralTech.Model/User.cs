@@ -20,5 +20,8 @@ namespace PeripheralTech.Model
         public int? CityID { get; set; }
         public City City { get; set; }
         public byte[] ProfileImage { get; set; }
+        //
+        public string UserRoleName { get; set; }
+        public string FullName { get; set; }
     }
 }

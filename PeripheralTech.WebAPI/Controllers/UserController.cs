@@ -32,7 +32,11 @@ namespace PeripheralTech.WebAPI.Controllers
         {
             return _service.GetById(id);
         }
-
+        [HttpGet("GetStaff")]
+        public List<Model.User> GetStaff([FromQuery]UserSearchRequest request)
+        {
+            return _service.GetStaff(request);
+        }
         [HttpPost]
         public Model.User Insert(UserInsertRequest request)
         {

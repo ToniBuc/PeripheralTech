@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PeripheralTech.WinUI.User;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -102,6 +103,15 @@ namespace PeripheralTech.WinUI
             {
                 childForm.Close();
             }
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            frmStaffMembers frm = new frmStaffMembers();
+            frm.MdiParent = this;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
         }
     }
 }
