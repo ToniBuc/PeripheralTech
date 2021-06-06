@@ -15,5 +15,26 @@ namespace PeripheralTech.WebAPI.Services
         {
 
         }
+
+        public override List<Model.City> Get(CitySearchRequest request)
+        {
+            var query = _context.City.Include(i => i.Country).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.CityName))
+            {
+                query = query.Where(x => x.Name.Contains(request.CityName));
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.City>>(list);
+
+            foreach(var x in result)
+            {
+                x.CountryName = x.Country.Name;
+            }
+
+            return result;
+        }
     }
 }

@@ -60,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="City\frmCityOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="City\frmCityOverview.Designer.cs">
+      <DependentUpon>frmCityOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Company\frmCompanyOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     <Compile Include="User\frmStaffMembers.Designer.cs">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="City\frmCityOverview.resx">
+      <DependentUpon>frmCityOverview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Company\frmCompanyOverview.resx">
       <DependentUpon>frmCompanyOverview.cs</DependentUpon>
     </EmbeddedResource>

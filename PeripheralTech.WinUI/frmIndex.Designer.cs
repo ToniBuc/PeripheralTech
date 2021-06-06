@@ -33,11 +33,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCompanies = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnCompanies);
             this.panel1.Controls.Add(this.btnStaff);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -66,6 +68,16 @@
             this.btnStaff.UseVisualStyleBackColor = true;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 233);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Cities";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +99,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCompanies;
+        private System.Windows.Forms.Button button1;
     }
 }
 

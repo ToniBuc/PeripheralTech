@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompanyOverview));
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvCompanies = new System.Windows.Forms.DataGridView();
-            this.CompanyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnAddCompany = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -49,12 +46,17 @@
             this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -72,69 +74,53 @@
             this.dgvCompanies.AllowUserToDeleteRows = false;
             this.dgvCompanies.AllowUserToResizeColumns = false;
             this.dgvCompanies.AllowUserToResizeRows = false;
-            this.dgvCompanies.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvCompanies.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCompanies.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCompanies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCompanies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCompanies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCompanies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCompanies.ColumnHeadersHeight = 24;
             this.dgvCompanies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCompanies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CompanyID,
             this.CompanyName});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCompanies.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCompanies.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCompanies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCompanies.EnableHeadersVisualStyles = false;
             this.dgvCompanies.GridColor = System.Drawing.SystemColors.Control;
             this.dgvCompanies.Location = new System.Drawing.Point(0, 0);
             this.dgvCompanies.Name = "dgvCompanies";
             this.dgvCompanies.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCompanies.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCompanies.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvCompanies.RowHeadersVisible = false;
             this.dgvCompanies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvCompanies.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCompanies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompanies.Size = new System.Drawing.Size(335, 295);
             this.dgvCompanies.TabIndex = 1;
             this.dgvCompanies.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvCompanies_MouseDoubleClick);
-            // 
-            // CompanyID
-            // 
-            this.CompanyID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CompanyID.DataPropertyName = "CompanyID";
-            this.CompanyID.HeaderText = "CompanyID";
-            this.CompanyID.Name = "CompanyID";
-            this.CompanyID.ReadOnly = true;
-            this.CompanyID.Visible = false;
-            this.CompanyID.Width = 118;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CompanyName.DataPropertyName = "Name";
-            this.CompanyName.HeaderText = "Company name";
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
             // 
             // pbxLogo
             // 
@@ -145,38 +131,6 @@
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxLogo.TabIndex = 25;
             this.pbxLogo.TabStop = false;
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.DarkRed;
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(244, 579);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(108, 23);
-            this.btnReport.TabIndex = 24;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = false;
-            // 
-            // btnAddCompany
-            // 
-            this.btnAddCompany.BackColor = System.Drawing.Color.DarkRed;
-            this.btnAddCompany.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCompany.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAddCompany.FlatAppearance.BorderSize = 0;
-            this.btnAddCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCompany.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCompany.ForeColor = System.Drawing.Color.White;
-            this.btnAddCompany.Location = new System.Drawing.Point(17, 579);
-            this.btnAddCompany.Name = "btnAddCompany";
-            this.btnAddCompany.Size = new System.Drawing.Size(140, 23);
-            this.btnAddCompany.TabIndex = 23;
-            this.btnAddCompany.Text = "Add new company";
-            this.btnAddCompany.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -295,33 +249,77 @@
             this.panel4.Size = new System.Drawing.Size(336, 2);
             this.panel4.TabIndex = 32;
             // 
-            // label3
+            // lblCompany
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri Light", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(113, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 29);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "New Company";
+            this.lblCompany.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCompany.Font = new System.Drawing.Font("Calibri Light", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompany.Location = new System.Drawing.Point(0, 0);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(335, 56);
+            this.lblCompany.TabIndex = 33;
+            this.lblCompany.Text = "New Company";
+            this.lblCompany.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri Light", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(113, 191);
+            this.label4.Location = new System.Drawing.Point(119, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 29);
             this.label4.TabIndex = 34;
             this.label4.Text = "Company List";
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.DarkRed;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(244, 579);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(108, 23);
+            this.btnReport.TabIndex = 24;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CompanyName.DataPropertyName = "Name";
+            this.CompanyName.HeaderText = "Company name";
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            // 
+            // CompanyID
+            // 
+            this.CompanyID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CompanyID.DataPropertyName = "CompanyID";
+            this.CompanyID.HeaderText = "CompanyID";
+            this.CompanyID.Name = "CompanyID";
+            this.CompanyID.ReadOnly = true;
+            this.CompanyID.Visible = false;
+            this.CompanyID.Width = 116;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblCompany);
+            this.panel5.Location = new System.Drawing.Point(17, 34);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(335, 56);
+            this.panel5.TabIndex = 35;
+            // 
             // frmCompanyOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(370, 754);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCompanyName);
@@ -331,7 +329,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnReport);
-            this.Controls.Add(this.btnAddCompany);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
@@ -343,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,21 +351,21 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvCompanies;
         private System.Windows.Forms.PictureBox pbxLogo;
-        private System.Windows.Forms.Button btnReport;
-        private System.Windows.Forms.Button btnAddCompany;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCompanyName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
+        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Panel panel5;
     }
 }

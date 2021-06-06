@@ -1,4 +1,5 @@
-﻿using PeripheralTech.WinUI.Company;
+﻿using PeripheralTech.WinUI.City;
+using PeripheralTech.WinUI.Company;
 using PeripheralTech.WinUI.User;
 using System;
 using System.Collections.Generic;
@@ -118,6 +119,15 @@ namespace PeripheralTech.WinUI
         private void btnCompanies_Click(object sender, EventArgs e)
         {
             frmCompanyOverview frm = new frmCompanyOverview();
+            frm.MdiParent = this;
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmCityOverview frm = new frmCityOverview();
             frm.MdiParent = this;
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;

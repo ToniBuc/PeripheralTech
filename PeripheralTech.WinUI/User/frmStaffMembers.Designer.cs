@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffMembers));
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -166,7 +167,7 @@
             this.dgvStaffMembers.AllowUserToDeleteRows = false;
             this.dgvStaffMembers.AllowUserToResizeColumns = false;
             this.dgvStaffMembers.AllowUserToResizeRows = false;
-            this.dgvStaffMembers.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvStaffMembers.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvStaffMembers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStaffMembers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvStaffMembers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -207,7 +208,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvStaffMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvStaffMembers.RowHeadersVisible = false;
             this.dgvStaffMembers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvStaffMembers.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStaffMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStaffMembers.Size = new System.Drawing.Size(522, 352);
             this.dgvStaffMembers.TabIndex = 1;
@@ -271,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(551, 667);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

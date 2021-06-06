@@ -43,6 +43,7 @@ namespace PeripheralTech.WinUI.Company
         }
 
         //making the form movable using the upper panel
+        #region Panel Border
         private bool mouseDown;
         private Point lastLocation;
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -71,6 +72,7 @@ namespace PeripheralTech.WinUI.Company
             this.Close();
         }
         //
+        #endregion
 
         public int? _companyId = null;
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -85,8 +87,11 @@ namespace PeripheralTech.WinUI.Company
                 if (_companyId != null)
                 {
                     await _companyService.Update<Model.Company>(_companyId, request);
+
                     _companyId = null;
                     txtCompanyName.Text = "";
+                    lblCompany.Text = "New Company";
+
                     MessageBox.Show("Operation successful!");
                 }
                 else
@@ -115,6 +120,7 @@ namespace PeripheralTech.WinUI.Company
                 var company = await _companyService.GetById<Model.Company>(_companyId);
 
                 txtCompanyName.Text = company.Name;
+                lblCompany.Text = company.Name;
             }
         }
     }

@@ -278,6 +278,7 @@ namespace PeripheralTech.WinUI.User
         }
 
         //making the form movable using the upper panel
+        #region Panel Border
         private bool mouseDown;
         private Point lastLocation;
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -306,5 +307,6 @@ namespace PeripheralTech.WinUI.User
         {
             this.Close();
         }
+        #endregion
     }
 }
