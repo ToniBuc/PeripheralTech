@@ -19,12 +19,17 @@ namespace PeripheralTech.WinUI.Company
             InitializeComponent();
         }
 
-        private async void frmCompanyOverview_Load(object sender, EventArgs e)
+        private async Task LoadCompanies(CompanySearchRequest search)
         {
-            var companyList = await _companyService.Get<List<Model.Company>>(null);
+            var companyList = await _companyService.Get<List<Model.Company>>(search);
 
             dgvCompanies.AutoGenerateColumns = false;
             dgvCompanies.DataSource = companyList;
+        }
+
+        private async void frmCompanyOverview_Load(object sender, EventArgs e)
+        {
+            await LoadCompanies(null);
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -33,10 +38,8 @@ namespace PeripheralTech.WinUI.Company
             {
                 CompanyName = txtSearch.Text
             };
-            var companyList = await _companyService.Get<List<Model.Company>>(search);
 
-            dgvCompanies.AutoGenerateColumns = false;
-            dgvCompanies.DataSource = companyList;
+            await LoadCompanies(search);
         }
 
         //making the form movable using the upper panel
@@ -66,6 +69,53 @@ namespace PeripheralTech.WinUI.Company
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        //
+
+        public int? _companyId = null;
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtCompanyName.Text.Length > 0 && !txtCompanyName.Text.StartsWith(" "))
+            {
+                var request = new CompanyUpsertRequest()
+                {
+                    Name = txtCompanyName.Text
+                };
+
+                if (_companyId != null)
+                {
+                    await _companyService.Update<Model.Company>(_companyId, request);
+                    _companyId = null;
+                    txtCompanyName.Text = "";
+                    MessageBox.Show("Operation successful!");
+                }
+                else
+                {
+                    await _companyService.Insert<Model.Company>(request);
+
+                    MessageBox.Show("Operation successful!");
+                }
+
+                await LoadCompanies(null);
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a company name before attempting to add a new company.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void dgvCompanies_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvCompanies.RowCount.Equals(0))
+            {
+                var id = dgvCompanies.SelectedRows[0].Cells[0].Value;
+                _companyId = int.Parse(id.ToString());
+
+                var company = await _companyService.GetById<Model.Company>(_companyId);
+
+                txtCompanyName.Text = company.Name;
+            }
         }
     }
 }
