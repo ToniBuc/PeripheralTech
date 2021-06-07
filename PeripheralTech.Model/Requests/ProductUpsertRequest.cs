@@ -12,5 +12,6 @@ namespace PeripheralTech.Model.Requests
         public int AmountInStock { get; set; }
         public int ProductTypeID { get; set; }
         public int CompanyID { get; set; }
+        public byte[] Thumbnail { get; set; }
     }
 }

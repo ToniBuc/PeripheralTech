@@ -38,5 +38,34 @@ namespace PeripheralTech.WebAPI.Services
 
             return result;
         }
+
+        public override Model.Product GetById(int id)
+        {
+            var entity = _context.Product.Where(i => i.ProductID == id).Include(i => i.ProductType).Include(i => i.Company).FirstOrDefault();
+
+            var result = _mapper.Map<Model.Product>(entity);
+
+            result.CompanyName = result.Company.Name;
+            result.ProductTypeName = result.ProductType.Name;
+
+            return result;
+        }
+
+        public override Model.Product Update(int id, ProductUpsertRequest request)
+        {
+            var entity = _context.Product.Find(id);
+            if (request.Thumbnail == null)
+            {
+                request.Thumbnail = entity.Thumbnail;
+            }
+            _context.Product.Attach(entity);
+            _context.Product.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Product>(entity);
+        }
     }
 }

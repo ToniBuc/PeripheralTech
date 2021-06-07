@@ -51,6 +51,7 @@
             this.numInStock = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -150,6 +151,7 @@
             this.btnSave.TabIndex = 93;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAddImage
             // 
@@ -166,6 +168,7 @@
             this.btnAddImage.TabIndex = 92;
             this.btnAddImage.Text = "Add image";
             this.btnAddImage.UseVisualStyleBackColor = false;
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
             // label15
             // 
@@ -251,7 +254,7 @@
             this.pictureBox.Location = new System.Drawing.Point(18, 142);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(214, 247);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 72;
             this.pictureBox.TabStop = false;
             // 
@@ -292,6 +295,10 @@
             this.label3.Text = "New product";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // frmProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
@@ -322,6 +329,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductDetail";
             this.Text = "frmProductDetail";
+            this.Load += new System.EventHandler(this.frmProductDetail_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -357,5 +365,6 @@
         private System.Windows.Forms.NumericUpDown numInStock;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
