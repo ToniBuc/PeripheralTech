@@ -31,14 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCompanies = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnCompanies);
             this.panel1.Controls.Add(this.btnStaff);
@@ -47,6 +49,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 572);
             this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 233);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Cities";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCompanies
             // 
@@ -68,15 +80,15 @@
             this.btnStaff.UseVisualStyleBackColor = true;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(12, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 46);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cities";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(12, 285);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(172, 46);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Products";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmIndex
             // 
@@ -100,6 +112,7 @@
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCompanies;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -18,5 +18,6 @@ namespace PeripheralTech.WebAPI.Database
         public ProductType ProductType { get; set; }
         public int CompanyID { get; set; }
         public Company Company{ get; set; }
+        public byte[] Thumbnail { get; set; }
     }
 }

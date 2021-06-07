@@ -42,6 +42,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvCities = new System.Windows.Forms.DataGridView();
+            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbCountry = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -196,6 +196,24 @@
             this.dgvCities.TabIndex = 1;
             this.dgvCities.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvCities_MouseDoubleClick);
             // 
+            // CityID
+            // 
+            this.CityID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CityID.DataPropertyName = "CityID";
+            this.CityID.HeaderText = "CityID";
+            this.CityID.Name = "CityID";
+            this.CityID.ReadOnly = true;
+            this.CityID.Visible = false;
+            this.CityID.Width = 79;
+            // 
+            // CityName
+            // 
+            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CityName.DataPropertyName = "Name";
+            this.CityName.HeaderText = "City name";
+            this.CityName.Name = "CityName";
+            this.CityName.ReadOnly = true;
+            // 
             // pbxLogo
             // 
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
@@ -279,24 +297,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 31);
             this.panel2.TabIndex = 49;
-            // 
-            // CityID
-            // 
-            this.CityID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CityID.DataPropertyName = "CityID";
-            this.CityID.HeaderText = "CityID";
-            this.CityID.Name = "CityID";
-            this.CityID.ReadOnly = true;
-            this.CityID.Visible = false;
-            this.CityID.Width = 77;
-            // 
-            // CityName
-            // 
-            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CityName.DataPropertyName = "Name";
-            this.CityName.HeaderText = "City name";
-            this.CityName.Name = "CityName";
-            this.CityName.ReadOnly = true;
             // 
             // cmbCountry
             // 
