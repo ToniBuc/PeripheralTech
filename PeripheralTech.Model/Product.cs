@@ -16,5 +16,8 @@ namespace PeripheralTech.Model
         public int CompanyID { get; set; }
         public Company Company { get; set; }
         public byte[] Thumbnail { get; set; }
+        //
+        public string CompanyName { get; set; }
+        public string ProductTypeName { get; set; }
     }
 }
