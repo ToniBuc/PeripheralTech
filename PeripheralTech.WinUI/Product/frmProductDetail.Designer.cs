@@ -50,13 +50,15 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.numInStock = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblProduct = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,6 +70,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(862, 36);
             this.panel1.TabIndex = 68;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // btnClose
             // 
@@ -84,6 +89,7 @@
             this.btnClose.TabIndex = 18;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panel2
             // 
@@ -283,21 +289,28 @@
             this.label2.TabIndex = 97;
             this.label2.Text = "In stock:";
             // 
-            // label3
+            // lblProduct
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri Light", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(321, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 49);
-            this.label3.TabIndex = 98;
-            this.label3.Text = "New product";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblProduct.Font = new System.Drawing.Font("Calibri Light", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduct.Location = new System.Drawing.Point(0, 0);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(838, 61);
+            this.lblProduct.TabIndex = 98;
+            this.lblProduct.Text = "New product";
+            this.lblProduct.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblProduct);
+            this.panel5.Location = new System.Drawing.Point(12, 58);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(838, 61);
+            this.panel5.TabIndex = 99;
             // 
             // frmProductDetail
             // 
@@ -305,7 +318,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(862, 478);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numInStock);
             this.Controls.Add(this.panel4);
@@ -328,6 +341,7 @@
             this.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductDetail";
             this.Load += new System.EventHandler(this.frmProductDetail_Load);
             this.panel1.ResumeLayout(false);
@@ -335,6 +349,7 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,7 +379,8 @@
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.NumericUpDown numInStock;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Panel panel5;
     }
 }

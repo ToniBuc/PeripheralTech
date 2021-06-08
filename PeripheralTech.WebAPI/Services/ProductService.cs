@@ -20,10 +20,44 @@ namespace PeripheralTech.WebAPI.Services
         {
             var query = _context.Product.Include(i => i.ProductType).Include(i => i.Company).AsQueryable();
 
-            //if (!string.IsNullOrWhiteSpace(request.CityName))
-            //{
-            //    query = query.Where(x => x.Name.Contains(request.CityName));
-            //}
+            if (!string.IsNullOrWhiteSpace(request.ProductName))
+            {
+                query = query.Where(x => x.Name.Contains(request.ProductName));
+            }
+
+            if (request?.ProductTypeID.HasValue == true)
+            {
+                query = query.Where(x => x.ProductTypeID == request.ProductTypeID);
+            }
+
+            if (request?.CompanyID.HasValue == true)
+            {
+                query = query.Where(x => x.CompanyID == request.CompanyID);
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.InStock) && request.InStock != "All")
+            {
+                if (request.InStock == "In stock")
+                {
+                    query = query.Where(x => x.AmountInStock > 0);
+                }
+                else if (request.InStock == "Out of stock")
+                {
+                    query = query.Where(x => x.AmountInStock == 0);
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.OrderByPrice) && request.OrderByPrice != "All")
+            {
+                if (request.OrderByPrice == "Low to High")
+                {
+                    query = query.OrderBy(x => x.Price);
+                }
+                else if (request.OrderByPrice == "High to Low")
+                {
+                    query = query.OrderByDescending(x => x.Price);
+                }
+            }
 
             var list = query.ToList();
 
@@ -31,7 +65,6 @@ namespace PeripheralTech.WebAPI.Services
 
             foreach (var x in result)
             {
-                //x.CountryName = x.Country.Name;
                 x.CompanyName = x.Company.Name;
                 x.ProductTypeName = x.ProductType.Name;
             }
