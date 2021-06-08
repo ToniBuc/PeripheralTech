@@ -97,6 +97,12 @@
     <Compile Include="Product\frmProductDetail.Designer.cs">
       <DependentUpon>frmProductDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\frmProductGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductGallery.Designer.cs">
+      <DependentUpon>frmProductGallery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\frmProductOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Product\frmProductDetail.resx">
       <DependentUpon>frmProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductGallery.resx">
+      <DependentUpon>frmProductGallery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\frmProductOverview.resx">
       <DependentUpon>frmProductOverview.cs</DependentUpon>
@@ -176,6 +185,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\no_image_available.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

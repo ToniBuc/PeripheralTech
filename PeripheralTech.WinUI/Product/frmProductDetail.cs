@@ -164,5 +164,16 @@ namespace PeripheralTech.WinUI.Product
             this.Close();
         }
         #endregion
+
+        private void btnGallery_Click(object sender, EventArgs e)
+        {
+            if (_id != null)
+            {
+                frmProductGallery frm = new frmProductGallery(_id.Value);
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.lblProduct = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnGallery = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -168,11 +169,11 @@
             this.btnAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddImage.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddImage.ForeColor = System.Drawing.Color.White;
-            this.btnAddImage.Location = new System.Drawing.Point(438, 357);
+            this.btnAddImage.Location = new System.Drawing.Point(416, 357);
             this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.Size = new System.Drawing.Size(89, 32);
+            this.btnAddImage.Size = new System.Drawing.Size(111, 32);
             this.btnAddImage.TabIndex = 92;
-            this.btnAddImage.Text = "Add image";
+            this.btnAddImage.Text = "Add thumbnail";
             this.btnAddImage.UseVisualStyleBackColor = false;
             this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
@@ -190,7 +191,7 @@
             this.txtImageInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImageInput.Location = new System.Drawing.Point(238, 362);
             this.txtImageInput.Name = "txtImageInput";
-            this.txtImageInput.Size = new System.Drawing.Size(194, 23);
+            this.txtImageInput.Size = new System.Drawing.Size(172, 23);
             this.txtImageInput.TabIndex = 90;
             // 
             // label14
@@ -312,12 +313,30 @@
             this.panel5.Size = new System.Drawing.Size(838, 61);
             this.panel5.TabIndex = 99;
             // 
+            // btnGallery
+            // 
+            this.btnGallery.BackColor = System.Drawing.Color.DarkRed;
+            this.btnGallery.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGallery.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGallery.FlatAppearance.BorderSize = 0;
+            this.btnGallery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGallery.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGallery.ForeColor = System.Drawing.Color.White;
+            this.btnGallery.Location = new System.Drawing.Point(18, 395);
+            this.btnGallery.Name = "btnGallery";
+            this.btnGallery.Size = new System.Drawing.Size(214, 32);
+            this.btnGallery.TabIndex = 100;
+            this.btnGallery.Text = "Product media gallery";
+            this.btnGallery.UseVisualStyleBackColor = false;
+            this.btnGallery.Click += new System.EventHandler(this.btnGallery_Click);
+            // 
             // frmProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(862, 478);
+            this.Controls.Add(this.btnGallery);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numInStock);
@@ -382,5 +401,6 @@
         private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnGallery;
     }
 }
