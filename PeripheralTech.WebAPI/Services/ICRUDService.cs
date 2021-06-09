@@ -10,5 +10,7 @@ namespace PeripheralTech.WebAPI.Services
         T Insert(TInsert request);
 
         T Update(int id, TUpdate request);
+
+        bool Delete(int id);
     }
 }

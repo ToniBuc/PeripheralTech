@@ -35,5 +35,22 @@ namespace PeripheralTech.WebAPI.Services
 
             return _mapper.Map<TModel>(entity);
         }
+
+        public virtual bool Delete(int id)
+        {
+            var entity = _context.Set<TDatabase>().Find(id);
+
+            try
+            {
+                _context.Set<TDatabase>().Remove(entity);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace PeripheralTech.WebAPI.Services
         {
             var query = _context.ProductImage.Include(i => i.Product).AsQueryable();
 
+            query = query.Where(x => x.ProductID == request.ProductID);
+
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.ProductImage>>(list);

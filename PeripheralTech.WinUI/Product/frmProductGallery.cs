@@ -29,6 +29,7 @@ namespace PeripheralTech.WinUI.Product
 
             dgvImages.AutoGenerateColumns = false;
             dgvImages.DataSource = imageList;
+            dgvImages.ClearSelection();
         }
 
         private async void frmProductGallery_Load(object sender, EventArgs e)
@@ -104,5 +105,44 @@ namespace PeripheralTech.WinUI.Product
             this.Close();
         }
         #endregion
+
+        private void dgvImages_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (dgvImages.Rows[e.RowIndex].Selected)
+            {
+                using (Pen pen = new Pen(Color.DarkRed))
+                {
+                    int penWidth = 2;
+
+                    pen.Width = penWidth;
+
+                    int x = e.RowBounds.Left + (penWidth / 2);
+                    int y = e.RowBounds.Top + (penWidth / 2);
+                    int width = e.RowBounds.Width - penWidth;
+                    int height = e.RowBounds.Height - penWidth;
+
+                    e.Graphics.DrawRectangle(pen, x, y, width, height);
+                }
+            }
+        }
+
+        private async void btnDeleteImage_Click(object sender, EventArgs e)
+        {
+            if (!dgvImages.RowCount.Equals(0))
+            {
+                var id = dgvImages.SelectedRows[0].Cells[0].Value;
+
+                await _productImageService.Delete<Model.ProductImage>(int.Parse(id.ToString()));
+
+                MessageBox.Show("Operation successful!");
+
+                var search = new ProductImageSearchRequest()
+                {
+                    ProductID = _id
+                };
+
+                await LoadProductImages(search);
+            }
+        }
     }
 }
