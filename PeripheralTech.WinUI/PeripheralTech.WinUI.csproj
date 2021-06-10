@@ -123,6 +123,18 @@
     <Compile Include="User\frmStaffMembers.Designer.cs">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\ucStaffMemberDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\ucStaffMemberDetail.Designer.cs">
+      <DependentUpon>ucStaffMemberDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ucStaffMembers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\ucStaffMembers.Designer.cs">
+      <DependentUpon>ucStaffMembers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="City\frmCityOverview.resx">
       <DependentUpon>frmCityOverview.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmStaffMembers.resx">
       <DependentUpon>frmStaffMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ucStaffMemberDetail.resx">
+      <DependentUpon>ucStaffMemberDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ucStaffMembers.resx">
+      <DependentUpon>ucStaffMembers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

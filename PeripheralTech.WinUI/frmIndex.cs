@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,17 @@ namespace PeripheralTech.WinUI
         public frmIndex()
         {
             InitializeComponent();
+        }
+
+        private const int CS_DropShadow = 0x20000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle = CS_DropShadow;
+                return cp;
+            }
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -176,11 +188,26 @@ namespace PeripheralTech.WinUI
         {
             this.Close();
         }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         #endregion
 
         private void frmIndex_Load(object sender, EventArgs e)
         {
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.White;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ucStaffMembers uc = new ucStaffMembers();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucStaffMembers"].BringToFront();
+        }
+
+        
     }
 }
