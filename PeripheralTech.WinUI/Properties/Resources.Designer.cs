@@ -81,6 +81,16 @@ namespace PeripheralTech.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PeripheralTechLogoWhite {
+            get {
+                object obj = ResourceManager.GetObject("PeripheralTechLogoWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mandatory field!.
         /// </summary>
         internal static string Validation_RequiredField {

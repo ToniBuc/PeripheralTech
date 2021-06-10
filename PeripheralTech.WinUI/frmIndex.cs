@@ -112,6 +112,7 @@ namespace PeripheralTech.WinUI
         {
             frmStaffMembers frm = new frmStaffMembers();
             frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Show();
@@ -121,6 +122,7 @@ namespace PeripheralTech.WinUI
         {
             frmCompanyOverview frm = new frmCompanyOverview();
             frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Show();
@@ -142,6 +144,43 @@ namespace PeripheralTech.WinUI
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Show();
+        }
+
+        //making the form movable using the upper panel
+        #region Panel Top Border
+        private bool mouseDown;
+        private Point lastLocation;
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void pnlTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void pnlTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        private void frmIndex_Load(object sender, EventArgs e)
+        {
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.White;
         }
     }
 }
