@@ -1,22 +1,21 @@
-﻿using PeripheralTech.Model.Requests;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PeripheralTech.Model.Requests;
 
 namespace PeripheralTech.WinUI.City
 {
-    //TO BE DELETED
-    public partial class frmCityOverview : Form
+    public partial class ucCityOverview : UserControl
     {
         private readonly APIService _cityService = new APIService("City");
         private readonly APIService _countryService = new APIService("Country");
-        public frmCityOverview()
+        public ucCityOverview()
         {
             InitializeComponent();
         }
@@ -38,12 +37,12 @@ namespace PeripheralTech.WinUI.City
             cmbCountry.DataSource = result;
         }
 
-        private async void frmCityOverview_Load(object sender, EventArgs e)
+        private async void ucCityOverview_Load(object sender, EventArgs e)
         {
             await LoadCities(null);
             await LoadCountry();
-            //dgvCities.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.Outset;
         }
+
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             var search = new CitySearchRequest()
@@ -53,37 +52,6 @@ namespace PeripheralTech.WinUI.City
 
             await LoadCities(search);
         }
-
-        //making the form movable using the upper panel
-        #region Panel Border
-        private bool mouseDown;
-        private Point lastLocation;
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
 
         public int? _cityId = null;
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -123,12 +91,11 @@ namespace PeripheralTech.WinUI.City
 
                 await LoadCities(null);
             }
-            
+
         }
 
         private async void dgvCities_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             if (!dgvCities.RowCount.Equals(0))
             {
                 var id = dgvCities.SelectedRows[0].Cells[0].Value;

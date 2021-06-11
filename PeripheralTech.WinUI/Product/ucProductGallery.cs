@@ -1,24 +1,23 @@
-﻿using PeripheralTech.Model.Requests;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PeripheralTech.Model.Requests;
+using System.IO;
 
 namespace PeripheralTech.WinUI.Product
 {
-    //TO BE DELETED
-    public partial class frmProductGallery : Form
+    public partial class ucProductGallery : UserControl
     {
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _productImageService = new APIService("ProductImage");
         private int _id;
-        public frmProductGallery(int Id)
+        public ucProductGallery(int Id)
         {
             InitializeComponent();
             _id = Id;
@@ -33,7 +32,7 @@ namespace PeripheralTech.WinUI.Product
             dgvImages.ClearSelection();
         }
 
-        private async void frmProductGallery_Load(object sender, EventArgs e)
+        private async void ucProductGallery_Load(object sender, EventArgs e)
         {
             var product = await _productService.GetById<Model.Product>(_id);
             lblProductName.Text = product.Name;
@@ -75,38 +74,6 @@ namespace PeripheralTech.WinUI.Product
             await LoadProductImages(search);
         }
 
-        //making the form movable using the upper panel
-        #region Panel Border
-        private bool mouseDown;
-        private Point lastLocation;
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
-
         private void dgvImages_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             if (dgvImages.Rows[e.RowIndex].Selected)
@@ -129,7 +96,7 @@ namespace PeripheralTech.WinUI.Product
 
         private async void btnDeleteImage_Click(object sender, EventArgs e)
         {
-            if (!dgvImages.RowCount.Equals(0))
+            if (!dgvImages.RowCount.Equals(0) && dgvImages.SelectedRows.Count != 0)
             {
                 var id = dgvImages.SelectedRows[0].Cells[0].Value;
 

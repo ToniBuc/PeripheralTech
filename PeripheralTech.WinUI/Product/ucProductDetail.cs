@@ -1,25 +1,25 @@
-﻿using PeripheralTech.Model.Requests;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using PeripheralTech.Model.Requests;
+using System.Text.RegularExpressions;
 
 namespace PeripheralTech.WinUI.Product
 {
-    //TO BE DELETED
-    public partial class frmProductDetail : Form
+    public partial class ucProductDetail : UserControl
     {
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _productTypeService = new APIService("ProductType");
         private readonly APIService _companyService = new APIService("Company");
         private int? _id = null;
-        public frmProductDetail(int? Id = null)
+        public ucProductDetail(int? Id = null)
         {
             InitializeComponent();
             _id = Id;
@@ -42,7 +42,7 @@ namespace PeripheralTech.WinUI.Product
             cmbManufacturer.DataSource = result;
         }
 
-        private async void frmProductDetail_Load(object sender, EventArgs e)
+        private async void ucProductDetail_Load(object sender, EventArgs e)
         {
             await LoadProductTypes();
             await LoadCompanies();
@@ -134,46 +134,73 @@ namespace PeripheralTech.WinUI.Product
             }
         }
 
-        //making the form movable using the upper panel
-        #region Panel Border
-        private bool mouseDown;
-        private Point lastLocation;
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void txtProductName_Validating(object sender, CancelEventArgs e)
         {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
+            if (string.IsNullOrWhiteSpace(txtProductName.Text))
             {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
+                errorProvider.SetError(txtProductName, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtProductName, null);
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void cmbProductType_Validating(object sender, CancelEventArgs e)
         {
-            mouseDown = false;
+            if (cmbProductType.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbProductType, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbProductType, null);
+            }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void cmbManufacturer_Validating(object sender, CancelEventArgs e)
         {
-            this.Close();
+            if (cmbManufacturer.SelectedValue.Equals(0))
+            {
+                errorProvider.SetError(cmbManufacturer, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(cmbManufacturer, null);
+            }
         }
-        #endregion
+
+        private void txtPrice_Validating(object sender, CancelEventArgs e)
+        {
+            string regex = @"^[0-9]+(\,[0-9]{1,2})?$";
+            if (string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                errorProvider.SetError(txtPrice, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(txtPrice.Text, regex))
+            {
+                errorProvider.SetError(txtPrice, "This field must contain a valid format for money! Example: 15 or 50,50");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtPrice, null);
+            }
+        }
 
         private void btnGallery_Click(object sender, EventArgs e)
         {
             if (_id != null)
             {
-                frmProductGallery frm = new frmProductGallery(_id.Value);
-                frm.MaximizeBox = false;
-                frm.MinimizeBox = false;
-                frm.Show();
+                ucProductGallery uc = new ucProductGallery(_id.Value);
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
             }
         }
     }
