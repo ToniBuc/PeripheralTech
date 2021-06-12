@@ -147,6 +147,12 @@
     <Compile Include="Review\ucStaffReview.Designer.cs">
       <DependentUpon>ucStaffReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Review\ucUserReviews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Review\ucUserReviews.Designer.cs">
+      <DependentUpon>ucUserReviews.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmStaffMemberDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </Compile>
     <EmbeddedResource Include="Review\ucStaffReview.resx">
       <DependentUpon>ucStaffReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Review\ucUserReviews.resx">
+      <DependentUpon>ucUserReviews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmStaffMemberDetail.resx">
       <DependentUpon>frmStaffMemberDetail.cs</DependentUpon>

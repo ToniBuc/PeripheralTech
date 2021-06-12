@@ -54,6 +54,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnReview = new System.Windows.Forms.Button();
+            this.btnUserReviews = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             this.panel4.SuspendLayout();
@@ -318,11 +319,29 @@
             this.btnReview.UseVisualStyleBackColor = false;
             this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
             // 
+            // btnUserReviews
+            // 
+            this.btnUserReviews.BackColor = System.Drawing.Color.DarkRed;
+            this.btnUserReviews.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserReviews.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUserReviews.FlatAppearance.BorderSize = 0;
+            this.btnUserReviews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserReviews.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserReviews.ForeColor = System.Drawing.Color.White;
+            this.btnUserReviews.Location = new System.Drawing.Point(576, 489);
+            this.btnUserReviews.Name = "btnUserReviews";
+            this.btnUserReviews.Size = new System.Drawing.Size(118, 32);
+            this.btnUserReviews.TabIndex = 121;
+            this.btnUserReviews.Text = "User Review";
+            this.btnUserReviews.UseVisualStyleBackColor = false;
+            this.btnUserReviews.Click += new System.EventHandler(this.btnUserReviews_Click);
+            // 
             // ucProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnUserReviews);
             this.Controls.Add(this.btnReview);
             this.Controls.Add(this.btnGallery);
             this.Controls.Add(this.panel5);
@@ -386,5 +405,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnReview;
+        private System.Windows.Forms.Button btnUserReviews;
     }
 }

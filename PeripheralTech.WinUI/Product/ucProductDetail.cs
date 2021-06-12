@@ -20,6 +20,7 @@ namespace PeripheralTech.WinUI.Product
         private readonly APIService _productTypeService = new APIService("ProductType");
         private readonly APIService _companyService = new APIService("Company");
         private readonly APIService _staffReviewService = new APIService("StaffReview");
+        private readonly APIService _userReviewService = new APIService("UserReview");
         private int? _id = null;
         public ucProductDetail(int? Id = null)
         {
@@ -228,6 +229,35 @@ namespace PeripheralTech.WinUI.Product
                     uc = new ucStaffReview(_id.Value, null);
                 }
                 
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+        }
+
+        private async void btnUserReviews_Click(object sender, EventArgs e)
+        {
+            if (_id != null)
+            {
+                var search = new UserReviewSearchRequest()
+                {
+                    ProductID = _id.Value
+                };
+
+                var review = await _userReviewService.Get<List<Model.UserReview>>(search);
+
+                ucUserReviews uc;
+
+                if (review.Count != 0)
+                {
+                    uc = new ucUserReviews(_id.Value, review[0].UserReviewID);
+                }
+                else
+                {
+                    uc = new ucUserReviews(_id.Value, null);
+                }
+
                 this.Parent.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
                 uc.BringToFront();

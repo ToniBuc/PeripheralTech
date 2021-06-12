@@ -15,5 +15,8 @@ namespace PeripheralTech.Model
         //public int Grade { get; set; }
         public decimal Grade { get; set; }
         public string Comment { get; set; }
+        //
+        public string Username { get; set; }
+        public int GradeInteger { get; set; }
     }
 }
