@@ -53,6 +53,7 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnReview = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             this.panel4.SuspendLayout();
@@ -300,11 +301,29 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // btnReview
+            // 
+            this.btnReview.BackColor = System.Drawing.Color.DarkRed;
+            this.btnReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReview.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReview.FlatAppearance.BorderSize = 0;
+            this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReview.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReview.ForeColor = System.Drawing.Color.White;
+            this.btnReview.Location = new System.Drawing.Point(700, 489);
+            this.btnReview.Name = "btnReview";
+            this.btnReview.Size = new System.Drawing.Size(118, 32);
+            this.btnReview.TabIndex = 120;
+            this.btnReview.Text = "Staff Review";
+            this.btnReview.UseVisualStyleBackColor = false;
+            this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
+            // 
             // ucProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnReview);
             this.Controls.Add(this.btnGallery);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label2);
@@ -366,5 +385,6 @@
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnReview;
     }
 }

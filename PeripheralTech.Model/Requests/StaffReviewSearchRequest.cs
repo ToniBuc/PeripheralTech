@@ -6,7 +6,7 @@ namespace PeripheralTech.Model.Requests
 {
     public class StaffReviewSearchRequest
     {
-        public int ProductID { get; set; }
-        public int UserID { get; set; }
+        public int? ProductID { get; set; }
+        public int? UserID { get; set; }
     }
 }

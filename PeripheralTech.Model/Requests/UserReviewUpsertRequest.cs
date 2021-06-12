@@ -9,7 +9,8 @@ namespace PeripheralTech.Model.Requests
         public int UserID { get; set; }
         public int ProductID { get; set; }
         public DateTime Date { get; set; }
-        public int Grade { get; set; }
+        //public int Grade { get; set; }
+        public decimal Grade { get; set; }
         public string Comment { get; set; }
     }
 }

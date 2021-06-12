@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using PeripheralTech.Model.Requests;
 using System.Text.RegularExpressions;
+using PeripheralTech.WinUI.Review;
 
 namespace PeripheralTech.WinUI.Product
 {
@@ -18,6 +19,7 @@ namespace PeripheralTech.WinUI.Product
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _productTypeService = new APIService("ProductType");
         private readonly APIService _companyService = new APIService("Company");
+        private readonly APIService _staffReviewService = new APIService("StaffReview");
         private int? _id = null;
         public ucProductDetail(int? Id = null)
         {
@@ -197,6 +199,35 @@ namespace PeripheralTech.WinUI.Product
             if (_id != null)
             {
                 ucProductGallery uc = new ucProductGallery(_id.Value);
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+        }
+
+        private async void btnReview_Click(object sender, EventArgs e)
+        {
+            if (_id != null)
+            {
+                var search = new StaffReviewSearchRequest()
+                {
+                    ProductID = _id.Value
+                };
+
+                var review = await _staffReviewService.Get<List<Model.StaffReview>>(search);
+
+                ucStaffReview uc;
+
+                if (review.Count != 0)
+                {
+                    uc = new ucStaffReview(_id.Value, review[0].StaffReviewID);
+                }
+                else
+                {
+                    uc = new ucStaffReview(_id.Value, null);
+                }
+                
                 this.Parent.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
                 uc.BringToFront();
