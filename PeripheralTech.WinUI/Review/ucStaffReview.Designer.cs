@@ -41,6 +41,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblUserDate = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -49,9 +50,9 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.lblProductName);
-            this.panel6.Location = new System.Drawing.Point(3, 19);
+            this.panel6.Location = new System.Drawing.Point(98, 19);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(994, 65);
+            this.panel6.Size = new System.Drawing.Size(804, 65);
             this.panel6.TabIndex = 92;
             // 
             // lblProductName
@@ -61,7 +62,7 @@
             this.lblProductName.Location = new System.Drawing.Point(0, 0);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblProductName.Size = new System.Drawing.Size(994, 65);
+            this.lblProductName.Size = new System.Drawing.Size(804, 65);
             this.lblProductName.TabIndex = 46;
             this.lblProductName.Text = "Product name";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,11 +173,29 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(3, 3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(89, 32);
+            this.btnBack.TabIndex = 124;
+            this.btnBack.Text = "<- Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ucStaffReview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblUserDate);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label6);
@@ -213,5 +232,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblUserDate;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Product;
 
 namespace PeripheralTech.WinUI.Review
 {
@@ -38,6 +39,15 @@ namespace PeripheralTech.WinUI.Review
 
             dgvProducts.AutoGenerateColumns = false;
             dgvProducts.DataSource = reviewList;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ucProductDetail uc = new ucProductDetail(_productId);
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
         }
     }
 }

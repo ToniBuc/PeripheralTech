@@ -39,6 +39,7 @@
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GradeInteger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +47,10 @@
             // lblProductName
             // 
             this.lblProductName.Font = new System.Drawing.Font("Calibri Light", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(3, 16);
+            this.lblProductName.Location = new System.Drawing.Point(98, 16);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblProductName.Size = new System.Drawing.Size(994, 65);
+            this.lblProductName.Size = new System.Drawing.Size(804, 65);
             this.lblProductName.TabIndex = 47;
             this.lblProductName.Text = "Product name";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,7 +130,7 @@
             this.UserReviewID.Name = "UserReviewID";
             this.UserReviewID.ReadOnly = true;
             this.UserReviewID.Visible = false;
-            this.UserReviewID.Width = 135;
+            this.UserReviewID.Width = 137;
             // 
             // Username
             // 
@@ -154,10 +155,28 @@
             this.Comment.Name = "Comment";
             this.Comment.ReadOnly = true;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(3, 3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(89, 32);
+            this.btnBack.TabIndex = 124;
+            this.btnBack.Text = "<- Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ucUserReviews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblProductName);
             this.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,5 +199,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn GradeInteger;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
+        private System.Windows.Forms.Button btnBack;
     }
 }
