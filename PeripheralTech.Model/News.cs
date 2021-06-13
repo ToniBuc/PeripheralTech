@@ -13,5 +13,7 @@ namespace PeripheralTech.Model
         public DateTime Date { get; set; }
         public string Content { get; set; }
         public byte[] Thumbnail { get; set; }
+        //
+        public string Author { get; set; }
     }
 }

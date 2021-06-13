@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -36,12 +37,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCompanies = new System.Windows.Forms.Button();
-            this.btnStaff = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -50,6 +50,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pnlLeft.Controls.Add(this.button7);
             this.pnlLeft.Controls.Add(this.button6);
             this.pnlLeft.Controls.Add(this.button5);
             this.pnlLeft.Controls.Add(this.button4);
@@ -58,12 +59,21 @@
             this.pnlLeft.Controls.Add(this.button2);
             this.pnlLeft.Controls.Add(this.button1);
             this.pnlLeft.Controls.Add(this.btnCompanies);
-            this.pnlLeft.Controls.Add(this.btnStaff);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(200, 750);
             this.pnlLeft.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 648);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(172, 46);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "UC Products";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -135,16 +145,6 @@
             this.btnCompanies.UseVisualStyleBackColor = true;
             this.btnCompanies.Click += new System.EventHandler(this.btnCompanies_Click);
             // 
-            // btnStaff
-            // 
-            this.btnStaff.Location = new System.Drawing.Point(12, 218);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(172, 46);
-            this.btnStaff.TabIndex = 0;
-            this.btnStaff.Text = "Staff";
-            this.btnStaff.UseVisualStyleBackColor = true;
-            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
-            // 
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -202,15 +202,15 @@
             this.panel1.Size = new System.Drawing.Size(1000, 719);
             this.panel1.TabIndex = 20;
             // 
-            // button6
+            // button7
             // 
-            this.button6.Location = new System.Drawing.Point(12, 648);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(172, 46);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "UC Products";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button7.Location = new System.Drawing.Point(12, 218);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(172, 46);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "News";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // frmIndex
             // 
@@ -237,7 +237,6 @@
         }
         #endregion
         private System.Windows.Forms.Panel pnlLeft;
-        private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCompanies;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -250,6 +249,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 

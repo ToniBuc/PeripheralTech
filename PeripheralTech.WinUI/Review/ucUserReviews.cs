@@ -37,8 +37,8 @@ namespace PeripheralTech.WinUI.Review
 
             var reviewList = await _userReviewService.Get<List<Model.UserReview>>(search);
 
-            dgvProducts.AutoGenerateColumns = false;
-            dgvProducts.DataSource = reviewList;
+            dgvUserReviews.AutoGenerateColumns = false;
+            dgvUserReviews.DataSource = reviewList;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

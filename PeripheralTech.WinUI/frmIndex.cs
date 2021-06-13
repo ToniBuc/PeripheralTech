@@ -1,5 +1,6 @@
 ﻿using PeripheralTech.WinUI.City;
 using PeripheralTech.WinUI.Company;
+using PeripheralTech.WinUI.News;
 using PeripheralTech.WinUI.Product;
 using PeripheralTech.WinUI.User;
 using System;
@@ -230,6 +231,14 @@ namespace PeripheralTech.WinUI
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucProductOverview"].BringToFront();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ucNewsOverview uc = new ucNewsOverview();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucNewsOverview"].BringToFront();
         }
     }
 }

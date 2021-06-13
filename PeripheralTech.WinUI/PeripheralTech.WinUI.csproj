@@ -103,6 +103,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="News\ucNewsOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="News\ucNewsOverview.Designer.cs">
+      <DependentUpon>ucNewsOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\frmProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="News\ucNewsOverview.resx">
+      <DependentUpon>ucNewsOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\frmProductDetail.resx">
       <DependentUpon>frmProductDetail.cs</DependentUpon>

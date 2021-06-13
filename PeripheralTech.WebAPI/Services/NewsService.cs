@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using PeripheralTech.Model.Requests;
 using PeripheralTech.WebAPI.Database;
 using System;
@@ -13,6 +14,34 @@ namespace PeripheralTech.WebAPI.Services
         public NewsService(PeripheralTechDbContext context, IMapper mapper) : base(context, mapper)
         {
 
+        }
+
+        public override List<Model.News> Get(NewsSearchRequest request)
+        {
+            var query = _context.News.Include(i => i.User).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.Title))
+            {
+                query = query.Where(x => x.Title.Contains(request.Title));
+            }
+
+            if (!string.IsNullOrWhiteSpace(request.Author))
+            {
+                query = query.Where(x => x.User.FirstName.Contains(request.Author) || 
+                                        x.User.Username.Contains(request.Author) ||
+                                        x.User.LastName.Contains(request.Author));
+            }
+
+            var list = query.ToList();
+
+            var result = _mapper.Map<List<Model.News>>(list);
+
+            foreach (var x in result)
+            {
+                x.Author = x.User.FirstName + " \"" + x.User.Username + "\" " + x.User.LastName;
+            }
+
+            return result;
         }
     }
 }

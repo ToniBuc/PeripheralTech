@@ -34,14 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblProductName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.dgvUserReviews = new System.Windows.Forms.DataGridView();
             this.UserReviewID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GradeInteger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserReviews)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductName
@@ -57,23 +57,23 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dgvProducts);
+            this.panel3.Controls.Add(this.dgvUserReviews);
             this.panel3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(9, 101);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(982, 605);
             this.panel3.TabIndex = 89;
             // 
-            // dgvProducts
+            // dgvUserReviews
             // 
-            this.dgvProducts.AllowUserToAddRows = false;
-            this.dgvProducts.AllowUserToDeleteRows = false;
-            this.dgvProducts.AllowUserToResizeColumns = false;
-            this.dgvProducts.AllowUserToResizeRows = false;
-            this.dgvProducts.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUserReviews.AllowUserToAddRows = false;
+            this.dgvUserReviews.AllowUserToDeleteRows = false;
+            this.dgvUserReviews.AllowUserToResizeColumns = false;
+            this.dgvUserReviews.AllowUserToResizeRows = false;
+            this.dgvUserReviews.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvUserReviews.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUserReviews.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvUserReviews.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,10 +81,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProducts.ColumnHeadersHeight = 24;
-            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUserReviews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserReviews.ColumnHeadersHeight = 24;
+            this.dgvUserReviews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUserReviews.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserReviewID,
             this.Username,
             this.GradeInteger,
@@ -96,13 +96,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProducts.EnableHeadersVisualStyles = false;
-            this.dgvProducts.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProducts.Location = new System.Drawing.Point(0, 0);
-            this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.ReadOnly = true;
+            this.dgvUserReviews.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUserReviews.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUserReviews.EnableHeadersVisualStyles = false;
+            this.dgvUserReviews.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvUserReviews.Location = new System.Drawing.Point(0, 0);
+            this.dgvUserReviews.Name = "dgvUserReviews";
+            this.dgvUserReviews.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,17 +110,17 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCoral;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProducts.RowHeadersVisible = false;
-            this.dgvProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvUserReviews.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUserReviews.RowHeadersVisible = false;
+            this.dgvUserReviews.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvProducts.RowTemplate.Height = 120;
-            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProducts.Size = new System.Drawing.Size(982, 605);
-            this.dgvProducts.TabIndex = 1;
+            this.dgvUserReviews.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvUserReviews.RowTemplate.Height = 120;
+            this.dgvUserReviews.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUserReviews.Size = new System.Drawing.Size(982, 605);
+            this.dgvUserReviews.TabIndex = 1;
             // 
             // UserReviewID
             // 
@@ -185,7 +185,7 @@
             this.Size = new System.Drawing.Size(1000, 719);
             this.Load += new System.EventHandler(this.ucUserReviews_Load);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserReviews)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +194,7 @@
 
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.DataGridView dgvUserReviews;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserReviewID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn GradeInteger;
