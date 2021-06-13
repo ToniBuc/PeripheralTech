@@ -264,5 +264,14 @@ namespace PeripheralTech.WinUI.Product
                 this.Parent.Controls.Remove(this);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ucProductOverview uc = new ucProductOverview();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
+        }
     }
 }

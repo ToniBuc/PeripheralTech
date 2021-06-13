@@ -44,6 +44,7 @@
             this.lblProductName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImages)).BeginInit();
             this.panel3.SuspendLayout();
@@ -190,9 +191,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.lblProductName);
-            this.panel3.Location = new System.Drawing.Point(3, 11);
+            this.panel3.Location = new System.Drawing.Point(98, 11);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 67);
+            this.panel3.Size = new System.Drawing.Size(804, 67);
             this.panel3.TabIndex = 97;
             // 
             // lblProductName
@@ -201,7 +202,7 @@
             this.lblProductName.Font = new System.Drawing.Font("Calibri Light", 30F, System.Drawing.FontStyle.Underline);
             this.lblProductName.Location = new System.Drawing.Point(0, 0);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(994, 67);
+            this.lblProductName.Size = new System.Drawing.Size(804, 67);
             this.lblProductName.TabIndex = 31;
             this.lblProductName.Text = "Product name";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,11 +219,29 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.DarkRed;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(3, 3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(89, 32);
+            this.btnBack.TabIndex = 123;
+            this.btnBack.Text = "<- Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ucProductGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDeleteImage);
             this.Controls.Add(this.panel4);
@@ -257,5 +276,6 @@
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button btnBack;
     }
 }

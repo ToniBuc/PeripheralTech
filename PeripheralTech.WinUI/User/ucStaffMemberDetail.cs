@@ -276,5 +276,14 @@ namespace PeripheralTech.WinUI.User
                 errorProvider.SetError(txtUsername, null);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ucStaffMembers uc = new ucStaffMembers();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
+        }
     }
 }

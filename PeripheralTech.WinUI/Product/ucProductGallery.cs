@@ -112,5 +112,14 @@ namespace PeripheralTech.WinUI.Product
                 await LoadProductImages(search);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ucProductDetail uc = new ucProductDetail(_id);
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
+        }
     }
 }
