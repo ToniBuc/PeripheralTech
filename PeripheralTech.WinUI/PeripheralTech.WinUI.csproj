@@ -103,6 +103,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="News\ucNewsArticle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="News\ucNewsArticle.Designer.cs">
+      <DependentUpon>ucNewsArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="News\ucNewsOverview.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="News\ucNewsArticle.resx">
+      <DependentUpon>ucNewsArticle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="News\ucNewsOverview.resx">
       <DependentUpon>ucNewsOverview.cs</DependentUpon>

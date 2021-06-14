@@ -42,5 +42,27 @@ namespace PeripheralTech.WinUI.News
 
             await LoadNews(search);
         }
+
+        private void dgvNews_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvNews.RowCount.Equals(0))
+            {
+                var id = dgvNews.SelectedRows[0].Cells[0].Value;
+                ucNewsArticle uc = new ucNewsArticle(int.Parse(id.ToString()));
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+        }
+
+        private void btnNewArticle_Click(object sender, EventArgs e)
+        {
+            ucNewsArticle uc = new ucNewsArticle();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
+        }
     }
 }

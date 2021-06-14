@@ -16,6 +16,7 @@ namespace PeripheralTech.WinUI.Review
     {
         private readonly APIService _staffReviewService = new APIService("StaffReview");
         private readonly APIService _productService = new APIService("Product");
+        private readonly APIService _userService = new APIService("User");
         private int? _id = null;
         private int _productId;
         public ucStaffReview(int productId, int? Id = null)
@@ -37,15 +38,22 @@ namespace PeripheralTech.WinUI.Review
         {
             await LoadGrades();
             var product = await _productService.GetById<Model.Product>(_productId);
-            lblUserDate.Text = APIService.Username + "  - " + DateTime.Now.ToShortDateString();
             lblProductName.Text = product.Name;
 
             if (_id.HasValue)
             {
                 var review = await _staffReviewService.GetById<Model.StaffReview>(_id);
+                var user = await _userService.GetById<Model.User>(review.UserID);
+
+                lblUserDate.Text = user.FirstName + " \"" + user.Username + "\" " + user.LastName + "  - " + review.Date.ToShortDateString();
+
                 txtReview.Text = review.ReviewContent;
                 txtSpecifications.Text = review.Specifications;
                 cmbRating.SelectedIndex = Convert.ToInt32(review.Grade) - 1;
+            }
+            else
+            {
+                lblUserDate.Text = APIService.Username + "  - " + DateTime.Now.ToShortDateString();
             }
         }
 

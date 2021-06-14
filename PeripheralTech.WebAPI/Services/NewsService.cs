@@ -43,5 +43,22 @@ namespace PeripheralTech.WebAPI.Services
 
             return result;
         }
+
+        public override Model.News Update(int id, NewsUpsertRequest request)
+        {
+            var entity = _context.News.Find(id);
+            if (request.Thumbnail == null)
+            {
+                request.Thumbnail = entity.Thumbnail;
+            }
+            _context.News.Attach(entity);
+            _context.News.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.News>(entity);
+        }
     }
 }

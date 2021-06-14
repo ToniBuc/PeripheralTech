@@ -43,6 +43,7 @@
             this.NewsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewArticle = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNews)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(408, 76);
+            this.label5.Location = new System.Drawing.Point(398, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 23);
             this.label5.TabIndex = 94;
@@ -83,15 +84,15 @@
             this.txtTitle.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitle.Location = new System.Drawing.Point(133, 102);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(273, 27);
+            this.txtTitle.Size = new System.Drawing.Size(263, 27);
             this.txtTitle.TabIndex = 92;
             // 
             // txtAuthor
             // 
             this.txtAuthor.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthor.Location = new System.Drawing.Point(412, 102);
+            this.txtAuthor.Location = new System.Drawing.Point(402, 102);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(273, 27);
+            this.txtAuthor.Size = new System.Drawing.Size(263, 27);
             this.txtAuthor.TabIndex = 95;
             // 
             // btnSearch
@@ -103,9 +104,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(691, 100);
+            this.btnSearch.Location = new System.Drawing.Point(671, 100);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 29);
+            this.btnSearch.Size = new System.Drawing.Size(84, 29);
             this.btnSearch.TabIndex = 96;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -173,6 +174,7 @@
             this.dgvNews.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNews.Size = new System.Drawing.Size(743, 574);
             this.dgvNews.TabIndex = 1;
+            this.dgvNews.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvNews_MouseDoubleClick);
             // 
             // NewsID
             // 
@@ -182,7 +184,7 @@
             this.NewsID.Name = "NewsID";
             this.NewsID.ReadOnly = true;
             this.NewsID.Visible = false;
-            this.NewsID.Width = 87;
+            this.NewsID.Width = 89;
             // 
             // Title
             // 
@@ -200,10 +202,28 @@
             this.Author.ReadOnly = true;
             this.Author.Width = 240;
             // 
+            // btnNewArticle
+            // 
+            this.btnNewArticle.BackColor = System.Drawing.Color.DarkRed;
+            this.btnNewArticle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewArticle.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNewArticle.FlatAppearance.BorderSize = 0;
+            this.btnNewArticle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewArticle.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewArticle.ForeColor = System.Drawing.Color.White;
+            this.btnNewArticle.Location = new System.Drawing.Point(761, 100);
+            this.btnNewArticle.Name = "btnNewArticle";
+            this.btnNewArticle.Size = new System.Drawing.Size(115, 29);
+            this.btnNewArticle.TabIndex = 98;
+            this.btnNewArticle.Text = "New Article";
+            this.btnNewArticle.UseVisualStyleBackColor = false;
+            this.btnNewArticle.Click += new System.EventHandler(this.btnNewArticle_Click);
+            // 
             // ucNewsOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnNewArticle);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtAuthor);
@@ -235,5 +255,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NewsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.Button btnNewArticle;
     }
 }
