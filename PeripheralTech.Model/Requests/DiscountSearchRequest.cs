@@ -6,7 +6,7 @@ namespace PeripheralTech.Model.Requests
 {
     public class DiscountSearchRequest
     {
-        public int DiscountID { get; set; }
-        public int ProductID { get; set; }
+        public int? DiscountID { get; set; }
+        public int? ProductID { get; set; }
     }
 }

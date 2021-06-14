@@ -21,6 +21,7 @@ namespace PeripheralTech.WinUI.Product
         private readonly APIService _companyService = new APIService("Company");
         private readonly APIService _staffReviewService = new APIService("StaffReview");
         private readonly APIService _userReviewService = new APIService("UserReview");
+        private readonly APIService _discountService = new APIService("Discount");
         private int? _id = null;
         public ucProductDetail(int? Id = null)
         {
@@ -272,6 +273,40 @@ namespace PeripheralTech.WinUI.Product
             uc.Dock = DockStyle.Fill;
             uc.BringToFront();
             this.Parent.Controls.Remove(this);
+        }
+
+        private async void btnDiscount_Click(object sender, EventArgs e)
+        {
+            if (_id != null)
+            {
+                var search = new DiscountSearchRequest()
+                {
+                    ProductID = _id.Value
+                };
+
+                var discount = await _discountService.Get<List<Model.Discount>>(search);
+
+                ucProductDiscount uc;
+
+                if (discount.Count == 0)
+                {
+                    uc = new ucProductDiscount(_id.Value, null);
+                }
+                //to be uncommented
+                //else if (discount.Count > 0)
+                //{
+                //    foreach(var x in discount)
+                //    {
+                //        if (x.From )
+                //    }
+                //}
+
+                //to be uncommented
+                //this.Parent.Controls.Add(uc);
+                //uc.Dock = DockStyle.Fill;
+                //uc.BringToFront();
+                //this.Parent.Controls.Remove(this);
+            }
         }
     }
 }

@@ -56,6 +56,7 @@
             this.btnReview = new System.Windows.Forms.Button();
             this.btnUserReviews = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             this.panel4.SuspendLayout();
@@ -312,7 +313,7 @@
             this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReview.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReview.ForeColor = System.Drawing.Color.White;
-            this.btnReview.Location = new System.Drawing.Point(700, 489);
+            this.btnReview.Location = new System.Drawing.Point(576, 489);
             this.btnReview.Name = "btnReview";
             this.btnReview.Size = new System.Drawing.Size(118, 32);
             this.btnReview.TabIndex = 120;
@@ -329,7 +330,7 @@
             this.btnUserReviews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserReviews.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserReviews.ForeColor = System.Drawing.Color.White;
-            this.btnUserReviews.Location = new System.Drawing.Point(576, 489);
+            this.btnUserReviews.Location = new System.Drawing.Point(452, 489);
             this.btnUserReviews.Name = "btnUserReviews";
             this.btnUserReviews.Size = new System.Drawing.Size(118, 32);
             this.btnUserReviews.TabIndex = 121;
@@ -354,11 +355,29 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnDiscount
+            // 
+            this.btnDiscount.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDiscount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDiscount.FlatAppearance.BorderSize = 0;
+            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscount.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnDiscount.Location = new System.Drawing.Point(700, 489);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(118, 32);
+            this.btnDiscount.TabIndex = 123;
+            this.btnDiscount.Text = "Discount";
+            this.btnDiscount.UseVisualStyleBackColor = false;
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
+            // 
             // ucProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnDiscount);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUserReviews);
             this.Controls.Add(this.btnReview);
@@ -426,5 +445,6 @@
         private System.Windows.Forms.Button btnReview;
         private System.Windows.Forms.Button btnUserReviews;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnDiscount;
     }
 }
