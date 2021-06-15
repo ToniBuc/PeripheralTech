@@ -44,6 +44,10 @@ namespace PeripheralTech.WebAPI.Mappers
             CreateMap<Database.OrderProduct, OrderProductUpsertRequest>().ReverseMap();
             CreateMap<Database.News, Model.News>();
             CreateMap<Database.News, NewsUpsertRequest>().ReverseMap();
+            CreateMap<Database.Question, Model.Question>();
+            CreateMap<Database.Question, QuestionUpsertRequest>().ReverseMap();
+            CreateMap<Database.QuestionComment, Model.QuestionComment>();
+            CreateMap<Database.QuestionComment, QuestionCommentUpsertRequest>().ReverseMap();
         }
     }
 }

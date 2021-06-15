@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeripheralTech.WebAPI.Database;
 
 namespace PeripheralTech.WebAPI.Migrations
 {
     [DbContext(typeof(PeripheralTechDbContext))]
-    partial class PeripheralTechDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615192355_migQuestion")]
+    partial class migQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -342,15 +344,10 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("QuestionID")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("QuestionCommentID");
-
-                    b.HasIndex("QuestionID");
 
                     b.HasIndex("UserID");
 
@@ -655,19 +652,11 @@ namespace PeripheralTech.WebAPI.Migrations
 
             modelBuilder.Entity("PeripheralTech.WebAPI.Database.QuestionComment", b =>
                 {
-                    b.HasOne("PeripheralTech.WebAPI.Database.Question", "Question")
-                        .WithMany()
-                        .HasForeignKey("QuestionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PeripheralTech.WebAPI.Database.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Question");
 
                     b.Navigation("User");
                 });

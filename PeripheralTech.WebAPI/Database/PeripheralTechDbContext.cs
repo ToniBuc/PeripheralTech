@@ -35,5 +35,7 @@ namespace PeripheralTech.WebAPI.Database
         public virtual DbSet<UserReview> UserReview{ get; set; }
         public virtual DbSet<StaffReview> StaffReview { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Question> Question { get; set; }
+        public virtual DbSet<QuestionComment> QuestionComment { get; set; }
     }
 }
