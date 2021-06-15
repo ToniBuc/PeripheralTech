@@ -80,7 +80,7 @@ namespace PeripheralTech.WebAPI
             services.AddScoped<ICRUDService<Model.Discount, DiscountSearchRequest, DiscountUpsertRequest, DiscountUpsertRequest>, DiscountService>();
             services.AddScoped<ICRUDService<Model.OrderProduct, OrderProductSearchRequest, OrderProductUpsertRequest, OrderProductUpsertRequest>, OrderProductService>();
             services.AddScoped<ICRUDService<Model.News, NewsSearchRequest, NewsUpsertRequest, NewsUpsertRequest>, NewsService>();
-            services.AddScoped<ICRUDService<Model.Question, QuestionSearchRequest, QuestionUpsertRequest, QuestionUpsertRequest>, QuestionService>();
+            services.AddScoped<ICRUDService<Model.Question, QuestionSearchRequest, QuestionInsertRequest, QuestionUpdateRequest>, QuestionService>();
             services.AddScoped<ICRUDService<Model.QuestionComment, QuestionCommentSearchRequest, QuestionCommentUpsertRequest, QuestionCommentUpsertRequest>, QuestionCommentService>();
 
             var connection = Configuration.GetConnectionString("PeripheralTech");

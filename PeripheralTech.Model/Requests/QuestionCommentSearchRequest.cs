@@ -6,6 +6,6 @@ namespace PeripheralTech.Model.Requests
 {
     public class QuestionCommentSearchRequest
     {
-        public int? QuestionID;
+        public int? QuestionID { get; set; }
     }
 }

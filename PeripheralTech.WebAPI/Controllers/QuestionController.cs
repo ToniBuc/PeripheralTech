@@ -10,9 +10,9 @@ using PeripheralTech.WebAPI.Services;
 
 namespace PeripheralTech.WebAPI.Controllers
 {
-    public class QuestionController : BaseCRUDController<Model.Question, QuestionSearchRequest, QuestionUpsertRequest, QuestionUpsertRequest>
+    public class QuestionController : BaseCRUDController<Model.Question, QuestionSearchRequest, QuestionInsertRequest, QuestionUpdateRequest>
     {
-        public QuestionController(ICRUDService<Question, QuestionSearchRequest, QuestionUpsertRequest, QuestionUpsertRequest> service) : base(service)
+        public QuestionController(ICRUDService<Question, QuestionSearchRequest, QuestionInsertRequest, QuestionUpdateRequest> service) : base(service)
         {
 
         }

@@ -2,6 +2,7 @@
 using PeripheralTech.WinUI.Company;
 using PeripheralTech.WinUI.News;
 using PeripheralTech.WinUI.Product;
+using PeripheralTech.WinUI.Question;
 using PeripheralTech.WinUI.User;
 using System;
 using System.Collections.Generic;
@@ -239,6 +240,14 @@ namespace PeripheralTech.WinUI
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucNewsOverview"].BringToFront();
+        }
+
+        private void btnQuestions_Click(object sender, EventArgs e)
+        {
+            ucQuestionOverview uc = new ucQuestionOverview();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucQuestionOverview"].BringToFront();
         }
     }
 }

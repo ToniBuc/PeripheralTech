@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeripheralTech.WebAPI.Database;
 
 namespace PeripheralTech.WebAPI.Migrations
 {
     [DbContext(typeof(PeripheralTechDbContext))]
-    partial class PeripheralTechDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615231609_migQuestionThree")]
+    partial class migQuestionThree
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -320,7 +322,7 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("StaffID")
+                    b.Property<int>("StaffID")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -650,7 +652,9 @@ namespace PeripheralTech.WebAPI.Migrations
 
                     b.HasOne("PeripheralTech.WebAPI.Database.User", "Staff")
                         .WithMany()
-                        .HasForeignKey("StaffID");
+                        .HasForeignKey("StaffID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 

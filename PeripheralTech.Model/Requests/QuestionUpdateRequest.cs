@@ -4,10 +4,9 @@ using System.Text;
 
 namespace PeripheralTech.Model.Requests
 {
-    public class QuestionSearchRequest
+    public class QuestionUpdateRequest
     {
-        public int? QuestionID { get; set; }
-        public int? StaffID { get; set; }
+        public int StaffID { get; set; }
         public bool Status { get; set; }
     }
 }
