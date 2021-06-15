@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblProductName = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblDiscountPercentage = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductName
@@ -65,6 +68,7 @@
             this.btnBack.TabIndex = 125;
             this.btnBack.Text = "<- Back";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblDiscountPercentage
             // 
@@ -83,6 +87,7 @@
             this.txtDiscountPercentage.Name = "txtDiscountPercentage";
             this.txtDiscountPercentage.Size = new System.Drawing.Size(312, 27);
             this.txtDiscountPercentage.TabIndex = 126;
+            this.txtDiscountPercentage.Validating += new System.ComponentModel.CancelEventHandler(this.txtDiscountPercentage_Validating);
             // 
             // dtpFrom
             // 
@@ -90,6 +95,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(312, 30);
             this.dtpFrom.TabIndex = 128;
+            this.dtpFrom.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFrom_Validating);
             // 
             // label1
             // 
@@ -117,6 +123,7 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(312, 30);
             this.dtpTo.TabIndex = 130;
+            this.dtpTo.Validating += new System.ComponentModel.CancelEventHandler(this.dtpTo_Validating);
             // 
             // btnAdd
             // 
@@ -135,10 +142,16 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // ucProductDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpTo);
@@ -153,6 +166,7 @@
             this.Name = "ucProductDiscount";
             this.Size = new System.Drawing.Size(1000, 719);
             this.Load += new System.EventHandler(this.ucProductDiscount_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +183,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

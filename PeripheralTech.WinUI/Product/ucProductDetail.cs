@@ -11,6 +11,7 @@ using System.IO;
 using PeripheralTech.Model.Requests;
 using System.Text.RegularExpressions;
 using PeripheralTech.WinUI.Review;
+using PeripheralTech.Model;
 
 namespace PeripheralTech.WinUI.Product
 {
@@ -79,6 +80,25 @@ namespace PeripheralTech.WinUI.Product
                 cmbManufacturer.SelectedText = product.CompanyName;
                 cmbManufacturer.SelectedValue = product.CompanyID;
                 numInStock.Value = product.AmountInStock;
+
+                var discountSearch = new DiscountSearchRequest()
+                {
+                    ProductID = _id
+                };
+                var discountList = await _discountService.Get<List<Model.Discount>>(discountSearch);
+
+                dgvDiscounts.AutoGenerateColumns = false;
+                dgvDiscounts.DataSource = discountList;
+
+                foreach(var x in discountList)
+                {
+                    if (x.Active == true)
+                    {
+                        var off = (Math.Round((product.Price / 100) * x.DiscountPercentage, 2));
+                        lblPrice.Text += " (discount price: " + (product.Price - off).ToString() + ")";
+                        lblPrice.Font = new Font("Calibri Light", 12);
+                    }
+                }
             }
             else
             {
@@ -281,32 +301,61 @@ namespace PeripheralTech.WinUI.Product
             {
                 var search = new DiscountSearchRequest()
                 {
-                    ProductID = _id.Value
+                    ProductID = _id.Value,
                 };
 
-                var discount = await _discountService.Get<List<Model.Discount>>(search);
+                var discountList = await _discountService.Get<List<Model.Discount>>(search);
+                Discount activeDiscount = null;
+
+                foreach(var x in discountList)
+                {
+                    if (x.From.Date <= DateTime.Now.Date && x.To >= DateTime.Now.Date)
+                    {
+                        activeDiscount = x;
+                    }
+                }
 
                 ucProductDiscount uc;
 
-                if (discount.Count == 0)
+                if (activeDiscount != null)
                 {
-                    uc = new ucProductDiscount(_id.Value, null);
+                    uc = new ucProductDiscount(_id.Value, activeDiscount.DiscountID);
+                    this.Parent.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                    uc.BringToFront();
+                    this.Parent.Controls.Remove(this);
                 }
-                //to be uncommented
-                //else if (discount.Count > 0)
-                //{
-                //    foreach(var x in discount)
-                //    {
-                //        if (x.From )
-                //    }
-                //}
-
-                //to be uncommented
-                //this.Parent.Controls.Add(uc);
-                //uc.Dock = DockStyle.Fill;
-                //uc.BringToFront();
-                //this.Parent.Controls.Remove(this);
+                else
+                {
+                    MessageBox.Show("There is no currently active discount for this product!");
+                }
             }
+        }
+
+        private void btnAddNewDiscount_Click(object sender, EventArgs e)
+        {
+            if (_id != null)
+            {
+                ucProductDiscount uc = new ucProductDiscount(_id.Value, null);
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+        }
+
+        private void dgvDiscounts_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvDiscounts.RowCount.Equals(0))
+            {
+                var id = dgvDiscounts.SelectedRows[0].Cells[0].Value;
+                ucProductDiscount uc = new ucProductDiscount(_id.Value, int.Parse(id.ToString()));
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+            
         }
     }
 }
