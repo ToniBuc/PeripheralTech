@@ -32,6 +32,7 @@ namespace PeripheralTech.WinUI.Question
             cmbClaimed.Items.Insert(0, "All");
             cmbClaimed.Items.Insert(1, "Claimed");
             cmbClaimed.Items.Insert(2, "Unclaimed");
+            cmbClaimed.Items.Insert(3, "My Claims");
         }
 
         private async void ucQuestionOverview_Load(object sender, EventArgs e)
@@ -61,8 +62,26 @@ namespace PeripheralTech.WinUI.Question
             {
                 search.Claim = "Unclaimed";
             }
+            else if (cmbClaimed.Text == "My Claims")
+            {
+                search.StaffID = APIService.UserID;
+            }
+
 
             await LoadQuestions(search);
+        }
+
+        private void dgvQuestions_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvQuestions.RowCount.Equals(0))
+            {
+                var id = dgvQuestions.SelectedRows[0].Cells[0].Value;
+                ucQuestionComments uc = new ucQuestionComments(int.Parse(id.ToString()));
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
         }
     }
 }

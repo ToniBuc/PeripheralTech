@@ -11,6 +11,9 @@ namespace PeripheralTech.Model
         public int QuestionID { get; set; }
         public Question Question { get; set; }
         public int UserID { get; set; }
-        public User User { get; set; }
+        public User User { get; set; }     
+        public DateTime Date { get; set; }
+        //
+        public string SenderName { get; set; }
     }
 }

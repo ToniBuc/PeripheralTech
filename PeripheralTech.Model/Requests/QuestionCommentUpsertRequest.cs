@@ -9,5 +9,6 @@ namespace PeripheralTech.Model.Requests
         public string Content { get; set; }
         public int QuestionID { get; set; }
         public int UserID { get; set; }
+        public DateTime Date { get; set; }
     }
 }

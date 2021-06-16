@@ -115,6 +115,7 @@
             this.dgvQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvQuestions.Size = new System.Drawing.Size(994, 645);
             this.dgvQuestions.TabIndex = 1;
+            this.dgvQuestions.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvQuestions_MouseDoubleClick);
             // 
             // QuestionID
             // 
@@ -146,7 +147,7 @@
             // 
             this.StaffName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.StaffName.DataPropertyName = "StaffName";
-            this.StaffName.HeaderText = "Taken by";
+            this.StaffName.HeaderText = "Claimed by";
             this.StaffName.Name = "StaffName";
             this.StaffName.ReadOnly = true;
             this.StaffName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -170,7 +171,7 @@
             // cbxActive
             // 
             this.cbxActive.AutoSize = true;
-            this.cbxActive.Location = new System.Drawing.Point(819, 37);
+            this.cbxActive.Location = new System.Drawing.Point(819, 38);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(75, 27);
             this.cbxActive.TabIndex = 87;
@@ -253,16 +254,16 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvQuestions;
+        private System.Windows.Forms.CheckBox cbxActive;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox cmbClaimed;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuestionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
-        private System.Windows.Forms.CheckBox cbxActive;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox cmbClaimed;
-        private System.Windows.Forms.Label label3;
     }
 }
