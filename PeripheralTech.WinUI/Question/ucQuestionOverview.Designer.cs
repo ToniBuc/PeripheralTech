@@ -40,17 +40,23 @@
             this.StaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cbxActive = new System.Windows.Forms.CheckBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cmbClaimed = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgvQuestions);
             this.panel3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(57, 93);
+            this.panel3.Location = new System.Drawing.Point(3, 71);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(885, 623);
+            this.panel3.Size = new System.Drawing.Size(994, 645);
             this.panel3.TabIndex = 27;
             // 
             // dgvQuestions
@@ -107,7 +113,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvQuestions.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQuestions.Size = new System.Drawing.Size(885, 623);
+            this.dgvQuestions.Size = new System.Drawing.Size(994, 645);
             this.dgvQuestions.TabIndex = 1;
             // 
             // QuestionID
@@ -118,7 +124,7 @@
             this.QuestionID.Name = "QuestionID";
             this.QuestionID.ReadOnly = true;
             this.QuestionID.Visible = false;
-            this.QuestionID.Width = 113;
+            this.QuestionID.Width = 115;
             // 
             // Title
             // 
@@ -161,11 +167,74 @@
             this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // cbxActive
+            // 
+            this.cbxActive.AutoSize = true;
+            this.cbxActive.Location = new System.Drawing.Point(819, 37);
+            this.cbxActive.Name = "cbxActive";
+            this.cbxActive.Size = new System.Drawing.Size(75, 27);
+            this.cbxActive.TabIndex = 87;
+            this.cbxActive.Text = "Active";
+            this.cbxActive.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DarkRed;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(900, 36);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(97, 29);
+            this.btnSearch.TabIndex = 88;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.cmbClaimed);
+            this.panel5.Location = new System.Drawing.Point(687, 37);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(126, 28);
+            this.panel5.TabIndex = 90;
+            // 
+            // cmbClaimed
+            // 
+            this.cmbClaimed.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbClaimed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbClaimed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClaimed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbClaimed.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbClaimed.FormattingEnabled = true;
+            this.cmbClaimed.Location = new System.Drawing.Point(0, 0);
+            this.cmbClaimed.Name = "cmbClaimed";
+            this.cmbClaimed.Size = new System.Drawing.Size(124, 27);
+            this.cmbClaimed.TabIndex = 60;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(683, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 23);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "Claimed:";
+            // 
             // ucQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -174,7 +243,9 @@
             this.Load += new System.EventHandler(this.ucQuestionOverview_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -188,5 +259,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
+        private System.Windows.Forms.CheckBox cbxActive;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox cmbClaimed;
+        private System.Windows.Forms.Label label3;
     }
 }

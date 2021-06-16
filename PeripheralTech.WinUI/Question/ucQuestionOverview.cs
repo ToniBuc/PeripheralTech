@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PeripheralTech.Model.Requests;
 
 namespace PeripheralTech.WinUI.Question
 {
@@ -18,12 +19,50 @@ namespace PeripheralTech.WinUI.Question
             InitializeComponent();
         }
 
-        private async void ucQuestionOverview_Load(object sender, EventArgs e)
+        private async Task LoadQuestions(QuestionSearchRequest search)
         {
-            var questionList = await _questionService.Get<List<Model.Question>>(null);
+            var questionList = await _questionService.Get<List<Model.Question>>(search);
 
             dgvQuestions.AutoGenerateColumns = false;
             dgvQuestions.DataSource = questionList;
+        }
+
+        private async Task LoadClaims()
+        {
+            cmbClaimed.Items.Insert(0, "All");
+            cmbClaimed.Items.Insert(1, "Claimed");
+            cmbClaimed.Items.Insert(2, "Unclaimed");
+        }
+
+        private async void ucQuestionOverview_Load(object sender, EventArgs e)
+        {
+            await LoadQuestions(null);
+            await LoadClaims();
+            cmbClaimed.SelectedIndex = 0;
+        }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            var search = new QuestionSearchRequest()
+            {
+                Status = cbxActive.Checked
+            };
+
+            //assigning Claim
+            if (cmbClaimed.Text == "All")
+            {
+                search.Claim = "All";
+            }
+            else if (cmbClaimed.Text == "Claimed")
+            {
+                search.Claim = "Claimed";
+            }
+            else if (cmbClaimed.Text == "Unclaimed")
+            {
+                search.Claim = "Unclaimed";
+            }
+
+            await LoadQuestions(search);
         }
     }
 }

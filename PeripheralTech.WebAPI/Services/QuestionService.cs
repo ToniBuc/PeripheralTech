@@ -20,6 +20,21 @@ namespace PeripheralTech.WebAPI.Services
         {
             var query = _context.Question.Include(i => i.Customer).Include(i => i.Staff).AsQueryable();
 
+            if (request.Status.HasValue)
+            {
+                query = query.Where(x => x.Status == request.Status);
+            }
+            if (request.Claim != "All")
+            {
+                if (request.Claim == "Claimed")
+                {
+                    query = query.Where(x => x.StaffID.HasValue);
+                }
+                else if (request.Claim == "Unclaimed")
+                {
+                    query = query.Where(x => !x.StaffID.HasValue);
+                }
+            }
 
             var list = query.ToList();
 
