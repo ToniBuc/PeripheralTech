@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.Mobile.Andro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.Mobile.iOS", "PeripheralTech.Mobile\PeripheralTech.Mobile.iOS\PeripheralTech.Mobile.iOS.csproj", "{7E16735C-6EA4-4154-B9BE-0E2036F92B0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeripheralTech.Mobile", "PeripheralTech.Mobile\PeripheralTech.Mobile\PeripheralTech.Mobile.csproj", "{0812F701-8B42-4A17-B08C-71F18286B7F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeripheralTech.Mobile", "PeripheralTech.Mobile\PeripheralTech.Mobile\PeripheralTech.Mobile.csproj", "{0812F701-8B42-4A17-B08C-71F18286B7F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:PeripheralTech.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="20" HorizontalOptions="FillAndExpand">
+            <Label Text="PeripheralTech"
+                HorizontalOptions="CenterAndExpand" FontSize="40" Style="{DynamicResource ListItemTextStyle}" VerticalOptions="Start" Margin="0,0,0,30"/>
+            <StackLayout>
+                <Label Text="Username:"/>
+                <Entry Text="{Binding Username}"></Entry>
+                <Label Text="Password:"/>
+                <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+                <Button Command="{Binding LoginCommand}" Text="Login" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,10,0,0"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
