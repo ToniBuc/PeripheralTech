@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.btnQuestions = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnQuestions = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -57,17 +55,25 @@
             this.pnlLeft.Controls.Add(this.button4);
             this.pnlLeft.Controls.Add(this.button3);
             this.pnlLeft.Controls.Add(this.pictureBox1);
-            this.pnlLeft.Controls.Add(this.button2);
-            this.pnlLeft.Controls.Add(this.button1);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(200, 750);
             this.pnlLeft.TabIndex = 1;
             // 
+            // btnQuestions
+            // 
+            this.btnQuestions.Location = new System.Drawing.Point(12, 395);
+            this.btnQuestions.Name = "btnQuestions";
+            this.btnQuestions.Size = new System.Drawing.Size(172, 46);
+            this.btnQuestions.TabIndex = 9;
+            this.btnQuestions.Text = "Questions";
+            this.btnQuestions.UseVisualStyleBackColor = true;
+            this.btnQuestions.Click += new System.EventHandler(this.btnQuestions_Click);
+            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 218);
+            this.button7.Location = new System.Drawing.Point(12, 291);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(172, 46);
             this.button7.TabIndex = 8;
@@ -77,41 +83,41 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(12, 648);
+            this.button6.Location = new System.Drawing.Point(12, 551);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(172, 46);
             this.button6.TabIndex = 7;
-            this.button6.Text = "UC Products";
+            this.button6.Text = "Products";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 381);
+            this.button5.Location = new System.Drawing.Point(12, 447);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(172, 46);
             this.button5.TabIndex = 6;
-            this.button5.Text = "UC Companies";
+            this.button5.Text = "Companies";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 516);
+            this.button4.Location = new System.Drawing.Point(12, 499);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 46);
             this.button4.TabIndex = 5;
-            this.button4.Text = "UC Cities";
+            this.button4.Text = "Cities";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 270);
+            this.button3.Location = new System.Drawing.Point(12, 343);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 46);
             this.button3.TabIndex = 4;
-            this.button3.Text = "UC Staff";
+            this.button3.Text = "Staff";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -124,26 +130,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 596);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(172, 46);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Products";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 464);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 46);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cities";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlTop
             // 
@@ -202,16 +188,6 @@
             this.panel1.Size = new System.Drawing.Size(1000, 719);
             this.panel1.TabIndex = 20;
             // 
-            // btnQuestions
-            // 
-            this.btnQuestions.Location = new System.Drawing.Point(12, 329);
-            this.btnQuestions.Name = "btnQuestions";
-            this.btnQuestions.Size = new System.Drawing.Size(172, 46);
-            this.btnQuestions.TabIndex = 9;
-            this.btnQuestions.Text = "Questions";
-            this.btnQuestions.UseVisualStyleBackColor = true;
-            this.btnQuestions.Click += new System.EventHandler(this.btnQuestions_Click);
-            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,8 +213,6 @@
         }
         #endregion
         private System.Windows.Forms.Panel pnlLeft;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;

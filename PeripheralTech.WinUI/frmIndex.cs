@@ -122,44 +122,6 @@ namespace PeripheralTech.WinUI
             }
         }
 
-        private void btnStaff_Click(object sender, EventArgs e)
-        {
-            frmStaffMembers frm = new frmStaffMembers();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
-        }
-
-        private void btnCompanies_Click(object sender, EventArgs e)
-        {
-            frmCompanyOverview frm = new frmCompanyOverview();
-            frm.MdiParent = this;
-            frm.Dock = DockStyle.Fill;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmCityOverview frm = new frmCityOverview();
-            frm.MdiParent = this;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frmProductOverview frm = new frmProductOverview();
-            frm.MdiParent = this;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Show();
-        }
-
         //making the form movable using the upper panel
         #region Panel Top Border
         private bool mouseDown;

@@ -50,6 +50,11 @@ namespace PeripheralTech.WinUI.Review
                 txtReview.Text = review.ReviewContent;
                 txtSpecifications.Text = review.Specifications;
                 cmbRating.SelectedIndex = Convert.ToInt32(review.Grade) - 1;
+
+                if (APIService.UserID != review.UserID)
+                {
+                    btnAdd.Enabled = false;
+                }
             }
             else
             {

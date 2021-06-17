@@ -71,16 +71,27 @@ namespace PeripheralTech.WinUI.Question
             await LoadQuestions(search);
         }
 
-        private void dgvQuestions_MouseDoubleClick(object sender, MouseEventArgs e)
+        private async void dgvQuestions_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (!dgvQuestions.RowCount.Equals(0))
             {
                 var id = dgvQuestions.SelectedRows[0].Cells[0].Value;
-                ucQuestionComments uc = new ucQuestionComments(int.Parse(id.ToString()));
-                this.Parent.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;
-                uc.BringToFront();
-                this.Parent.Controls.Remove(this);
+
+                var question = await _questionService.GetById<Model.Question>(int.Parse(id.ToString()));
+
+                if (question.StaffID == APIService.UserID || APIService.Role == "Administrator")
+                {
+                    ucQuestionComments uc = new ucQuestionComments(int.Parse(id.ToString()));
+                    this.Parent.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                    uc.BringToFront();
+                    this.Parent.Controls.Remove(this);
+                }
+                else 
+                {
+                    MessageBox.Show("You do not have permission to access this question because it was already claimed by another staff member!", "Authorization", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
             }
         }
     }

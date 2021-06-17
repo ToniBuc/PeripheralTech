@@ -116,5 +116,18 @@ namespace PeripheralTech.WinUI.Question
             btnSend.Enabled = false;
             btnClaim.Enabled = false;
         }
+
+        private void txtReply_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtReply.Text))
+            {
+                errorProvider.SetError(txtReply, Properties.Resources.Validation_RequiredField);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(txtReply, null);
+            }
+        }
     }
 }
