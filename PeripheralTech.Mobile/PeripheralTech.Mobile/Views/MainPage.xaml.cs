@@ -39,6 +39,9 @@ namespace PeripheralTech.Mobile.Views
                     case (int)MenuItemType.Profile:
                         MenuPages.Add(id, new NavigationPage(new ProfilePage()));
                         break;
+                    case (int)MenuItemType.ProductCatalog:
+                        MenuPages.Add(id, new NavigationPage(new ProductsPage()));
+                        break;
                 }
             }
 

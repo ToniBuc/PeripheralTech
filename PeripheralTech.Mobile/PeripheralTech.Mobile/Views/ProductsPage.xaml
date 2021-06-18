@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PeripheralTech.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.ProductsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout  Padding="15">
+            <StackLayout Orientation="Horizontal" HeightRequest="120">
+                <Image x:Name="Logo" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"></Image>
+            </StackLayout>
+            <Label Text="Products"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="30"/>
+            <SearchBar Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}"></SearchBar>
+            <Grid Padding="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label      Grid.Row="0"
+                            Grid.Column="0"
+                            Text="Brand:"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="14"/>
+                <Picker Grid.Row="1"                  
+                        Grid.Column="0"
+                        ItemsSource="{Binding CompanyList, Mode=OneTime}" 
+                        SelectedItem="{Binding SelectedCompany}" 
+                        ItemDisplayBinding="{Binding Name}"
+                        x:Name="searchPickerCompany"></Picker>
+                <Label      Grid.Row="0"
+                            Grid.Column="1"
+                            Text="Product Type:"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="14"/>
+                <Picker Grid.Row="1"                  
+                        Grid.Column="1"
+                        ItemsSource="{Binding ProductTypeList, Mode=OneTime}" 
+                        SelectedItem="{Binding SelectedProductType}" 
+                        ItemDisplayBinding="{Binding Name}"
+                        x:Name="searchPickerProductType"></Picker>
+            </Grid>
+            <Button Clicked="Filter_Clicked" Text="Filter" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" Margin="0,15,0,0"></Button>
+            <CollectionView ItemsSource="{Binding ProductList}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" BackgroundColor="Transparent" Padding="0" CornerRadius="0">
+                            <Grid Padding="10">
+                                <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                                    </Grid.GestureRecognizers>-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image     Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                           x:Name="productImage"
+                                           Aspect="AspectFit" 
+                                           HorizontalOptions="CenterAndExpand"></Image>
+                                <Label      Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="{Binding ProductNamePrice}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

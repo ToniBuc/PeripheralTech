@@ -67,6 +67,7 @@ namespace PeripheralTech.WebAPI.Services
             {
                 x.CompanyName = x.Company.Name;
                 x.ProductTypeName = x.ProductType.Name;
+                x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
             }
 
             return result;

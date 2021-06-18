@@ -23,6 +23,7 @@ namespace PeripheralTech.Mobile.Views
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
+                new HomeMenuItem {Id = MenuItemType.ProductCatalog, Title="Product Catalog" },
             };
 
             ListViewMenu.ItemsSource = menuItems;
