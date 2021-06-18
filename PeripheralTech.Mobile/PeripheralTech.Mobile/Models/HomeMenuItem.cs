@@ -7,7 +7,8 @@ namespace PeripheralTech.Mobile.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Profile,
     }
     public class HomeMenuItem
     {

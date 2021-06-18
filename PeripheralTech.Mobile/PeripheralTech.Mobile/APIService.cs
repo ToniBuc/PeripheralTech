@@ -33,18 +33,33 @@ namespace PeripheralTech.Mobile
 
         public async Task<T> Get<T>(object search)
         {
-
-            var url = $"{_apiUrl}/{_route}";
-
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+                var url = $"{_apiUrl}/{_route}";
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+                return result;
             }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
 
-            return result;
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
         }
 
         public async Task<T> GetById<T>(object id)

@@ -63,22 +63,9 @@ namespace PeripheralTech.WebAPI.Services
         {
             var query = _context.User.Include(i => i.UserRole).AsQueryable(); //included userrole for role checks in user retrievals, for example retrieving only staff in the staffmembers form
 
-            //bool isRequestNull = !string.IsNullOrWhiteSpace(request.FirstName) || !string.IsNullOrWhiteSpace(request.LastName);
-
-            //if (isRequestNull)
-            //{
-            //    query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.LastName) ||
-            //    request.FirstName.Contains(x.FirstName) || request.LastName.Contains(x.LastName));
-            //}
-
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.User>>(list);
-
-            //foreach (var x in result)
-            //{
-            //    x.UserRoleName = x.UserRole.Name;
-            //}
 
             return result;
         }
