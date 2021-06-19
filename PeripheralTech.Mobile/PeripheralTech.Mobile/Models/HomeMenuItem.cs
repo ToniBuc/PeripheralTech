@@ -9,7 +9,8 @@ namespace PeripheralTech.Mobile.Models
         Browse,
         About,
         Profile,
-        ProductCatalog
+        ProductCatalog,
+        Logout
     }
     public class HomeMenuItem
     {

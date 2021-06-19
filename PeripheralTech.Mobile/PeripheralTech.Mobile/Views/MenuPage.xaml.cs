@@ -24,6 +24,7 @@ namespace PeripheralTech.Mobile.Views
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
                 new HomeMenuItem {Id = MenuItemType.ProductCatalog, Title="Product Catalog" },
+                new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
