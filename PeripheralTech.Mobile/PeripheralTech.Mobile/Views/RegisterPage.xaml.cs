@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PeripheralTech.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegisterPage : ContentPage
     {
-        public LoginPage()
+        private RegistrationViewModel model = null;
+        public RegisterPage()
         {
             InitializeComponent();
-            Logo.Source = ImageSource.FromFile("ptlogo.png");
+            BindingContext = model = new RegistrationViewModel();
         }
     }
 }

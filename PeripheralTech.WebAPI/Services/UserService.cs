@@ -77,7 +77,10 @@ namespace PeripheralTech.WebAPI.Services
             var result = _mapper.Map<Model.User>(entity);
 
             result.UserRoleName = result.UserRole.Name;
-            result.CityName = result.City.Name;
+            if (result.CityID.HasValue)
+            {
+                result.CityName = result.City.Name;
+            }
 
             return _mapper.Map<Model.User>(result);
         }
@@ -135,6 +138,10 @@ namespace PeripheralTech.WebAPI.Services
 
             _mapper.Map(request, entity);
 
+            if (entity.CityID == 0)
+            {
+                entity.CityID = null;
+            }
 
             if (!string.IsNullOrWhiteSpace(request.Password))
             {
@@ -199,14 +206,7 @@ namespace PeripheralTech.WebAPI.Services
                     entity.UserRoleID = x.UserRoleID;
                 }
             }
-            //var cities = _context.City.ToList();
-            //foreach (var x in cities)
-            //{
-            //    if (x.Name == "Unassigned")
-            //    {
-            //        entity.CityID = x.CityID;
-            //    }
-            //}
+            entity.CityID = null;
 
             entity.PasswordSalt = GenerateSalt();
             entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);

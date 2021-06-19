@@ -94,10 +94,19 @@ namespace PeripheralTech.Mobile.ViewModels
                 foreach (var x in cityList)
                 {
                     CityList.Add(x);
-                    if (user.City.Name == x.Name)
+                    if (user.CityID.HasValue)
                     {
-                        SelectedCity = x;
+                        if (user.City.Name == x.Name)
+                        {
+                            SelectedCity = x;
+                        }
                     }
+                    //else
+                    //{
+                    //    SelectedCity.CountryID = 0;
+                    //    SelectedCity.CityID = 0;
+                    //    SelectedCity.Name = "Unassigned";
+                    //}
                 }
             }
 
@@ -128,9 +137,14 @@ namespace PeripheralTech.Mobile.ViewModels
                 Email = Email,
                 PhoneNumber = PhoneNumber,
                 Address = Address,
-                CityID = SelectedCity.CityID,
+                //CityID = SelectedCity.CityID,
                 Username = Username
             };
+
+            if (SelectedCity == null)
+            {
+                request.CityID = 0;
+            }
 
             var userRoleList = await _userRoleService.Get<List<UserRole>>(null);
             int userRoleId = 0;

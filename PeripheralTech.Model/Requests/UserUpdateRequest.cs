@@ -11,7 +11,7 @@ namespace PeripheralTech.Model.Requests
         public string FirstName { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string LastName { get; set; }
-        [Required(AllowEmptyStrings = false)]
+        //[Required(AllowEmptyStrings = false)]
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         [EmailAddress]

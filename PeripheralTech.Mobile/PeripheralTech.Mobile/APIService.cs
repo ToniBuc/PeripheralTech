@@ -1,5 +1,6 @@
 ﻿using Flurl.Http;
 using PeripheralTech.Model;
+using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -182,6 +183,30 @@ namespace PeripheralTech.Mobile
 
                 await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
                 return false;
+            }
+        }
+
+        public async Task<T> Register<T>(UserInsertRequest request)
+        {
+            try
+            {
+                var url = $"{_apiUrl}/{_route}";
+
+                var result = await url.PostJsonAsync(request).ReceiveJson<T>();
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                await Application.Current.MainPage.DisplayAlert("Error", stringBuilder.ToString(), "OK");
+                return default(T);
             }
         }
     }

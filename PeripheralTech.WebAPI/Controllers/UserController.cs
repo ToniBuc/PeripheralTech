@@ -52,7 +52,7 @@ namespace PeripheralTech.WebAPI.Controllers
         {
             return _service.Login(request);
         }
-
+        [AllowAnonymous]
         [HttpPost("Register")]
         public Model.User Register(UserInsertRequest request)
         {

@@ -11,7 +11,7 @@ namespace PeripheralTech.Model.Requests
         public string FirstName { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string LastName { get; set; }
-        [Required]
+        //[Required]
         public string Address { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
@@ -31,7 +31,7 @@ namespace PeripheralTech.Model.Requests
         [MinLength(8)]
         public string PasswordConfirmation { get; set; }
         [Required]
-        public int CityID { get; set; }
+        public int? CityID { get; set; }
         public byte[] ProfileImage { get; set; }
     }
 }
