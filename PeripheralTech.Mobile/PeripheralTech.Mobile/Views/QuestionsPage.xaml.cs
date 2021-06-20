@@ -11,28 +11,19 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfilePage : ContentPage
+    public partial class QuestionsPage : ContentPage
     {
-        private ProfileViewModel model = null;
-        public ProfilePage()
+        private QuestionsViewModel model = null;
+        public QuestionsPage()
         {
             InitializeComponent();
-            BindingContext = model = new ProfileViewModel();
+            BindingContext = model = new QuestionsViewModel();
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-            if (profileImage.Source == null)
-            {
-                profileImage.Source = ImageSource.FromFile("ptlogo.png");
-            }
-        }
-
-        private async void OpenQuestions_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new QuestionsPage());
         }
     }
 }

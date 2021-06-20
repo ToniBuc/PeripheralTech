@@ -45,6 +45,11 @@ namespace PeripheralTech.WebAPI.Services
                 query = query.Where(x => x.StaffID == request.StaffID);
             }
 
+            if (request.CustomerID.HasValue)
+            {
+                query = query.Where(x => x.CustomerID == request.CustomerID);
+            }
+
             query = query.OrderByDescending(x => x.Date);
 
             var list = query.ToList();
@@ -61,6 +66,15 @@ namespace PeripheralTech.WebAPI.Services
                 else
                 {
                     x.StaffName = "UNCLAIMED";
+                }
+                x.DateShortString = x.Date.ToShortDateString();
+                if (x.Status == true)
+                {
+                    x.StatusString = "Open";
+                }
+                else
+                {
+                    x.StatusString = "Closed";
                 }
             }
 

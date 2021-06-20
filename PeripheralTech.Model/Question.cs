@@ -18,5 +18,7 @@ namespace PeripheralTech.Model
         //
         public string CustomerName { get; set; }
         public string StaffName { get; set; }
+        public string DateShortString { get; set; }
+        public string StatusString { get; set; }
     }
 }
