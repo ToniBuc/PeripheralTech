@@ -34,6 +34,7 @@ namespace PeripheralTech.WebAPI.Services
             foreach (var x in result)
             {
                 x.SenderName = x.User.Username;
+                x.SenderWithDate = x.User.Username + " (" + x.Date.ToString() + "):";
             }
 
             return result;

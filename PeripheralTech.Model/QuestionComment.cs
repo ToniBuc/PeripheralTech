@@ -15,5 +15,6 @@ namespace PeripheralTech.Model
         public DateTime Date { get; set; }
         //
         public string SenderName { get; set; }
+        public string SenderWithDate { get; set; }
     }
 }

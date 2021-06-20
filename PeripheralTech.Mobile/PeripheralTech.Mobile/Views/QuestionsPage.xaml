@@ -12,7 +12,7 @@
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" FontSize="24" FontAttributes="Bold"/>
                 <StackLayout Padding="0,20,0,0">
-                    <ListView ItemsSource="{Binding QuestionList}">
+                    <ListView ItemsSource="{Binding QuestionList}" ItemSelected="ListView_OnItemSelected">
                         <ListView.Header>
                             <StackLayout>
                                 <Grid>
