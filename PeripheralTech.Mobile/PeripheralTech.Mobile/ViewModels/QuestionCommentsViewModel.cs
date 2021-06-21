@@ -15,6 +15,7 @@ namespace PeripheralTech.Mobile.ViewModels
         private readonly APIService _questionCommentService = new APIService("QuestionComment");
         private readonly APIService _questionService = new APIService("Question");
         public int? QuestionID { get; set; }
+        public bool Status { get; set; }
         public QuestionCommentsViewModel()
         {
             InitCommand = new Command(async () => await Init());
@@ -35,6 +36,7 @@ namespace PeripheralTech.Mobile.ViewModels
         {
             Question = await _questionService.GetById<Model.Question>(QuestionID);
             QuestionTitle = Question.Title;
+            Status = Question.Status;
 
             var search = new QuestionCommentSearchRequest()
             {

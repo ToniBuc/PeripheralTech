@@ -32,5 +32,9 @@ namespace PeripheralTech.Mobile.Views
             var id = item.QuestionID;
             await Navigation.PushAsync(new QuestionCommentsPage(id));
         }
+        private async void NewQuestion_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new NewQuestionPage()));
+        }
     }
 }

@@ -27,6 +27,10 @@ namespace PeripheralTech.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
+            if (model.Status == false)
+            {
+                replyButton.IsEnabled = false;
+            }
         }
         private async void SendReply_Clicked(object sender, EventArgs e)
         {
