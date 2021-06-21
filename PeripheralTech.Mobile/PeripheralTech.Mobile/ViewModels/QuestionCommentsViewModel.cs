@@ -42,12 +42,10 @@ namespace PeripheralTech.Mobile.ViewModels
             };
 
             var commentList = await _questionCommentService.Get<List<QuestionComment>>(search);
-            if (CommentList.Count == 0)
+            CommentList.Clear();
+            foreach (var x in commentList)
             {
-                foreach (var x in commentList)
-                {
-                    CommentList.Add(x);
-                }
+                CommentList.Add(x);
             }
         }
     }

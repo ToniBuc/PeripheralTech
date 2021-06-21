@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.QuestionNewCommentPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="15">
+                    <Label Text="Question:"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" FontSize="20"/>
+                    <Label Text="{Binding QuestionTitle}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand" FontSize="20"/>
+                    <Button Text="Cancel Reply" Clicked="CancelReply_Clicked" x:Name="replyButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Padding="10"></Button>
+                </StackLayout>
+                <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0"></BoxView>
+                <StackLayout Padding="15">
+                    <StackLayout Margin="0,15,0,0">
+                        <Label Text="Reply:" FontSize="16"></Label>
+                        <Editor Text="{Binding Content}" FontSize="15" AutoSize="TextChanges"></Editor>
+                        <Button Command="{Binding SubmitCommand}" Text="Send Reply" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

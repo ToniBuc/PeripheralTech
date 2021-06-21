@@ -11,26 +11,25 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QuestionCommentsPage : ContentPage
+    public partial class QuestionNewCommentPage : ContentPage
     {
-        private QuestionCommentsViewModel model = null;
-        public QuestionCommentsPage(int ? id)
+        private QuestionNewCommentViewModel model = null;
+        public QuestionNewCommentPage(int? id)
         {
             InitializeComponent();
-            BindingContext = model = new QuestionCommentsViewModel()
+            BindingContext = model = new QuestionNewCommentViewModel()
             {
                 QuestionID = id
             };
         }
-
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
         }
-        private async void SendReply_Clicked(object sender, EventArgs e)
+        private async void CancelReply_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new QuestionNewCommentPage(model.QuestionID)));
+            await Navigation.PopModalAsync();
         }
     }
 }
