@@ -31,5 +31,10 @@ namespace PeripheralTech.Mobile.Views
         {
             await model.Init();
         }
+        async void OnTapGestureRecognizerTapped(object sender, EventArgs e)
+        {
+            var x = (((TappedEventArgs)e).Parameter) as int?;
+            await Navigation.PushAsync(new ProductDetailPage(x));
+        }
     }
 }

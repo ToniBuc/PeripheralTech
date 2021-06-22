@@ -61,9 +61,9 @@
                     <DataTemplate>
                         <Frame BorderColor="LightGray" BackgroundColor="Transparent" Padding="0" CornerRadius="0">
                             <Grid Padding="10">
-                                <!--<Grid.GestureRecognizers>
+                                <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
-                                    </Grid.GestureRecognizers>-->
+                                    </Grid.GestureRecognizers>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="200" />
                                     <RowDefinition Height="*" />
