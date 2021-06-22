@@ -11,13 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductDetailPage : ContentPage
+    public partial class ProductStaffReviewPage : ContentPage
     {
-        private ProductDetailViewModel model = null;
-        public ProductDetailPage(int ? id)
+        private ProductStaffReviewViewModel model = null;
+        public ProductStaffReviewPage(int? id)
         {
             InitializeComponent();
-            BindingContext = model = new ProductDetailViewModel()
+            BindingContext = model = new ProductStaffReviewViewModel()
             {
                 ProductID = id
             };
@@ -26,11 +26,7 @@ namespace PeripheralTech.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
-            if (model.Rating == 0)
-            {
-                labelProc.IsVisible = true;
-            }
-            else if (Math.Round(model.Rating) == 1)
+            if (Math.Round(model.Rating) == 1)
             {
                 ratingImage.Source = ImageSource.FromFile("rating1.png");
             }
@@ -50,21 +46,6 @@ namespace PeripheralTech.Mobile.Views
             {
                 ratingImage.Source = ImageSource.FromFile("rating5.png");
             }
-
-            if (model.UserReviewList.Count == 0)
-            {
-                reviewsButton.IsEnabled = false;
-            }
-            if (model.StaffReview.Count == 0)
-            {
-                staffReviewButton.IsEnabled = false;
-            }
-        }
-
-        private async void StaffReview_Clicked(object sender, EventArgs e)
-        {
-            var id = model.ProductID;
-            await Navigation.PushAsync(new ProductStaffReviewPage(id));
         }
     }
 }

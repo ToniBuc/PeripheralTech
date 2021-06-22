@@ -13,12 +13,14 @@ namespace PeripheralTech.Mobile.ViewModels
     {
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _userReviewService = new APIService("UserReview");
+        private readonly APIService _staffReviewService = new APIService("StaffReview");
         public int? ProductID { get; set; }
         public ProductDetailViewModel()
         {
             InitCommand = new Command(async () => await Init());
         }
         public List<UserReview> UserReviewList { get; set; } = new List<UserReview>();
+        public List<StaffReview> StaffReview { get; set; } = new List<StaffReview>();
         public Product Product { get; set; }
         public ICommand InitCommand { get; set; }
 
@@ -97,6 +99,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 CompanyName = Product.CompanyName;
                 Thumbnail = Product.Thumbnail;
             }
+            StaffReview = await _staffReviewService.Get<List<StaffReview>>(search);
         }
     }
 }
