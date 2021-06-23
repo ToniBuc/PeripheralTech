@@ -61,6 +61,12 @@ namespace PeripheralTech.Mobile.Views
             }
         }
 
+        private async void UserReviews_Clicked(object sender, EventArgs e)
+        {
+            var id = model.ProductID;
+            await Navigation.PushAsync(new ProductUserReviewsPage(id));
+        }
+
         private async void StaffReview_Clicked(object sender, EventArgs e)
         {
             var id = model.ProductID;
