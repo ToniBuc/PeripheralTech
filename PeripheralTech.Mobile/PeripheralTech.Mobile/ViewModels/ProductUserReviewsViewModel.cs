@@ -45,7 +45,6 @@ namespace PeripheralTech.Mobile.ViewModels
             foreach (var x in ratingList)
             {
                 UserReviewList.Add(x);
-
             }
         }
     }
