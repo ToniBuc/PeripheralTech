@@ -11,23 +11,26 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewsPage : ContentPage
+    public partial class NewsArticlePage : ContentPage
     {
-        private NewsViewModel model = null;
-        public NewsPage()
+        private NewsArticleViewModel model = null;
+        public NewsArticlePage(int ? id )
         {
             InitializeComponent();
-            BindingContext = model = new NewsViewModel();
+            BindingContext = model = new NewsArticleViewModel()
+            {
+                NewsID = id
+            };
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-        async void OnTapGestureRecognizerTapped(object sender, EventArgs e)
-        {
-            var x = (((TappedEventArgs)e).Parameter) as int?;
-            await Navigation.PushAsync(new NewsArticlePage(x));
+
+            if (!(model.News.Thumbnail.Length > 0))
+            {
+                imageStackLayout.IsVisible = false;
+            }
         }
     }
 }

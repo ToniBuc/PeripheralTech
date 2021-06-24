@@ -44,6 +44,17 @@ namespace PeripheralTech.WebAPI.Services
             return result;
         }
 
+        public override Model.News GetById(int id)
+        {
+            var entity = _context.News.Where(i => i.NewsID == id).Include(i => i.User).FirstOrDefault();
+
+            var result = _mapper.Map<Model.News>(entity);
+
+            result.Author = result.User.FirstName + " " + result.User.LastName;
+
+            return result;
+        }
+
         public override Model.News Update(int id, NewsUpsertRequest request)
         {
             var entity = _context.News.Find(id);
