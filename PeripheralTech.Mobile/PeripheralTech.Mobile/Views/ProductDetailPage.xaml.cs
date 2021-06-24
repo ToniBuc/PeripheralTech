@@ -72,5 +72,10 @@ namespace PeripheralTech.Mobile.Views
             var id = model.ProductID;
             await Navigation.PushAsync(new ProductStaffReviewPage(id));
         }
+        private async void ProductImages_Clicked(object sender, EventArgs e)
+        {
+            var id = model.ProductID;
+            await Navigation.PushAsync(new ProductImagesPage(id));
+        }
     }
 }

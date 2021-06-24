@@ -19,6 +19,9 @@ namespace PeripheralTech.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
 
+            //for image popups
+            Rg.Plugins.Popup.Popup.Init(this);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
@@ -28,6 +31,12 @@ namespace PeripheralTech.Mobile.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        //override for the back button to work with with the popups plugin
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }
