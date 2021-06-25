@@ -16,7 +16,7 @@ namespace PeripheralTech.Mobile
         public static string Role { get; set; }
         public static int UserID { get; set; }
         public static User User { get; set; }
-
+        public static List<Product> ShoppingCart { get; set; }
         private string _route = null;
         public APIService(string route)
         {

@@ -75,7 +75,7 @@ namespace PeripheralTech.Mobile.ViewModels
             }
 
             IEnumerable<Model.Product> list;
-            if (search.CompanyID.HasValue || search.ProductTypeID.HasValue)
+            if (search.CompanyID.HasValue || search.ProductTypeID.HasValue || !string.IsNullOrWhiteSpace(search.ProductName))
             {
                 list = await _productService.Get<IEnumerable<Model.Product>>(search);
             }

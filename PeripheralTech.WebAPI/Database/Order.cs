@@ -15,5 +15,6 @@ namespace PeripheralTech.WebAPI.Database
         public int OrderStatusID { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public DateTime Date { get; set; }
+        public string Comment { get; set; }
     }
 }

@@ -14,15 +14,20 @@ namespace PeripheralTech.Mobile.ViewModels
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _userReviewService = new APIService("UserReview");
         private readonly APIService _staffReviewService = new APIService("StaffReview");
+        private readonly APIService _orderService = new APIService("Order");
+        private readonly APIService _orderProductService = new APIService("OrderProduct");
         public int? ProductID { get; set; }
         public ProductDetailViewModel()
         {
             InitCommand = new Command(async () => await Init());
+            AddToCartCommand = new Command(async () => await AddToCart());
         }
         public List<UserReview> UserReviewList { get; set; } = new List<UserReview>();
         public List<StaffReview> StaffReview { get; set; } = new List<StaffReview>();
+        public List<OrderProduct> OrderProduct { get; set; } = new List<OrderProduct>();
         public Product Product { get; set; }
         public ICommand InitCommand { get; set; }
+        public ICommand AddToCartCommand { get; set; }
 
         #region Initialization
         private string _name = string.Empty;
@@ -99,7 +104,54 @@ namespace PeripheralTech.Mobile.ViewModels
                 CompanyName = Product.CompanyName;
                 Thumbnail = Product.Thumbnail;
             }
-            StaffReview = await _staffReviewService.Get<List<StaffReview>>(search);
+            StaffReview = await _staffReviewService.Get<List<StaffReview>>(search); //potential bug here, need to look into it
+
+            var searchOrderProduct = new OrderProductSearchRequest()
+            {
+                ProductID = ProductID
+            };
+
+            OrderProduct = await _orderProductService.Get<List<Model.OrderProduct>>(searchOrderProduct);
+        }
+        public async Task AddToCart()
+        {
+            var search = new OrderSearchRequest()
+            {
+                UserID = APIService.UserID,
+                OrderStatus = "Active"
+            };
+
+            var order = await _orderService.Get<List<Model.Order>>(search);
+
+            if (order.Count == 1)
+            {
+                var orderProductRequest = new OrderProductUpsertRequest()
+                {
+                    OrderID = order[0].OrderID,
+                    ProductID = ProductID
+                };
+                await _orderProductService.Insert<Model.OrderProduct>(orderProductRequest);
+            }
+            else if (order.Count == 0)
+            {
+                var orderRequest = new OrderInsertRequest()
+                {
+                    UserID = APIService.UserID,
+                    Date = DateTime.Now,
+                    OrderStatusID = 1
+                };
+
+                await _orderService.Insert<Model.Order>(orderRequest);
+
+                var newOrder = await _orderService.Get<List<Model.Order>>(search);
+
+                var orderProductRequest = new OrderProductUpsertRequest()
+                {
+                    OrderID = newOrder[0].OrderID,
+                    ProductID = ProductID
+                };
+                await _orderProductService.Insert<Model.OrderProduct>(orderProductRequest);
+            }
         }
     }
 }
