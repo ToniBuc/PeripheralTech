@@ -60,14 +60,14 @@ namespace PeripheralTech.Mobile.Views
                 staffReviewButton.IsEnabled = false;
             }
 
-            if (model.OrderProduct.Count == 1)
-            {
-                if (model.OrderProduct[0].ProductID == model.ProductID)
-                {
-                    addToCartButton.IsEnabled = false;
-                    addToCartButton.Text = "In Cart";
-                }
-            }
+            //if (model.OrderProduct.Count == 1)
+            //{
+            //    if (model.OrderProduct[0].ProductID == model.ProductID)
+            //    {
+            //        addToCartButton.IsEnabled = false;
+            //        addToCartButton.Text = "In Cart";
+            //    }
+            //}
         }
 
         private async void UserReviews_Clicked(object sender, EventArgs e)
@@ -86,9 +86,15 @@ namespace PeripheralTech.Mobile.Views
             var id = model.ProductID;
             await Navigation.PushAsync(new ProductImagesPage(id));
         }
-        private async void AddToCart_Clicked(object sender, EventArgs e)
-        {
-            await model.Init();
-        }
+        //private async void AddToCart_Clicked(object sender, EventArgs e)
+        //{
+        //    var id = model.ProductID;
+        //    BindingContext = null;
+        //    BindingContext = model = new ProductDetailViewModel()
+        //    {
+        //        ProductID = id
+        //    };
+        //    model.Init();
+        //}
     }
 }

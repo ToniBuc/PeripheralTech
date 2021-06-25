@@ -104,14 +104,20 @@ namespace PeripheralTech.Mobile.ViewModels
                 CompanyName = Product.CompanyName;
                 Thumbnail = Product.Thumbnail;
             }
-            StaffReview = await _staffReviewService.Get<List<StaffReview>>(search); //potential bug here, need to look into it
 
-            var searchOrderProduct = new OrderProductSearchRequest()
+            var searchStaffReview = new StaffReviewSearchRequest()
             {
                 ProductID = ProductID
             };
 
-            OrderProduct = await _orderProductService.Get<List<Model.OrderProduct>>(searchOrderProduct);
+            StaffReview = await _staffReviewService.Get<List<StaffReview>>(searchStaffReview);
+
+            //var searchOrderProduct = new OrderProductSearchRequest()
+            //{
+            //    ProductID = ProductID
+            //};
+
+            //OrderProduct = await _orderProductService.Get<List<Model.OrderProduct>>(searchOrderProduct);
         }
         public async Task AddToCart()
         {
@@ -131,6 +137,7 @@ namespace PeripheralTech.Mobile.ViewModels
                     ProductID = ProductID
                 };
                 await _orderProductService.Insert<Model.OrderProduct>(orderProductRequest);
+                await Application.Current.MainPage.DisplayAlert("Notification", "Product successfully added to your shopping cart!", "OK");
             }
             else if (order.Count == 0)
             {
@@ -151,6 +158,7 @@ namespace PeripheralTech.Mobile.ViewModels
                     ProductID = ProductID
                 };
                 await _orderProductService.Insert<Model.OrderProduct>(orderProductRequest);
+                await Application.Current.MainPage.DisplayAlert("Notification", "Product successfully added to your shopping cart!", "OK");
             }
         }
     }
