@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PeripheralTech.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.CheckoutPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label Text="Shopping Cart:"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="30"
+                    Style="{DynamicResource ListItemDetailTextStyle}"
+                    Margin="0,5,0,10"/>
+            <ListView ItemsSource="{Binding OrderProductList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <!--<Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding NewsID}"/>
+                                </Grid.GestureRecognizers>-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+                                <Image     Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                           x:Name="productImage"
+                                           Aspect="AspectFit" 
+                                           HorizontalOptions="CenterAndExpand"></Image>
+                                <Label      Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding ProductNameAndPrice}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"/>
+                                <Button     Grid.Row="0"
+                                            Grid.Column="2"
+                                            Text="Remove"
+                                            Clicked="RemoveButton_Clicked"
+                                            CommandParameter="{Binding OrderProductID}"
+                                            x:Name="removeButton"
+                                            BackgroundColor="#ad2828" 
+                                            TextColor="White" 
+                                            FontSize="12"
+                                            Margin="0,27,0,27"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

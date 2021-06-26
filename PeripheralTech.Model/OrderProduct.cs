@@ -11,5 +11,8 @@ namespace PeripheralTech.Model
         public Order Order { get; set; }
         public int ProductID { get; set; }
         public Product Product { get; set; }
+        //
+        public string ProductNameAndPrice { get; set; }
+        public byte[] Thumbnail { get; set; }
     }
 }

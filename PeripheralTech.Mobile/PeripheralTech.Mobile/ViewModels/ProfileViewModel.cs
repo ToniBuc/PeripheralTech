@@ -145,6 +145,10 @@ namespace PeripheralTech.Mobile.ViewModels
             {
                 request.CityID = 0;
             }
+            else
+            {
+                request.CityID = SelectedCity.CityID;
+            }
 
             var userRoleList = await _userRoleService.Get<List<UserRole>>(null);
             int userRoleId = 0;
