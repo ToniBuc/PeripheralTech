@@ -86,15 +86,5 @@ namespace PeripheralTech.Mobile.Views
             var id = model.ProductID;
             await Navigation.PushAsync(new ProductImagesPage(id));
         }
-        //private async void AddToCart_Clicked(object sender, EventArgs e)
-        //{
-        //    var id = model.ProductID;
-        //    BindingContext = null;
-        //    BindingContext = model = new ProductDetailViewModel()
-        //    {
-        //        ProductID = id
-        //    };
-        //    model.Init();
-        //}
     }
 }

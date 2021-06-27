@@ -24,17 +24,6 @@ namespace PeripheralTech.Mobile.ViewModels
         public int ? OrderProductID = null;
         public ICommand InitCommand { get; set; }
         public ICommand RemoveCommand { get; set; }
-        //public ICommand RemoveCommand
-        //{
-        //    get
-        //    {
-        //        return new Command(async(e) =>
-        //        {
-        //            var item = (e as OrderProduct);
-        //            await _orderProductService.Delete<Model.OrderProduct>(item.OrderProductID);
-        //        });
-        //    }
-        //}
 
         public async Task Init()
         {
