@@ -75,7 +75,7 @@ namespace PeripheralTech.Mobile.ViewModels
         public async Task Remove(int id)
         {
             await _orderProductService.Delete<Model.OrderProduct>(id);
-            await Init();
+            //await Init();
         }
     }
 }
