@@ -28,6 +28,16 @@ namespace PeripheralTech.WebAPI.Services
 
             var result = _mapper.Map<List<Model.Order>>(list);
 
+            if (result.Count == 1)
+            {
+                var productList = _context.OrderProduct.Include(i => i.Product).Where(i => i.OrderID == result[0].OrderID).ToList();
+
+                foreach(var x in productList)
+                {
+                    result[0].TotalPayment += x.Product.Price;
+                }
+            }
+
             return result;
         }
     }

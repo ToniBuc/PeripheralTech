@@ -7,6 +7,6 @@ namespace PeripheralTech.Model.Requests
     public class BillSearchRequest
     {
         public int? BillID { get; set; }
-        public int? PatientID { get; set; }
+        public int? CustomerID { get; set; }
     }
 }

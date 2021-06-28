@@ -18,5 +18,8 @@ namespace PeripheralTech.WebAPI.Database
         [Required]
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal PaymentAmount { get; set; }
+        [Required]
+        [Column(TypeName = "BIT")]
+        public bool IsPaid { get; set; }
     }
 }

@@ -9,5 +9,6 @@ namespace PeripheralTech.Model.Requests
         public DateTime Date { get; set; }
         public int OrderID { get; set; }
         public decimal PaymentAmount { get; set; }
+        public bool IsPaid { get; set; }
     }
 }

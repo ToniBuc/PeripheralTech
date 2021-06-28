@@ -25,6 +25,21 @@ namespace PeripheralTech.Mobile.ViewModels
         public ICommand InitCommand { get; set; }
         public ICommand RemoveCommand { get; set; }
 
+        #region Initialization
+        private string _totalPayment = string.Empty;
+        public string TotalPayment
+        {
+            get { return _totalPayment; }
+            set { SetProperty(ref _totalPayment, value); }
+        }
+        private string _comment = string.Empty;
+        public string Comment
+        {
+            get { return _comment; }
+            set { SetProperty(ref _comment, value); }
+        }
+        #endregion
+
         public async Task Init()
         {
             var searchOrder = new OrderSearchRequest()
@@ -46,11 +61,15 @@ namespace PeripheralTech.Mobile.ViewModels
 
                 var orderProductList = await _orderProductService.Get<List<Model.OrderProduct>>(searchOrderProduct);
 
+                var totalPayment = new decimal();
                 OrderProductList.Clear();
                 foreach (var x in orderProductList)
                 {
                     OrderProductList.Add(x);
+                    totalPayment += x.Product.Price;
                 }
+                TotalPayment = "Total payment: " + totalPayment;
+                //Order.Comment = Comment;
             }
         }
         public async Task Remove(int id)
