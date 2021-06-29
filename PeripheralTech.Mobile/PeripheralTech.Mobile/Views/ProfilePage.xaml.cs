@@ -34,5 +34,9 @@ namespace PeripheralTech.Mobile.Views
         {
             await Navigation.PushAsync(new QuestionsPage());
         }
+        private async void OpenOrders_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OrdersPage());
+        }
     }
 }

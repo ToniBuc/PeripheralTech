@@ -28,15 +28,35 @@ namespace PeripheralTech.WebAPI.Services
 
             var result = _mapper.Map<List<Model.Order>>(list);
 
-            if (result.Count == 1)
+            //for display in checkout
+            if (result.Count == 1 && result[0].OrderStatus.Name == "Active")
             {
                 var productList = _context.OrderProduct.Include(i => i.Product).Where(i => i.OrderID == result[0].OrderID).ToList();
 
-                foreach(var x in productList)
+                foreach (var x in productList)
                 {
                     result[0].TotalPayment += x.Product.Price;
                 }
             }
+
+            if (result.Count != 0)
+            {
+                if (result.Count > 1 || result[0].OrderStatus.Name == "Done")
+                {
+                    foreach (var x in result)
+                    {
+                        var productList = _context.OrderProduct.Include(i => i.Product).Where(i => i.OrderID == x.OrderID).ToList();
+
+                        foreach (var y in productList)
+                        {
+                            x.TotalPayment += y.Product.Price;
+                        }
+
+                        x.DateShort = x.Date.ToShortDateString();
+                    }
+                }
+            }
+            
 
             return result;
         }
