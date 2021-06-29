@@ -3,17 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PeripheralTech.Mobile.Converters"
              mc:Ignorable="d"
-             x:Class="PeripheralTech.Mobile.Views.OrdersPage">
+             x:Class="PeripheralTech.Mobile.Views.OrderDetailsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="15">
-            <Label Text="My Orders"
+            <Label  Text="Order Details"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" FontSize="30"
                     Style="{DynamicResource ListItemDetailTextStyle}"
                     Margin="0,5,0,10"/>
-            <ListView ItemsSource="{Binding OrderList}">
-                <ListView.Header>
+            <Label  Text="{Binding DateAndPrice}"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" FontSize="30"
+                    Style="{DynamicResource ListItemDetailTextStyle}"
+                    Margin="0,5,0,10"/>
+            <BoxView Color="Black" HeightRequest="1" Margin="0,5,0,10"></BoxView>
+            <ListView ItemsSource="{Binding OrderProductList}">
+                <!--<ListView.Header>
                     <StackLayout>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -28,14 +40,14 @@
                         </Grid>
                         <BoxView Color="Black" HeightRequest="1"></BoxView>
                     </StackLayout>
-                </ListView.Header>
+                </ListView.Header>-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding OrderID}"/>
-                                </Grid.GestureRecognizers>
+                                <!--<Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" CommandParameter="{Binding OrderID}"/>
+                                </Grid.GestureRecognizers>-->
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="100" />
                                 </Grid.RowDefinitions>
@@ -43,17 +55,15 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Label      Grid.Row="0"
-                                            Grid.Column="0"
-                                            Text="{Binding DateShort}"
-                                            Style="{DynamicResource ListItemDetailTextStyle}"
-                                            FontSize="18"
-                                            FontAttributes="Bold"
-                                            HorizontalOptions="CenterAndExpand"
-                                            VerticalOptions="CenterAndExpand"/>
+                                <Image     Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                           x:Name="productImage"
+                                           Aspect="AspectFit" 
+                                           HorizontalOptions="CenterAndExpand"></Image>
                                 <Label      Grid.Row="0"
                                             Grid.Column="1"
-                                            Text="{Binding TotalPayment}"
+                                            Text="{Binding ProductNameAndPrice}"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
                                             FontSize="18"
                                             FontAttributes="Bold"
@@ -64,6 +74,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <BoxView Color="Black" HeightRequest="1" Margin="0,5,0,10"></BoxView>
+            <Label Text="Comment:" FontSize="16"></Label>
+            <Editor Text="{Binding Comment}" FontSize="15" AutoSize="TextChanges" IsReadOnly="True"></Editor>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

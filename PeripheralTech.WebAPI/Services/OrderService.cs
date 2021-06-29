@@ -60,5 +60,23 @@ namespace PeripheralTech.WebAPI.Services
 
             return result;
         }
+
+        public override Model.Order GetById(int id)
+        {
+            var entity = _context.Order.Where(i => i.OrderID == id).FirstOrDefault();
+
+            var result = _mapper.Map<Model.Order>(entity);
+
+            result.DateShort = result.Date.ToShortDateString();
+
+            var productList = _context.OrderProduct.Include(i => i.Product).Where(i => i.OrderID == id).ToList();
+
+            foreach (var x in productList)
+            {
+                result.TotalPayment += x.Product.Price;
+            }
+
+            return result;
+        }
     }
 }

@@ -11,24 +11,21 @@ using Xamarin.Forms.Xaml;
 namespace PeripheralTech.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrdersPage : ContentPage
+    public partial class OrderDetailsPage : ContentPage
     {
-        private OrdersViewModel model = null;
-        public OrdersPage()
+        private OrderDetailsViewModel model = null;
+        public OrderDetailsPage(int ? id)
         {
-            InitializeComponent();
-            BindingContext = model = new OrdersViewModel();
+            InitializeComponent(); 
+            BindingContext = model = new OrderDetailsViewModel()
+            {
+                OrderID = id
+            };
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-        }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            var x = (((TappedEventArgs)e).Parameter) as int?;
-            await Navigation.PushAsync(new OrderDetailsPage(x));
         }
     }
 }

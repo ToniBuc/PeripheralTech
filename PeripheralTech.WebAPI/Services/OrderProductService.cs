@@ -24,9 +24,14 @@ namespace PeripheralTech.WebAPI.Services
                 query = query.Where(x => x.ProductID == request.ProductID && x.Order.OrderStatus.Name.Equals("Active"));
             }
 
-            if (request.OrderID.HasValue)
+            if (request.OrderID.HasValue && !request.MyOrdersCheck)
             {
                 query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Active"));
+            }
+
+            if (request.OrderID.HasValue && request.MyOrdersCheck)
+            {
+                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done"));
             }
 
             var list = query.ToList();

@@ -8,5 +8,6 @@ namespace PeripheralTech.Model.Requests
     {
         public int? OrderID { get; set; }
         public int? ProductID { get; set; }
+        public bool MyOrdersCheck { get; set; }
     }
 }
