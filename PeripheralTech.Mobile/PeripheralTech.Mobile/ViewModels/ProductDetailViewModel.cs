@@ -2,6 +2,7 @@
 using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -16,12 +17,14 @@ namespace PeripheralTech.Mobile.ViewModels
         private readonly APIService _staffReviewService = new APIService("StaffReview");
         private readonly APIService _orderService = new APIService("Order");
         private readonly APIService _orderProductService = new APIService("OrderProduct");
+        private readonly APIService _recommendedService = new APIService("Product/RecommendedProducts");
         public int? ProductID { get; set; }
         public ProductDetailViewModel()
         {
             InitCommand = new Command(async () => await Init());
             AddToCartCommand = new Command(async () => await AddToCart());
         }
+        public ObservableCollection<Product> RecommendedProductList { get; set; } = new ObservableCollection<Product>();
         public List<UserReview> UserReviewList { get; set; } = new List<UserReview>();
         public List<StaffReview> StaffReview { get; set; } = new List<StaffReview>();
         public List<OrderProduct> OrderProduct { get; set; } = new List<OrderProduct>();
@@ -111,6 +114,14 @@ namespace PeripheralTech.Mobile.ViewModels
             };
 
             StaffReview = await _staffReviewService.Get<List<StaffReview>>(searchStaffReview);
+
+            var list = await _recommendedService.GetById<IEnumerable<Product>>(ProductID);
+
+            RecommendedProductList.Clear();
+            foreach (var x in list)
+            {
+                RecommendedProductList.Add(x);
+            }
 
             //var searchOrderProduct = new OrderProductSearchRequest()
             //{

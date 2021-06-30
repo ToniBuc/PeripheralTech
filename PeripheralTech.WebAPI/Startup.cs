@@ -62,6 +62,7 @@ namespace PeripheralTech.WebAPI
             services.AddAuthentication("BasicAuthentication").AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRecommendationService<Model.Product>, RecommendationService>();
 
             services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
             services.AddScoped<IService<Model.ProductType, object>, BaseService<Model.ProductType, object, ProductType>>();

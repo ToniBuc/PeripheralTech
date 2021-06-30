@@ -12,53 +12,91 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal" HeightRequest="220">
-                <Image Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" x:Name="productImage" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0"></Image>
-            </StackLayout>
-                <Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
-            <Grid HorizontalOptions="CenterAndExpand" Padding="15">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" ></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <StackLayout Grid.Row="0" Grid.Column="0">
-                    <Label Text="Description:" FontSize="16"></Label>
-                    <Editor Text="{Binding Description}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" ></RowDefinition>
-                            <RowDefinition Height="Auto" ></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Price:" FontSize="16" Grid.Row="0" Grid.Column="0"></Label>
-                        <Entry Text="{Binding Price}" FontSize="15" Grid.Row="1" Grid.Column="0"></Entry>
-                        <Label Text="Amount In Stock:" FontSize="16" Grid.Row="0" Grid.Column="1"></Label>
-                        <Entry Text="{Binding AmountInStock}" FontSize="15" Grid.Row="1" Grid.Column="1"></Entry>
-                    </Grid>
-                    <Label Text="Manufacturer:" FontSize="16" ></Label>
-                    <Entry Text="{Binding CompanyName}" FontSize="15"></Entry>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="225" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Rating:" FontSize="16" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
-                        <Image x:Name="ratingImage" Aspect="AspectFit" HorizontalOptions="Start" Grid.Column="1"></Image>
-                        <Label Text="This product has not yet been rated!" Grid.Column="1" VerticalOptions="Center" FontSize="13" x:Name="labelProc" IsVisible="False"></Label>
-                    </Grid>
-                    <Button Command="{Binding AddToCartCommand}" x:Name="addToCartButton" Text="Add to Cart" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
-                    <Button Text="Reviews" Clicked="UserReviews_Clicked" x:Name="reviewsButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
-                    <Button Text="Staff Review" Clicked="StaffReview_Clicked" x:Name="staffReviewButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
-                    <Button Text="Product Images" Clicked="ProductImages_Clicked" x:Name="productImagesButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HeightRequest="220">
+                    <Image Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" x:Name="productImage" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0"></Image>
                 </StackLayout>
-            </Grid>
-        </StackLayout>
+                    <Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" FontSize="24" HorizontalOptions="CenterAndExpand"></Label>
+                <Grid HorizontalOptions="CenterAndExpand" Padding="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <Label Text="Description:" FontSize="16"></Label>
+                        <Editor Text="{Binding Description}" FontSize="15" IsReadOnly="True" AutoSize="TextChanges"></Editor>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" ></RowDefinition>
+                                <RowDefinition Height="Auto" ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Price:" FontSize="16" Grid.Row="0" Grid.Column="0"></Label>
+                            <Entry Text="{Binding Price}" FontSize="15" Grid.Row="1" Grid.Column="0"></Entry>
+                            <Label Text="Amount In Stock:" FontSize="16" Grid.Row="0" Grid.Column="1"></Label>
+                            <Entry Text="{Binding AmountInStock}" FontSize="15" Grid.Row="1" Grid.Column="1"></Entry>
+                        </Grid>
+                        <Label Text="Manufacturer:" FontSize="16" ></Label>
+                        <Entry Text="{Binding CompanyName}" FontSize="15"></Entry>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="225" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Rating:" FontSize="16" Grid.Column="0" VerticalOptions="CenterAndExpand"></Label>
+                            <Image x:Name="ratingImage" Aspect="AspectFit" HorizontalOptions="Start" Grid.Column="1"></Image>
+                            <Label Text="This product has not yet been rated!" Grid.Column="1" VerticalOptions="Center" FontSize="13" x:Name="labelProc" IsVisible="False"></Label>
+                        </Grid>
+                        <Button Command="{Binding AddToCartCommand}" x:Name="addToCartButton" Text="Add to Cart" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                        <Button Text="Reviews" Clicked="UserReviews_Clicked" x:Name="reviewsButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18" Margin="0,15,0,0"></Button>
+                        <Button Text="Staff Review" Clicked="StaffReview_Clicked" x:Name="staffReviewButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                        <Button Text="Product Images" Clicked="ProductImages_Clicked" x:Name="productImagesButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                    </StackLayout>
+                </Grid>
+                <BoxView Color="Black" HeightRequest="3" Margin="0,0,0,10"></BoxView>
+                <Label Text="Recommended products:" HorizontalOptions="CenterAndExpand" FontSize="20" Style="{DynamicResource ListItemTextStyle}"></Label>
+                <CollectionView ItemsSource="{Binding RecommendedProductList}" HeightRequest="300">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="150" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image     Grid.Row="0"
+                                               Grid.Column="0"
+                                               Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                               x:Name="productImage"
+                                               Aspect="AspectFit" 
+                                               HorizontalOptions="CenterAndExpand"></Image>
+                                <Label      Grid.Row="1"
+                                                Grid.Column="0"
+                                                Text="{Binding ProductNamePrice}"
+                                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                                FontSize="15"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

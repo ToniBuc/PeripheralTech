@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -85,6 +86,12 @@ namespace PeripheralTech.Mobile.Views
         {
             var id = model.ProductID;
             await Navigation.PushAsync(new ProductImagesPage(id));
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var x = (((TappedEventArgs)e).Parameter) as int?;
+            await Navigation.PushAsync(new ProductDetailPage(x));
         }
     }
 }
