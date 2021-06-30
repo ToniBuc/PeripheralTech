@@ -20,9 +20,14 @@ namespace PeripheralTech.WebAPI.Services
         {
             var query = _context.UserReview.Include(i => i.User).AsQueryable();
 
-            if (request.ProductID.HasValue)
+            if (request.ProductID.HasValue && !request.UserID.HasValue)
             {
                 query = query.Where(x => x.ProductID == request.ProductID);
+            }
+
+            if (request.ProductID.HasValue && request.UserID.HasValue)
+            {
+                query = query.Where(x => x.ProductID == request.ProductID && x.UserID == request.UserID);
             }
 
             var list = query.ToList();

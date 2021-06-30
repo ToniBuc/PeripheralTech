@@ -27,5 +27,13 @@ namespace PeripheralTech.Mobile.Views
             base.OnAppearing();
             await model.Init();
         }
+
+        private async void reviewButton_Clicked(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            int id = Convert.ToInt32(button.CommandParameter);
+            await Navigation.PushAsync(new ProductUserReviewPage(id));
+            OnAppearing();
+        }
     }
 }
