@@ -12,5 +12,7 @@ namespace PeripheralTech.Model
         public Order Order { get; set; }
         public decimal PaymentAmount { get; set; }
         public bool IsPaid { get; set; }
+        //
+        public string UserFullname { get; set; }
     }
 }

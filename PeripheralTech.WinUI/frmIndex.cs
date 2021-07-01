@@ -3,6 +3,7 @@ using PeripheralTech.WinUI.Company;
 using PeripheralTech.WinUI.News;
 using PeripheralTech.WinUI.Product;
 using PeripheralTech.WinUI.Question;
+using PeripheralTech.WinUI.Reports;
 using PeripheralTech.WinUI.User;
 using System;
 using System.Collections.Generic;
@@ -210,6 +211,14 @@ namespace PeripheralTech.WinUI
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucQuestionOverview"].BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ucEarningsReport uc = new ucEarningsReport();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucEarningsReport"].BringToFront();
         }
     }
 }

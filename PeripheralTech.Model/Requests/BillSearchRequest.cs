@@ -8,5 +8,8 @@ namespace PeripheralTech.Model.Requests
     {
         public int? BillID { get; set; }
         public int? CustomerID { get; set; }
+        // for reports
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
     }
 }
