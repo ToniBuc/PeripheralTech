@@ -13,6 +13,8 @@ namespace PeripheralTech.Model
         public Product Product { get; set; }
         //
         public string ProductNameAndPrice { get; set; }
+        public string ProductName { get; set; }
+        public string ProductPrice { get; set; }
         public byte[] Thumbnail { get; set; }
     }
 }

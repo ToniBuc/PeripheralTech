@@ -42,6 +42,8 @@ namespace PeripheralTech.WebAPI.Services
             {
                 x.ProductNameAndPrice = x.Product.Name + " (" + x.Product.Price + ")";
                 x.Thumbnail = x.Product.Thumbnail;
+                x.ProductName = x.Product.Name;
+                x.ProductPrice = x.Product.Price.ToString();
             }
 
             return result;

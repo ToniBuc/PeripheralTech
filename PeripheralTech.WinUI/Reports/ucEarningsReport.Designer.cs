@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,10 +40,13 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // BillBindingSource
+            // 
+            this.BillBindingSource.DataSource = typeof(PeripheralTech.Model.Bill);
             // 
             // reportViewer
             // 
@@ -143,10 +147,6 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // BillBindingSource
-            // 
-            this.BillBindingSource.DataSource = typeof(PeripheralTech.Model.Bill);
-            // 
             // ucEarningsReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -164,8 +164,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucEarningsReport";
             this.Size = new System.Drawing.Size(1000, 719);
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
