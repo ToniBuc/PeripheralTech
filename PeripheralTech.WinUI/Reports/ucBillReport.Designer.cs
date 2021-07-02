@@ -28,18 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.OrderProductBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnConfirmOrder = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderProductBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -57,6 +51,7 @@
             this.btnBack.TabIndex = 130;
             this.btnBack.Text = "<- Back";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // panel6
             // 
@@ -78,34 +73,39 @@
             this.lblHeader.Text = "Bill";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OrderProductBindingSource
-            // 
-            this.OrderProductBindingSource.DataSource = typeof(PeripheralTech.Model.OrderProduct);
-            // 
-            // BillBindingSource
-            // 
-            this.BillBindingSource.DataSource = typeof(PeripheralTech.Model.Bill);
-            // 
             // reportViewer
             // 
-            reportDataSource1.Name = "dsOrderProducts";
-            reportDataSource1.Value = this.OrderProductBindingSource;
-            reportDataSource2.Name = "dsBill";
-            reportDataSource2.Value = this.BillBindingSource;
-            this.reportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer.LocalReport.ReportEmbeddedResource = "PeripheralTech.WinUI.Reports.BillReport.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(181, 89);
+            this.reportViewer.Location = new System.Drawing.Point(186, 154);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(638, 614);
+            this.reportViewer.Size = new System.Drawing.Size(644, 562);
             this.reportViewer.TabIndex = 131;
+            this.reportViewer.Load += new System.EventHandler(this.reportViewer_Load);
+            // 
+            // btnConfirmOrder
+            // 
+            this.btnConfirmOrder.BackColor = System.Drawing.Color.DarkRed;
+            this.btnConfirmOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmOrder.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConfirmOrder.FlatAppearance.BorderSize = 0;
+            this.btnConfirmOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmOrder.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmOrder.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmOrder.Location = new System.Drawing.Point(636, 116);
+            this.btnConfirmOrder.Name = "btnConfirmOrder";
+            this.btnConfirmOrder.Size = new System.Drawing.Size(194, 32);
+            this.btnConfirmOrder.TabIndex = 132;
+            this.btnConfirmOrder.Text = "Confirm Order";
+            this.btnConfirmOrder.UseVisualStyleBackColor = false;
+            this.btnConfirmOrder.Click += new System.EventHandler(this.btnConfirmOrder_Click);
             // 
             // ucBillReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnConfirmOrder);
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel6);
@@ -113,9 +113,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucBillReport";
             this.Size = new System.Drawing.Size(1000, 719);
+            this.Load += new System.EventHandler(this.ucBillReport_Load);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.OrderProductBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BillBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,8 +124,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.BindingSource OrderProductBindingSource;
-        private System.Windows.Forms.BindingSource BillBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+        private System.Windows.Forms.Button btnConfirmOrder;
     }
 }

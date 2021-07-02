@@ -11,5 +11,6 @@ namespace PeripheralTech.Model.Requests
         // for reports
         public DateTime From { get; set; }
         public DateTime To { get; set; }
+        public int? OrderID { get; set; }
     }
 }

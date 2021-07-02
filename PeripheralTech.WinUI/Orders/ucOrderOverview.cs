@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Reports;
 
 namespace PeripheralTech.WinUI.Orders
 {
@@ -62,6 +63,19 @@ namespace PeripheralTech.WinUI.Orders
             }
 
             await LoadOrders(search);
+        }
+
+        private void dgvOrders_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (!dgvOrders.RowCount.Equals(0))
+            {
+                var id = dgvOrders.SelectedRows[0].Cells[0].Value;
+                ucBillReport uc = new ucBillReport(int.Parse(id.ToString()));
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
         }
     }
 }

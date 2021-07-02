@@ -9,52 +9,87 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Orders;
 
 namespace PeripheralTech.WinUI.Reports
 {
     public partial class ucBillReport : UserControl
     {
         private readonly APIService _orderProductService = new APIService("OrderProduct");
+        private readonly APIService _orderService = new APIService("Order");
         private readonly APIService _billService = new APIService("Bill");
-        private int? _id = null;
+        private int? _orderId = null;
         public ucBillReport(int? Id = null)
         {
             InitializeComponent();
-            _id = Id;
+            _orderId = Id;
         }
 
-        private async void reportViewer_Load(object sender, EventArgs e)
+        private async void ucBillReport_Load(object sender, EventArgs e)
         {
-            reportViewer.ZoomMode = ZoomMode.PageWidth;
-
-            var bill = await _billService.GetById<Model.Bill>(_id);
-            var search = new OrderProductSearchRequest()
+            var searchBill = new BillSearchRequest()
             {
-                OrderID = bill.OrderID
+                OrderID = _orderId
             };
 
-            var orderProducts = await _orderProductService.Get<List<Model.OrderProduct>>(search);
+            var bill = await _billService.Get<List<Model.Bill>>(searchBill);
+            var order = await _orderService.GetById<Model.Order>(_orderId);
 
-            if (orderProducts != null && bill != null)
+            if (order.OrderStatusName == "Done")
             {
-                OrderProductBindingSource.DataSource = orderProducts;
-                BillBindingSource.DataSource = bill;
-                ReportDataSource source = new ReportDataSource("dsOrderProducts", OrderProductBindingSource);
-                ReportDataSource source2 = new ReportDataSource("dsOrderProducts", OrderProductBindingSource);
-                this.reportViewer.LocalReport.DataSources.Add(source);
-                this.reportViewer.LocalReport.DataSources.Add(source2);
-                this.reportViewer.RefreshReport();
+                btnConfirmOrder.Enabled = false;
             }
-            else
+
+            if (bill.Count == 1)
             {
-                OrderProductBindingSource.DataSource = null;
-                BillBindingSource.DataSource = null;
-                ReportDataSource source = new ReportDataSource("dsOrderProducts", OrderProductBindingSource);
-                ReportDataSource source2 = new ReportDataSource("dsOrderProducts", OrderProductBindingSource);
+                var search = new OrderProductSearchRequest()
+                {
+                    OrderID = _orderId,
+                    MyOrdersCheck = true
+                };
+
+
+                var orderProducts = await _orderProductService.Get<List<Model.OrderProduct>>(search);
+
+                ReportDataSource source = new ReportDataSource("dsOrderProducts", orderProducts);
                 this.reportViewer.LocalReport.DataSources.Add(source);
-                this.reportViewer.LocalReport.DataSources.Add(source2);
-                this.reportViewer.RefreshReport();
+
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("User", bill[0].UserFullname));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("City", order.User.City.Name));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("Address", order.User.Address));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("User", bill[0].UserFullname));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("Date", bill[0].Date.ToShortDateString()));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("Total", bill[0].PaymentAmount.ToString()));
             }
+
+            this.reportViewer.RefreshReport();
+        }
+
+        private async void btnConfirmOrder_Click(object sender, EventArgs e)
+        {
+            var order = await _orderService.GetById<Model.Order>(_orderId);
+
+            var request = new OrderUpdateRequest()
+            {
+                OrderStatusID = 2,
+                Comment = order.Comment
+            };
+
+            await _orderService.Update<Model.Order>(_orderId, request);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ucOrderOverview uc = new ucOrderOverview();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
+        }
+
+        private void reportViewer_Load(object sender, EventArgs e)
+        {
+            reportViewer.ZoomMode = ZoomMode.PageWidth;
         }
     }
 }

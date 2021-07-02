@@ -99,7 +99,7 @@ namespace PeripheralTech.WebAPI.Services
 
         public override Model.Order GetById(int id)
         {
-            var entity = _context.Order.Where(i => i.OrderID == id).FirstOrDefault();
+            var entity = _context.Order.Where(i => i.OrderID == id).Include(i => i.User).Include(i => i.User.City).Include(i => i.OrderStatus).FirstOrDefault();
 
             var result = _mapper.Map<Model.Order>(entity);
 
@@ -111,6 +111,8 @@ namespace PeripheralTech.WebAPI.Services
             {
                 result.TotalPayment += x.Product.Price;
             }
+
+            result.OrderStatusName = result.OrderStatus.Name;
 
             return result;
         }

@@ -20,7 +20,14 @@ namespace PeripheralTech.WebAPI.Services
             var query = _context.Set<Database.Bill>().Include(i => i.Order).Include(i => i.Order.User).AsQueryable();
 
             //for reports
-            query = query.Where(x => x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            if (!search.OrderID.HasValue)
+            {
+                query = query.Where(x => x.Date.Date >= search.From.Date && x.Date.Date <= search.To.Date);
+            }
+            else
+            {
+                query = query.Where(x => x.OrderID == search.OrderID);
+            }
 
             query = query.OrderBy(x => x.Date);
 

@@ -31,7 +31,7 @@ namespace PeripheralTech.WebAPI.Services
 
             if (request.OrderID.HasValue && request.MyOrdersCheck)
             {
-                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done"));
+                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done") || x.Order.OrderStatus.Name.Equals("Pending"));
             }
 
             var list = query.ToList();
