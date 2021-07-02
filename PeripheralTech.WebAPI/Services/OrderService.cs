@@ -21,7 +21,34 @@ namespace PeripheralTech.WebAPI.Services
 
             if (request.UserID.HasValue && !string.IsNullOrWhiteSpace(request.OrderStatus))
             {
-                query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals(request.OrderStatus));
+                if (request.OrderStatus.Equals("Active"))
+                {
+                    query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals(request.OrderStatus));
+                }
+                else if (request.OrderStatus.Equals("NotActive"))
+                {
+                    query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Done") || x.OrderStatus.Name.Equals("Pending"));
+                }
+            }
+
+            if (!request.UserID.HasValue && !string.IsNullOrWhiteSpace(request.OrderStatus))
+            {
+                if (request.OrderStatus.Equals("Active"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals(request.OrderStatus));
+                }
+                else if (request.OrderStatus.Equals("NotActive"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals("Done") || x.OrderStatus.Name.Equals("Pending"));
+                }
+                else if (request.OrderStatus.Equals("Done"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals("Done"));
+                }
+                else if (request.OrderStatus.Equals("Pending"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals("Pending"));
+                }
             }
 
             var list = query.ToList();
@@ -41,7 +68,7 @@ namespace PeripheralTech.WebAPI.Services
 
             if (result.Count != 0)
             {
-                if (result.Count > 1 || result[0].OrderStatus.Name == "Done")
+                if (result.Count > 1 || result[0].OrderStatus.Name != "Active")
                 {
                     foreach (var x in result)
                     {
@@ -50,9 +77,18 @@ namespace PeripheralTech.WebAPI.Services
                         foreach (var y in productList)
                         {
                             x.TotalPayment += y.Product.Price;
+                            if (x.AmountOfProducts != null)
+                            {
+                                x.AmountOfProducts += 1;
+                            }
+                            else
+                            {
+                                x.AmountOfProducts = 1;
+                            }
                         }
-
+                        x.UserFullname = x.User.FirstName + " \"" + x.User.Username + "\" " + x.User.LastName;
                         x.DateShort = x.Date.ToShortDateString();
+                        x.OrderStatusName = x.OrderStatus.Name;
                     }
                 }
             }

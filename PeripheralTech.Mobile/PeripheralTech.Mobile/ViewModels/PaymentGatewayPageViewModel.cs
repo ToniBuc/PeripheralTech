@@ -142,9 +142,10 @@ namespace PeripheralTech.Mobile.ViewModels
 
                     await _billService.Insert<Model.Bill>(request);
 
+                    //changed from done to pending
                     var orderRequest = new OrderUpdateRequest()
                     {
-                        OrderStatusID = 2,
+                        OrderStatusID = 3,
                         Comment = Order.Comment
                     };
 

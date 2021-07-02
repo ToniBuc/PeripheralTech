@@ -1,6 +1,7 @@
 ﻿using PeripheralTech.WinUI.City;
 using PeripheralTech.WinUI.Company;
 using PeripheralTech.WinUI.News;
+using PeripheralTech.WinUI.Orders;
 using PeripheralTech.WinUI.Product;
 using PeripheralTech.WinUI.Question;
 using PeripheralTech.WinUI.Reports;
@@ -219,6 +220,14 @@ namespace PeripheralTech.WinUI
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucEarningsReport"].BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ucOrderOverview uc = new ucOrderOverview();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucOrderOverview"].BringToFront();
         }
     }
 }

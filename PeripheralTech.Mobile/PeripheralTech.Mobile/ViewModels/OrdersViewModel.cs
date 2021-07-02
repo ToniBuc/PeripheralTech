@@ -26,7 +26,7 @@ namespace PeripheralTech.Mobile.ViewModels
             var search = new OrderSearchRequest()
             {
                 UserID = APIService.UserID,
-                OrderStatus = "Done"
+                OrderStatus = "NotActive"
             };
 
             var orderList = await _orderService.Get<List<Model.Order>>(search);

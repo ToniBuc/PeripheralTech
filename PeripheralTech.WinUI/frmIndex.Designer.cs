@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnQuestions = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -49,6 +50,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pnlLeft.Controls.Add(this.button2);
             this.pnlLeft.Controls.Add(this.button1);
             this.pnlLeft.Controls.Add(this.btnQuestions);
             this.pnlLeft.Controls.Add(this.button7);
@@ -62,6 +64,16 @@
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(200, 750);
             this.pnlLeft.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 239);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 46);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "temp earning report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnQuestions
             // 
@@ -190,15 +202,15 @@
             this.panel1.Size = new System.Drawing.Size(1000, 719);
             this.panel1.TabIndex = 20;
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(12, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 46);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "temp earning report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(12, 187);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(172, 46);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Orders";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmIndex
             // 
@@ -237,6 +249,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnQuestions;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

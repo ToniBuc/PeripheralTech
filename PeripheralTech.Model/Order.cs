@@ -18,5 +18,8 @@ namespace PeripheralTech.Model
         //
         public decimal TotalPayment { get; set; }
         public string DateShort { get; set; }
+        public int? AmountOfProducts { get; set; }
+        public string OrderStatusName { get; set; }
+        public string UserFullname { get; set; }
     }
 }
