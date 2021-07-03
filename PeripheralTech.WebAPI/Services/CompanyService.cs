@@ -28,6 +28,12 @@ namespace PeripheralTech.WebAPI.Services
 
             var result = _mapper.Map<List<Model.Company>>(list);
 
+            foreach(var x in result)
+            {
+                x.NumberOfSales = _context.OrderProduct.Where(i => i.Product.CompanyID == x.CompanyID && !i.Order.OrderStatus.Name.Equals("Active")
+                                                                    && i.Order.Date.Date >= request.From.Date && i.Order.Date.Date <= request.To.Date).Count();
+            }
+
             return result;
         }
     }

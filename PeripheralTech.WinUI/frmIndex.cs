@@ -229,5 +229,13 @@ namespace PeripheralTech.WinUI
             panel1.Controls.Add(uc);
             panel1.Controls["ucOrderOverview"].BringToFront();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ucCompanyReport uc = new ucCompanyReport();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucCompanyReport"].BringToFront();
+        }
     }
 }

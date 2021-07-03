@@ -165,6 +165,12 @@
     <Compile Include="Reports\ucBillReport.Designer.cs">
       <DependentUpon>ucBillReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ucCompanyReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ucCompanyReport.Designer.cs">
+      <DependentUpon>ucCompanyReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ucEarningsReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,9 +252,13 @@
       <DependentUpon>ucQuestionOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\BillReport.rdlc" />
+    <EmbeddedResource Include="Reports\CompanyReport.rdlc" />
     <EmbeddedResource Include="Reports\EarningsReport.rdlc" />
     <EmbeddedResource Include="Reports\ucBillReport.resx">
       <DependentUpon>ucBillReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ucCompanyReport.resx">
+      <DependentUpon>ucCompanyReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ucEarningsReport.resx">
       <DependentUpon>ucEarningsReport.cs</DependentUpon>
@@ -267,6 +277,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PeripheralTech.Model.Bill.datasource" />
+    <None Include="Properties\DataSources\PeripheralTech.Model.Company.datasource" />
     <None Include="Properties\DataSources\PeripheralTech.Model.OrderProduct1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>

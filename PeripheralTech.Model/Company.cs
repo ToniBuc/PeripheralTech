@@ -8,5 +8,7 @@ namespace PeripheralTech.Model
     {
         public int CompanyID { get; set; }
         public string Name { get; set; }
+        //
+        public int NumberOfSales { get; set; }
     }
 }
