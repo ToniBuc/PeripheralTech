@@ -41,6 +41,7 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -49,6 +50,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pnlLeft.Controls.Add(this.btnHome);
             this.pnlLeft.Controls.Add(this.button2);
             this.pnlLeft.Controls.Add(this.btnQuestions);
             this.pnlLeft.Controls.Add(this.button7);
@@ -200,6 +202,16 @@
             this.panel1.Size = new System.Drawing.Size(1000, 719);
             this.panel1.TabIndex = 20;
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(12, 187);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(172, 46);
+            this.btnHome.TabIndex = 12;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +249,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnQuestions;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnHome;
     }
 }
 

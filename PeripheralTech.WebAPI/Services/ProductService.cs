@@ -59,6 +59,11 @@ namespace PeripheralTech.WebAPI.Services
                 }
             }
 
+            if (request.AmountInStock.HasValue)
+            {
+                query = query.Where(x => x.AmountInStock == request.AmountInStock);
+            }
+
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.Product>>(list);

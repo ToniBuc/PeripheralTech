@@ -11,5 +11,6 @@ namespace PeripheralTech.Model.Requests
         public int? CompanyID { get; set; }
         public string OrderByPrice { get; set; }
         public string InStock { get; set; }
+        public int? AmountInStock { get; set; }
     }
 }

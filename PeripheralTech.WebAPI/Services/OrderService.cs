@@ -27,7 +27,8 @@ namespace PeripheralTech.WebAPI.Services
                 }
                 else if (request.OrderStatus.Equals("NotActive"))
                 {
-                    query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Done") || x.OrderStatus.Name.Equals("Pending"));
+                    //this might need fixing, keep it in mind
+                    query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Done") || x.UserID == request.UserID && x.OrderStatus.Name.Equals("Pending"));
                 }
             }
 

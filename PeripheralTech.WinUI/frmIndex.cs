@@ -164,6 +164,10 @@ namespace PeripheralTech.WinUI
         private void frmIndex_Load(object sender, EventArgs e)
         {
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.White;
+            ucMainMenu uc = new ucMainMenu();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucMainMenu"].BringToFront();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -220,6 +224,14 @@ namespace PeripheralTech.WinUI
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucOrderOverview"].BringToFront();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            ucMainMenu uc = new ucMainMenu();
+            uc.Dock = DockStyle.Fill;
+            panel1.Controls.Add(uc);
+            panel1.Controls["ucMainMenu"].BringToFront();
         }
     }
 }
