@@ -66,10 +66,11 @@
                                     </Grid.GestureRecognizers>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="200" />
-                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*" x:Name="discountRow"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image     Grid.Row="0"
                                            Grid.Column="0"
@@ -81,6 +82,14 @@
                                             Grid.Column="0"
                                             Text="{Binding ProductNamePrice}"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                <Label      Grid.Row="2"
+                                            Grid.Column="0"
+                                            Text="{Binding DiscountedString}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            TextColor="Red"
                                             FontSize="15"
                                             FontAttributes="Bold"
                                             HorizontalOptions="CenterAndExpand"/>

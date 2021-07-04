@@ -31,7 +31,7 @@ namespace PeripheralTech.WebAPI.Services
 
             if (request.OrderID.HasValue && request.MyOrdersCheck)
             {
-                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done") || x.Order.OrderStatus.Name.Equals("Pending"));
+                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done") || x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Pending"));
             }
 
             var list = query.ToList();
@@ -44,6 +44,29 @@ namespace PeripheralTech.WebAPI.Services
                 x.Thumbnail = x.Product.Thumbnail;
                 x.ProductName = x.Product.Name;
                 x.ProductPrice = x.Product.Price.ToString();
+
+                Discount discount = null;
+                if (!request.MyOrdersCheck)
+                {
+                    discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                }
+                else
+                {
+                    discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= x.Order.Date.Date && i.To.Date >= x.Order.Date.Date).FirstOrDefault();
+                }
+
+                if (discount != null)
+                {
+                    var discountedPrice = x.Product.Price - (x.Product.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNameAndPrice = x.Product.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Product.Price + ")";
+                    x.DiscountedPrice = discountedPrice;
+                }
+                else
+                {
+                    x.ProductNameAndPrice = x.Product.Name + " - " + x.Product.Price.ToString();
+                }
             }
 
             return result;

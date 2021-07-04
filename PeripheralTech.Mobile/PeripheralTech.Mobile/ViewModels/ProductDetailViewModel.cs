@@ -102,7 +102,14 @@ namespace PeripheralTech.Mobile.ViewModels
             {
                 Name = Product.Name;
                 Description = Product.Description;
-                Price = Product.Price.ToString();
+                if (Product.Discounted)
+                {
+                    Price = Product.DiscountedPrice + " " + Product.DiscountedString;
+                }
+                else
+                {
+                    Price = Product.Price.ToString();
+                }
                 AmountInStock = Product.AmountInStock.ToString();
                 CompanyName = Product.CompanyName;
                 Thumbnail = Product.Thumbnail;

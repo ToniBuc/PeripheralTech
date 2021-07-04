@@ -67,7 +67,19 @@ namespace PeripheralTech.WebAPI.Services
             {
                 x.CompanyName = x.Company.Name;
                 x.ProductTypeName = x.ProductType.Name;
-                x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    //x.DiscountedPrice = discountedPrice.ToString();
+                }
+                else
+                {
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                }                
             }
 
             return result;
@@ -81,6 +93,20 @@ namespace PeripheralTech.WebAPI.Services
 
             result.CompanyName = result.Company.Name;
             result.ProductTypeName = result.ProductType.Name;
+
+            var discount = _context.Discount.Where(i => i.ProductID == result.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+            if (discount != null)
+            {
+                var discountedPrice = result.Price - (result.Price * discount.DiscountPercentage) / 100;
+                result.ProductNamePrice = result.Name + " - " + Math.Round(discountedPrice, 2);
+                result.Discounted = true;
+                result.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + result.Price + ")";
+                result.DiscountedPrice = Math.Round(discountedPrice,2).ToString();
+            }
+            else
+            {
+                result.ProductNamePrice = result.Name + " - " + result.Price.ToString();
+            }
 
             return result;
         }

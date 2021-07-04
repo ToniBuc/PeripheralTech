@@ -66,9 +66,17 @@ namespace PeripheralTech.Mobile.ViewModels
                 foreach (var x in orderProductList)
                 {
                     OrderProductList.Add(x);
-                    totalPayment += x.Product.Price;
+                    if (x.Discounted)
+                    {
+                        totalPayment += x.DiscountedPrice;
+                    }
+                    else
+                    {
+                        totalPayment += x.Product.Price;
+                    }
+                    
                 }
-                TotalPayment = "Total payment: " + totalPayment;
+                TotalPayment = "Total payment: " + Math.Round(totalPayment,2);
                 //Order.Comment = Comment;
             }
         }

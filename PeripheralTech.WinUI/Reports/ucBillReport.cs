@@ -72,7 +72,8 @@ namespace PeripheralTech.WinUI.Reports
             var request = new OrderUpdateRequest()
             {
                 OrderStatusID = 2,
-                Comment = order.Comment
+                Comment = order.Comment,
+                Date = order.Date
             };
 
             await _orderService.Update<Model.Order>(_orderId, request);

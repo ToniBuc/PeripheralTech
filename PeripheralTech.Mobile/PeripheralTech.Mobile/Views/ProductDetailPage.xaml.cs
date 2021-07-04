@@ -69,6 +69,11 @@ namespace PeripheralTech.Mobile.Views
             //        addToCartButton.Text = "In Cart";
             //    }
             //}
+            if (Convert.ToInt32(model.AmountInStock) == 0)
+            {
+                addToCartButton.IsEnabled = false;
+                addToCartButton.Text = "Out of Stock";
+            }
         }
 
         private async void UserReviews_Clicked(object sender, EventArgs e)

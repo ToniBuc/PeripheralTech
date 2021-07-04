@@ -8,5 +8,6 @@ namespace PeripheralTech.Model.Requests
     {
         public int? OrderStatusID { get; set; }
         public string Comment { get; set; }
+        public DateTime Date { get; set; }
     }
 }

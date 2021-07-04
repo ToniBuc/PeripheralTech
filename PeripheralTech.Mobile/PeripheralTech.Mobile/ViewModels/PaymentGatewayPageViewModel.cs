@@ -146,7 +146,8 @@ namespace PeripheralTech.Mobile.ViewModels
                     var orderRequest = new OrderUpdateRequest()
                     {
                         OrderStatusID = 3,
-                        Comment = Order.Comment
+                        Comment = Order.Comment,
+                        Date = DateTime.Now
                     };
 
                     await _orderService.Update<Model.Order>(Order.OrderID, orderRequest);

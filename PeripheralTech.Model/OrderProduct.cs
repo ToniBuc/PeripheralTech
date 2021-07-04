@@ -16,5 +16,9 @@ namespace PeripheralTech.Model
         public string ProductName { get; set; }
         public string ProductPrice { get; set; }
         public byte[] Thumbnail { get; set; }
+        //for discounts
+        public bool Discounted { get; set; }
+        public string DiscountedString { get; set; }
+        public decimal DiscountedPrice { get; set; }
     }
 }

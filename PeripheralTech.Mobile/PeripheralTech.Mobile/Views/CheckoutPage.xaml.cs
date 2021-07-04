@@ -1,4 +1,5 @@
 ﻿using PeripheralTech.Mobile.ViewModels;
+using PeripheralTech.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace PeripheralTech.Mobile.Views
     public partial class CheckoutPage : ContentPage
     {
         private CheckoutViewModel model = null;
+        private readonly APIService _productService = new APIService("Product");
         public CheckoutPage()
         {
             InitializeComponent();
@@ -54,19 +56,37 @@ namespace PeripheralTech.Mobile.Views
 
         private async void purchaseButton_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(APIService.User.Address) || !APIService.User.CityID.HasValue)
+            bool stockChecker = false;
+            foreach (var x in model.OrderProductList)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You must add both a City and Address (your residence to be delivered to) " +
-                    "to your profile information before you can purchase products! If your resident city is not available in the options, please send in a request" +
-                    "for it to be added through the app's question system.", "OK");
+                var product = await _productService.GetById<Model.Product>(x.ProductID);
+                if (product.AmountInStock == 0)
+                {
+                    stockChecker = true;
+                }
+            }
+
+            if (stockChecker == true)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "One or more product within your cart has gone out of stock before you could purchase it! " +
+                                                                         "Please remove it from your cart if you wish to purchase the other products. " +
+                                                                         "We apologise for the inconvenience.", "OK");
             }
             else
             {
-                var item = model.Order;
-                item.Comment = model.Comment;
-                await Navigation.PushAsync(new BillPaymentGatewayPage(item));
+                if (string.IsNullOrEmpty(APIService.User.Address) || !APIService.User.CityID.HasValue)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "You must add both a City and Address (your residence to be delivered to) " +
+                        "to your profile information before you can purchase products! If your resident city is not available in the options, please send in a request" +
+                        "for it to be added through the app's question system.", "OK");
+                }
+                else
+                {
+                    var item = model.Order;
+                    item.Comment = model.Comment;
+                    await Navigation.PushAsync(new BillPaymentGatewayPage(item));
+                }
             }
-            
         }
     }
 }

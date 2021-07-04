@@ -62,7 +62,17 @@ namespace PeripheralTech.WebAPI.Services
 
                 foreach (var x in productList)
                 {
-                    result[0].TotalPayment += x.Product.Price;
+                    var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                    if (discount != null)
+                    {
+                        var discountedPrice = x.Product.Price - (x.Product.Price * discount.DiscountPercentage) / 100;
+                        result[0].TotalPayment += discountedPrice;
+                    }
+                    else
+                    {
+                        result[0].TotalPayment += x.Product.Price;
+                    }
+                   
                 }
             }
 
@@ -76,7 +86,17 @@ namespace PeripheralTech.WebAPI.Services
 
                         foreach (var y in productList)
                         {
-                            x.TotalPayment += y.Product.Price;
+                            var discount = _context.Discount.Where(i => i.ProductID == y.ProductID && i.From.Date <= x.Date.Date && i.To.Date >= x.Date.Date).FirstOrDefault();
+                            if (discount != null)
+                            {
+                                var discountedPrice = y.Product.Price - (y.Product.Price * discount.DiscountPercentage) / 100;
+                                x.TotalPayment += discountedPrice;
+                            }
+                            else
+                            {
+                                x.TotalPayment += y.Product.Price;
+                            }
+
                             if (x.AmountOfProducts != null)
                             {
                                 x.AmountOfProducts += 1;
@@ -109,7 +129,16 @@ namespace PeripheralTech.WebAPI.Services
 
             foreach (var x in productList)
             {
-                result.TotalPayment += x.Product.Price;
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= result.Date.Date && i.To.Date >= result.Date.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Product.Price - (x.Product.Price * discount.DiscountPercentage) / 100;
+                    result.TotalPayment += discountedPrice;
+                }
+                else
+                {
+                    result.TotalPayment += x.Product.Price;
+                }
             }
 
             result.OrderStatusName = result.OrderStatus.Name;
