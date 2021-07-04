@@ -25,6 +25,11 @@ namespace PeripheralTech.WinUI.Orders
         {
             var orderList = await _orderService.Get<List<Model.Order>>(search);
 
+            foreach(var x in orderList)
+            {
+                x.TotalPayment = Math.Round(x.TotalPayment, 2);
+            }
+
             dgvOrders.AutoGenerateColumns = false;
             dgvOrders.DataSource = orderList;
         }
@@ -76,6 +81,15 @@ namespace PeripheralTech.WinUI.Orders
                 uc.BringToFront();
                 this.Parent.Controls.Remove(this);
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ucEarningsReport uc = new ucEarningsReport();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
         }
     }
 }

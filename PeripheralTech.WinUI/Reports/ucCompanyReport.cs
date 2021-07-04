@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Company;
 
 namespace PeripheralTech.WinUI.Reports
 {
@@ -81,7 +82,11 @@ namespace PeripheralTech.WinUI.Reports
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
+            ucCompanyOverview uc = new ucCompanyOverview();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
         }
     }
 }

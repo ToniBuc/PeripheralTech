@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Reports;
 
 namespace PeripheralTech.WinUI.Company
 {
@@ -90,6 +91,15 @@ namespace PeripheralTech.WinUI.Company
                 txtCompanyName.Text = company.Name;
                 lblCompany.Text = company.Name;
             }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ucCompanyReport uc = new ucCompanyReport();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
         }
     }
 }

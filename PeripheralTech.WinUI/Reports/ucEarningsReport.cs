@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Orders;
 
 namespace PeripheralTech.WinUI.Reports
 {
@@ -55,11 +56,11 @@ namespace PeripheralTech.WinUI.Reports
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //ucQuestionOverview uc = new ucQuestionOverview();
-            //this.Parent.Controls.Add(uc);
-            //uc.Dock = DockStyle.Fill;
-            //uc.BringToFront();
-            //this.Parent.Controls.Remove(this);
+            ucOrderOverview uc = new ucOrderOverview();
+            this.Parent.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+            this.Parent.Controls.Remove(this);
         }
     }
 }

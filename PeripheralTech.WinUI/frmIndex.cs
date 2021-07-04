@@ -214,28 +214,12 @@ namespace PeripheralTech.WinUI
             panel1.Controls["ucQuestionOverview"].BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ucEarningsReport uc = new ucEarningsReport();
-            uc.Dock = DockStyle.Fill;
-            panel1.Controls.Add(uc);
-            panel1.Controls["ucEarningsReport"].BringToFront();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ucOrderOverview uc = new ucOrderOverview();
             uc.Dock = DockStyle.Fill;
             panel1.Controls.Add(uc);
             panel1.Controls["ucOrderOverview"].BringToFront();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ucCompanyReport uc = new ucCompanyReport();
-            uc.Dock = DockStyle.Fill;
-            panel1.Controls.Add(uc);
-            panel1.Controls["ucCompanyReport"].BringToFront();
         }
     }
 }

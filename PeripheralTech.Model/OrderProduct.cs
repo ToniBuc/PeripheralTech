@@ -20,5 +20,7 @@ namespace PeripheralTech.Model
         public bool Discounted { get; set; }
         public string DiscountedString { get; set; }
         public decimal DiscountedPrice { get; set; }
+        //for reports
+        public string FinalPrice { get; set; }
     }
 }

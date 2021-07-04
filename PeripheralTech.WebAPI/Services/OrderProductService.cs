@@ -62,10 +62,12 @@ namespace PeripheralTech.WebAPI.Services
                     x.Discounted = true;
                     x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Product.Price + ")";
                     x.DiscountedPrice = discountedPrice;
+                    x.FinalPrice = Math.Round(discountedPrice,2).ToString();
                 }
                 else
                 {
                     x.ProductNameAndPrice = x.Product.Name + " - " + x.Product.Price.ToString();
+                    x.FinalPrice = x.Product.Price.ToString();
                 }
             }
 
