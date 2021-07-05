@@ -311,6 +311,7 @@
             this.btnDeleteVideo.TabIndex = 129;
             this.btnDeleteVideo.Text = "Delete selected video";
             this.btnDeleteVideo.UseVisualStyleBackColor = false;
+            this.btnDeleteVideo.Click += new System.EventHandler(this.btnDeleteVideo_Click);
             // 
             // cmbVideos
             // 

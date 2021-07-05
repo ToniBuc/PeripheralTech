@@ -216,5 +216,27 @@ namespace PeripheralTech.WinUI.Product
                 axWindowsMediaPlayer1.settings.autoStart = true;
             }
         }
+
+        private async void btnDeleteVideo_Click(object sender, EventArgs e)
+        {
+            //if (!dgvImages.RowCount.Equals(0) && dgvImages.SelectedRows.Count != 0)
+            if  (cmbVideos.SelectedItem != null)
+            {
+                //var id = dgvImages.SelectedRows[0].Cells[0].Value;
+
+                var id = cmbVideos.SelectedValue;
+
+                await _productVideoService.Delete<Model.ProductVideo>(Convert.ToInt32(id));
+
+                MessageBox.Show("Operation successful!");
+
+                var search = new ProductVideoSearchRequest()
+                {
+                    ProductID = _id
+                };
+
+                await LoadProductVideos(search);
+            }
+        }
     }
 }
