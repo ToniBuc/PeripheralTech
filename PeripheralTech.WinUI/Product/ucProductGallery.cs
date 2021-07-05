@@ -219,11 +219,12 @@ namespace PeripheralTech.WinUI.Product
 
         private async void btnDeleteVideo_Click(object sender, EventArgs e)
         {
-            //if (!dgvImages.RowCount.Equals(0) && dgvImages.SelectedRows.Count != 0)
-            if  (cmbVideos.SelectedItem != null)
+            if (cmbVideos.SelectedItem == null || cmbVideos.SelectedIndex == 0)
             {
-                //var id = dgvImages.SelectedRows[0].Cells[0].Value;
-
+                MessageBox.Show("Please select a video to be deleted.");
+            }
+            else
+            {
                 var id = cmbVideos.SelectedValue;
 
                 await _productVideoService.Delete<Model.ProductVideo>(Convert.ToInt32(id));
