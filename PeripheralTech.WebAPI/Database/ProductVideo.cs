@@ -11,5 +11,6 @@ namespace PeripheralTech.WebAPI.Database
         public int ProductID { get; set; }
         public Product Product { get; set; }
         public byte[] Video { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -8,5 +8,6 @@ namespace PeripheralTech.Model.Requests
     {
         public int ProductID { get; set; }
         public byte[] Video { get; set; }
+        public string Title { get; set; }
     }
 }

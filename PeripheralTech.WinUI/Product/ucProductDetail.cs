@@ -220,7 +220,8 @@ namespace PeripheralTech.WinUI.Product
         {
             if (_id != null)
             {
-                ucProductGallery uc = new ucProductGallery(_id.Value);
+                var idPlsWork = _id.Value;
+                ucProductGallery uc = new ucProductGallery(idPlsWork);
                 this.Parent.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
                 uc.BringToFront();

@@ -6,6 +6,7 @@ namespace PeripheralTech.Model.Requests
 {
     public class ProductVideoSearchRequest
     {
+        public int? ProductVideoID { get; set; }
         public int ProductID { get; set; }
     }
 }

@@ -64,6 +64,11 @@ namespace PeripheralTech.WebAPI.Services
                 query = query.Where(x => x.AmountInStock == request.AmountInStock);
             }
 
+            if (request.ProductID.HasValue)
+            {
+                query = query.Where(x => x.ProductID == request.ProductID);
+            }
+
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.Product>>(list);
@@ -106,7 +111,7 @@ namespace PeripheralTech.WebAPI.Services
                 result.ProductNamePrice = result.Name + " - " + Math.Round(discountedPrice, 2);
                 result.Discounted = true;
                 result.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + result.Price + ")";
-                result.DiscountedPrice = Math.Round(discountedPrice,2).ToString();
+                result.DiscountedPrice = Math.Round(discountedPrice, 2).ToString();
             }
             else
             {

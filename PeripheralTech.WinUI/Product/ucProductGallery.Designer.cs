@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProductGallery));
             this.btnDeleteImage = new System.Windows.Forms.Button();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -45,9 +46,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddVideo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDeleteVideo = new System.Windows.Forms.Button();
+            this.cmbVideos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVideoInput = new System.Windows.Forms.TextBox();
+            this.btnPlayVideo = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImages)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDeleteImage
@@ -120,46 +133,46 @@
             this.dgvImages.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvImages.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvImages.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvImages.ColumnHeadersHeight = 24;
             this.dgvImages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvImages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductImageID,
             this.Image});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImages.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImages.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvImages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvImages.EnableHeadersVisualStyles = false;
             this.dgvImages.GridColor = System.Drawing.SystemColors.Control;
             this.dgvImages.Location = new System.Drawing.Point(0, 0);
             this.dgvImages.Name = "dgvImages";
             this.dgvImages.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvImages.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvImages.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvImages.RowHeadersVisible = false;
             this.dgvImages.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.dgvImages.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.dgvImages.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvImages.RowTemplate.Height = 240;
             this.dgvImages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvImages.Size = new System.Drawing.Size(490, 568);
@@ -236,11 +249,135 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.DarkRed;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Calibri Light", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(490, 24);
+            this.label1.TabIndex = 124;
+            this.label1.Text = "Videos";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(507, 148);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(490, 24);
+            this.panel2.TabIndex = 125;
+            // 
+            // btnAddVideo
+            // 
+            this.btnAddVideo.BackColor = System.Drawing.Color.DarkRed;
+            this.btnAddVideo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddVideo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddVideo.FlatAppearance.BorderSize = 0;
+            this.btnAddVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddVideo.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddVideo.ForeColor = System.Drawing.Color.White;
+            this.btnAddVideo.Location = new System.Drawing.Point(705, 115);
+            this.btnAddVideo.Name = "btnAddVideo";
+            this.btnAddVideo.Size = new System.Drawing.Size(98, 27);
+            this.btnAddVideo.TabIndex = 128;
+            this.btnAddVideo.Text = "Add video";
+            this.btnAddVideo.UseVisualStyleBackColor = false;
+            this.btnAddVideo.Click += new System.EventHandler(this.btnAddVideo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(507, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 23);
+            this.label2.TabIndex = 127;
+            this.label2.Text = "Video:";
+            // 
+            // btnDeleteVideo
+            // 
+            this.btnDeleteVideo.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteVideo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteVideo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDeleteVideo.FlatAppearance.BorderSize = 0;
+            this.btnDeleteVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteVideo.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteVideo.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteVideo.Location = new System.Drawing.Point(807, 115);
+            this.btnDeleteVideo.Name = "btnDeleteVideo";
+            this.btnDeleteVideo.Size = new System.Drawing.Size(190, 27);
+            this.btnDeleteVideo.TabIndex = 129;
+            this.btnDeleteVideo.Text = "Delete selected video";
+            this.btnDeleteVideo.UseVisualStyleBackColor = false;
+            // 
+            // cmbVideos
+            // 
+            this.cmbVideos.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVideos.FormattingEnabled = true;
+            this.cmbVideos.Location = new System.Drawing.Point(507, 205);
+            this.cmbVideos.Name = "cmbVideos";
+            this.cmbVideos.Size = new System.Drawing.Size(188, 27);
+            this.cmbVideos.TabIndex = 130;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(507, 179);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 23);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "Select Video:";
+            // 
+            // txtVideoInput
+            // 
+            this.txtVideoInput.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVideoInput.Location = new System.Drawing.Point(507, 115);
+            this.txtVideoInput.Name = "txtVideoInput";
+            this.txtVideoInput.Size = new System.Drawing.Size(192, 27);
+            this.txtVideoInput.TabIndex = 133;
+            // 
+            // btnPlayVideo
+            // 
+            this.btnPlayVideo.BackColor = System.Drawing.Color.DarkRed;
+            this.btnPlayVideo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlayVideo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPlayVideo.FlatAppearance.BorderSize = 0;
+            this.btnPlayVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayVideo.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayVideo.ForeColor = System.Drawing.Color.White;
+            this.btnPlayVideo.Location = new System.Drawing.Point(705, 204);
+            this.btnPlayVideo.Name = "btnPlayVideo";
+            this.btnPlayVideo.Size = new System.Drawing.Size(98, 27);
+            this.btnPlayVideo.TabIndex = 134;
+            this.btnPlayVideo.Text = "Play";
+            this.btnPlayVideo.UseVisualStyleBackColor = false;
+            this.btnPlayVideo.Click += new System.EventHandler(this.btnPlayVideo_Click);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(507, 238);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(486, 327);
+            this.axWindowsMediaPlayer1.TabIndex = 131;
+            // 
             // ucProductGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnPlayVideo);
+            this.Controls.Add(this.txtVideoInput);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.cmbVideos);
+            this.Controls.Add(this.btnDeleteVideo);
+            this.Controls.Add(this.btnAddVideo);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDeleteImage);
@@ -257,6 +394,8 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImages)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +416,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnAddVideo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnDeleteVideo;
+        private System.Windows.Forms.ComboBox cmbVideos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtVideoInput;
+        private System.Windows.Forms.Button btnPlayVideo;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
