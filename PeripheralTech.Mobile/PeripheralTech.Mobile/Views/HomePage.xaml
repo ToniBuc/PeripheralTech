@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PeripheralTech.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.HomePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HeightRequest="150">
+                <Image x:Name="Logo" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"></Image>
+            </StackLayout>
+            <Label Text="Welcome to PeripheralTech!"
+                HorizontalOptions="CenterAndExpand" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="30"/>
+            <Label Text="{Binding Username}"
+                HorizontalOptions="CenterAndExpand" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="24"/>
+            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <Label Text="Recently added:"
+                HorizontalOptions="CenterAndExpand" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="21"
+                   Margin="0,20,0,0"/>
+            <CollectionView ItemsSource="{Binding RecentProductList}" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <!--<Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                            </Grid.GestureRecognizers>-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="16" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image     Grid.Row="0"
+                                               Grid.Column="0"
+                                               Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                               x:Name="productImage"
+                                               Aspect="AspectFit" 
+                                               HorizontalOptions="CenterAndExpand"></Image>
+                            <Label      Grid.Row="1"
+                                                Grid.Column="0"
+                                                Text="{Binding ProductNamePrice}"
+                                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                                FontSize="15"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <Label Text="Currently on discount:"
+                HorizontalOptions="CenterAndExpand" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="21"
+                   Margin="0,10,0,0"/>
+            <CollectionView ItemsSource="{Binding DiscountedProductList}" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <!--<Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                            </Grid.GestureRecognizers>-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image     Grid.Row="0"
+                                               Grid.Column="0"
+                                               Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                               x:Name="productImage"
+                                               Aspect="AspectFit" 
+                                               HorizontalOptions="CenterAndExpand"></Image>
+                            <Label      Grid.Row="1"
+                                                Grid.Column="0"
+                                                Text="{Binding ProductNamePrice}"
+                                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                                FontSize="15"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

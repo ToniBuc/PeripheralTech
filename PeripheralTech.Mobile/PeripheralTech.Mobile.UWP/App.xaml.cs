@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -51,6 +52,10 @@ namespace PeripheralTech.Mobile.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+
+                //List<Assembly> assembliesToInclude = new List<Assembly>();
+                //assembliesToInclude.Add(typeof(CarouselViewRenderer).GetTypeInfo().Assembly);
+                //Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 
                 Rg.Plugins.Popup.Popup.Init();
                 //Xamarin.Forms.Forms.Init(e);

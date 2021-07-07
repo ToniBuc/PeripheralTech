@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 
 namespace PeripheralTech.WebAPI.Services
 {
-    public class ProductService : BaseCRUDService<Model.Product, ProductSearchRequest, Database.Product, ProductUpsertRequest, ProductUpsertRequest>
+    //public class ProductService : BaseCRUDService<Model.Product, ProductSearchRequest, Database.Product, ProductUpsertRequest, ProductUpsertRequest>
+    public class ProductService : IProductService
     {
-        public ProductService(PeripheralTechDbContext context, IMapper mapper) : base(context, mapper)
+        private readonly PeripheralTechDbContext _context;
+        private readonly IMapper _mapper;
+        public ProductService(PeripheralTechDbContext context, IMapper mapper)
         {
-
+            _context = context;
+            _mapper = mapper;
         }
 
-        public override List<Model.Product> Get(ProductSearchRequest request)
+        public List<Model.Product> Get(ProductSearchRequest request)
         {
             var query = _context.Product.Include(i => i.ProductType).Include(i => i.Company).AsQueryable();
 
@@ -95,7 +99,7 @@ namespace PeripheralTech.WebAPI.Services
             return result;
         }
 
-        public override Model.Product GetById(int id)
+        public Model.Product GetById(int id)
         {
             var entity = _context.Product.Where(i => i.ProductID == id).Include(i => i.ProductType).Include(i => i.Company).FirstOrDefault();
 
@@ -121,7 +125,7 @@ namespace PeripheralTech.WebAPI.Services
             return result;
         }
 
-        public override Model.Product Update(int id, ProductUpsertRequest request)
+        public Model.Product Update(int id, ProductUpsertRequest request)
         {
             var entity = _context.Product.Find(id);
             if (request.Thumbnail == null)
@@ -133,6 +137,70 @@ namespace PeripheralTech.WebAPI.Services
 
             _mapper.Map(request, entity);
 
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Product>(entity);
+        }
+
+        public List<Model.Product> GetRecentProducts(ProductSearchRequest search)
+        {
+            var query = _context.Set<Database.Product>().AsQueryable();
+
+            query = query.Where(i => i.AmountInStock != 0);
+
+            var list = query.ToList().OrderByDescending(i => i.ProductID).Take(3);
+            var result = _mapper.Map<List<Model.Product>>(list);
+
+            foreach (var x in result)
+            {
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                }
+                else
+                {
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                }
+            }
+
+            return result;
+        }
+
+        public List<Model.Product> GetDiscountedProducts(ProductSearchRequest search)
+        {
+            var query = _context.Set<Database.Product>().AsQueryable();
+
+            query = query.Where(i => i.AmountInStock != 0);
+
+            var list = query.ToList();
+            var result = _mapper.Map<List<Model.Product>>(list);
+            var realResult = new List<Model.Product>();
+
+            foreach (var x in result)
+            {
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    realResult.Add(x);
+                }
+            }
+
+            return realResult;
+        }
+
+        public Model.Product Insert(ProductUpsertRequest request)
+        {
+            var entity = _mapper.Map<Database.Product>(request);
+
+            _context.Add(entity);
             _context.SaveChanges();
 
             return _mapper.Map<Model.Product>(entity);

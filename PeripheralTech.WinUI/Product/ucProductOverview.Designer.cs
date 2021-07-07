@@ -56,7 +56,6 @@
             this.Manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddNewProduct = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -360,7 +359,7 @@
             this.btnAddNewProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewProduct.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewProduct.Location = new System.Drawing.Point(9, 673);
+            this.btnAddNewProduct.Location = new System.Drawing.Point(831, 673);
             this.btnAddNewProduct.Name = "btnAddNewProduct";
             this.btnAddNewProduct.Size = new System.Drawing.Size(160, 33);
             this.btnAddNewProduct.TabIndex = 90;
@@ -368,29 +367,12 @@
             this.btnAddNewProduct.UseVisualStyleBackColor = false;
             this.btnAddNewProduct.Click += new System.EventHandler(this.btnAddNewProduct_Click);
             // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.DarkRed;
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(883, 673);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(108, 33);
-            this.btnReport.TabIndex = 89;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = false;
-            // 
             // ucProductOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnAddNewProduct);
-            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label6);
@@ -445,6 +427,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Manufacturer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.Button btnAddNewProduct;
-        private System.Windows.Forms.Button btnReport;
     }
 }
