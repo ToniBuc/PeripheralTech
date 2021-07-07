@@ -98,5 +98,11 @@ namespace PeripheralTech.Mobile.Views
             var x = (((TappedEventArgs)e).Parameter) as int?;
             await Navigation.PushAsync(new ProductDetailPage(x));
         }
+
+        private async void productVideos_Clicked(object sender, EventArgs e)
+        {
+            var id = model.ProductID;
+            await Navigation.PushAsync(new ProductVideoListPage(id));
+        }
     }
 }
