@@ -37,9 +37,9 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
-                            <!--<Grid.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
-                            </Grid.GestureRecognizers>-->
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizerRecent_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                            </Grid.GestureRecognizers>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150" />
                                 <RowDefinition Height="16" />
@@ -77,9 +77,9 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
-                            <!--<Grid.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
-                            </Grid.GestureRecognizers>-->
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizerDiscount_Tapped" NumberOfTapsRequired="1" CommandParameter="{Binding ProductID}"/>
+                            </Grid.GestureRecognizers>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150" />
                                 <RowDefinition Height="50" />

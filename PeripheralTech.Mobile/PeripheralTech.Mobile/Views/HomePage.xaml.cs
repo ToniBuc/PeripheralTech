@@ -26,5 +26,16 @@ namespace PeripheralTech.Mobile.Views
             await model.Init();
             Logo.Source = ImageSource.FromFile("ptlogo.png");
         }
+
+        private async void TapGestureRecognizerRecent_Tapped(object sender, EventArgs e)
+        {
+            var x = (((TappedEventArgs)e).Parameter) as int?;
+            await Navigation.PushAsync(new ProductDetailPage(x));
+        }
+        private async void TapGestureRecognizerDiscount_Tapped(object sender, EventArgs e)
+        {
+            var x = (((TappedEventArgs)e).Parameter) as int?;
+            await Navigation.PushAsync(new ProductDetailPage(x));
+        }
     }
 }
