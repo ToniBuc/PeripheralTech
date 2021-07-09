@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MediaManager;
 
 namespace PeripheralTech.Mobile.Droid
 {
@@ -24,6 +25,9 @@ namespace PeripheralTech.Mobile.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            //for videos
+            CrossMediaManager.Current.Init(this);
 
             //for CarouselView plugin
             //CarouselViewRenderer.Init();

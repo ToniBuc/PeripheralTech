@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using MediaManager;
 using UIKit;
 
 namespace PeripheralTech.Mobile.iOS
@@ -22,9 +23,12 @@ namespace PeripheralTech.Mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Rg.Plugins.Popup.Popup.Init();
+            
 
             global::Xamarin.Forms.Forms.Init();
-
+            
+            //for videos
+            CrossMediaManager.Current.Init();
             //for CarouselView plugin
             //CarouselViewRenderer.Init();
 

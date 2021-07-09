@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaManager;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -58,9 +59,12 @@ namespace PeripheralTech.Mobile.UWP
                 //Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 
                 Rg.Plugins.Popup.Popup.Init();
+                
                 //Xamarin.Forms.Forms.Init(e);
                 Xamarin.Forms.Forms.Init(e, Rg.Plugins.Popup.Popup.GetExtraAssemblies());
 
+                CrossMediaManager.Current.Init();
+                
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
