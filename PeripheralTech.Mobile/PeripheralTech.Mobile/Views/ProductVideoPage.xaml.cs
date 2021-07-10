@@ -17,10 +17,13 @@ namespace PeripheralTech.Mobile.Views
         public ProductVideoPage(int ? id)
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = model = new ProductVideoViewModel()
             {
                 ProductVideoID = id
             };
+
         }
         protected async override void OnAppearing()
         {

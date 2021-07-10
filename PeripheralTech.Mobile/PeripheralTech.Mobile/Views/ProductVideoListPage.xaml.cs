@@ -33,7 +33,8 @@ namespace PeripheralTech.Mobile.Views
         {
             var item = e.SelectedItem as ProductVideo;
             var id = item.ProductVideoID;
-            await Navigation.PushAsync(new ProductVideoPage(id));
+            //await Navigation.PushAsync(new ProductVideoPage(id));
+            await Navigation.PushModalAsync(new NavigationPage(new ProductVideoPage(id)));
         }
     }
 }

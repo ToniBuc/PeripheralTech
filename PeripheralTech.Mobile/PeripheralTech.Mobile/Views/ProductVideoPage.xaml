@@ -3,13 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              mc:Ignorable="d"
              x:Class="PeripheralTech.Mobile.Views.ProductVideoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout BackgroundColor="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="44"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <mm:VideoView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VideoAspect="AspectFit" Grid.Row="0" Grid.Column="0" ShowControls="True"></mm:VideoView>
+                    <Grid Grid.Row="1" Grid.Column="0" Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <!--<ColumnDefinition Width="*"></ColumnDefinition>-->
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding PlayPauseCommand}" x:Name="PlayPauseButton" Text="Play/Pause" Grid.Row="0" Grid.Column="0" BackgroundColor="#ad2828" TextColor="White" FontSize="17"></Button>
+                        <!--<Button Command="{Binding PauseCommand}" x:Name="PauseButton" Text="Pause" Grid.Row="0" Grid.Column="1" BackgroundColor="#ad2828" TextColor="White" FontSize="17"></Button>-->
+                        <Button Command="{Binding LeaveCommand}" x:Name="LeaveButton" Text="Leave" Grid.Row="0" Grid.Column="1" BackgroundColor="#ad2828" TextColor="White" FontSize="17"></Button>
+                    </Grid>
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
