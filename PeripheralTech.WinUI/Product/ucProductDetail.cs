@@ -80,6 +80,7 @@ namespace PeripheralTech.WinUI.Product
                 cmbManufacturer.SelectedText = product.CompanyName;
                 cmbManufacturer.SelectedValue = product.CompanyID;
                 numInStock.Value = product.AmountInStock;
+                cbxCustomizable.Checked = product.AvailableForCustom;
 
                 var discountSearch = new DiscountSearchRequest()
                 {
@@ -115,6 +116,7 @@ namespace PeripheralTech.WinUI.Product
                 request.Description = txtDescription.Text;
                 request.Price = decimal.Parse(txtPrice.Text);
                 request.AmountInStock = Convert.ToInt32(numInStock.Value);
+                request.AvailableForCustom = cbxCustomizable.Checked;
 
                 var productType = cmbProductType.SelectedValue;
                 if (int.TryParse(productType.ToString(), out int productTypeId))

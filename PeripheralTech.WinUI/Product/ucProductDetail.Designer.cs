@@ -69,6 +69,7 @@
             this.FromShortDateString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToShortDateString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cbxCustomizable = new System.Windows.Forms.CheckBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             this.panel4.SuspendLayout();
@@ -118,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(620, 294);
+            this.label2.Location = new System.Drawing.Point(620, 255);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 23);
             this.label2.TabIndex = 117;
@@ -127,7 +128,7 @@
             // numInStock
             // 
             this.numInStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numInStock.Location = new System.Drawing.Point(624, 317);
+            this.numInStock.Location = new System.Drawing.Point(699, 252);
             this.numInStock.Name = "numInStock";
             this.numInStock.Size = new System.Drawing.Size(69, 30);
             this.numInStock.TabIndex = 116;
@@ -241,7 +242,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(700, 294);
+            this.lblPrice.Location = new System.Drawing.Point(620, 294);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(53, 23);
             this.lblPrice.TabIndex = 108;
@@ -251,9 +252,9 @@
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(704, 319);
+            this.txtPrice.Location = new System.Drawing.Point(624, 319);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(209, 27);
+            this.txtPrice.Size = new System.Drawing.Size(289, 27);
             this.txtPrice.TabIndex = 107;
             this.txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrice_Validating);
             // 
@@ -272,7 +273,7 @@
             this.txtDescription.Location = new System.Drawing.Point(624, 120);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(289, 162);
+            this.txtDescription.Size = new System.Drawing.Size(289, 118);
             this.txtDescription.TabIndex = 105;
             // 
             // label4
@@ -515,11 +516,22 @@
             this.Active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // cbxCustomizable
+            // 
+            this.cbxCustomizable.AutoSize = true;
+            this.cbxCustomizable.Location = new System.Drawing.Point(783, 254);
+            this.cbxCustomizable.Name = "cbxCustomizable";
+            this.cbxCustomizable.Size = new System.Drawing.Size(130, 27);
+            this.cbxCustomizable.TabIndex = 127;
+            this.cbxCustomizable.Text = "Customizable";
+            this.cbxCustomizable.UseVisualStyleBackColor = true;
+            // 
             // ucProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cbxCustomizable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAddNewDiscount);
             this.Controls.Add(this.btnDiscount);
@@ -601,5 +613,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FromShortDateString;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToShortDateString;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.CheckBox cbxCustomizable;
     }
 }
