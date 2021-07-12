@@ -16,5 +16,8 @@ namespace PeripheralTech.WebAPI.Database
         public User Staff { get; set; }
         public bool Status { get; set; }
         public DateTime Date { get; set; }
+        //if a question is related to an order, the following ID will not be null:
+        public int? OrderID { get; set; }
+        public Order Order { get; set; }
     }
 }

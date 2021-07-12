@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeripheralTech.WebAPI.Database;
 
 namespace PeripheralTech.WebAPI.Migrations
 {
     [DbContext(typeof(PeripheralTechDbContext))]
-    partial class PeripheralTechDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210712112412_migQProd")]
+    partial class migQProd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -243,9 +245,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(18,2)");
 
-                    b.Property<int?>("ProductMadeForID")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProductTypeID")
                         .HasColumnType("int");
 
@@ -255,8 +254,6 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.HasKey("ProductID");
 
                     b.HasIndex("CompanyID");
-
-                    b.HasIndex("ProductMadeForID");
 
                     b.HasIndex("ProductTypeID");
 
@@ -337,7 +334,7 @@ namespace PeripheralTech.WebAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OrderID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int?>("StaffID")
@@ -353,7 +350,7 @@ namespace PeripheralTech.WebAPI.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.HasIndex("OrderID");
+                    b.HasIndex("ProductID");
 
                     b.HasIndex("StaffID");
 
@@ -632,10 +629,6 @@ namespace PeripheralTech.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PeripheralTech.WebAPI.Database.Product", "ProductMadeFor")
-                        .WithMany()
-                        .HasForeignKey("ProductMadeForID");
-
                     b.HasOne("PeripheralTech.WebAPI.Database.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeID")
@@ -643,8 +636,6 @@ namespace PeripheralTech.WebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Company");
-
-                    b.Navigation("ProductMadeFor");
 
                     b.Navigation("ProductType");
                 });
@@ -679,9 +670,9 @@ namespace PeripheralTech.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PeripheralTech.WebAPI.Database.Order", "Order")
+                    b.HasOne("PeripheralTech.WebAPI.Database.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("OrderID");
+                        .HasForeignKey("ProductID");
 
                     b.HasOne("PeripheralTech.WebAPI.Database.User", "Staff")
                         .WithMany()
@@ -689,7 +680,7 @@ namespace PeripheralTech.WebAPI.Migrations
 
                     b.Navigation("Customer");
 
-                    b.Navigation("Order");
+                    b.Navigation("Product");
 
                     b.Navigation("Staff");
                 });

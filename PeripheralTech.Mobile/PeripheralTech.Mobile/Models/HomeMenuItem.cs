@@ -11,6 +11,7 @@ namespace PeripheralTech.Mobile.Models
         About,
         Profile,
         ProductCatalog,
+        CustomOrder,
         News, 
         Checkout,
         Logout

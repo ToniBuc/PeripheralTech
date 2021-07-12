@@ -13,5 +13,7 @@ namespace PeripheralTech.Model.Requests
         public string OrderByPrice { get; set; }
         public string InStock { get; set; }
         public int? AmountInStock { get; set; }
+        //
+        public bool AvailableForCustom { get; set; }
     }
 }

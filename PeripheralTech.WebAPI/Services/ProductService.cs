@@ -73,6 +73,11 @@ namespace PeripheralTech.WebAPI.Services
                 query = query.Where(x => x.ProductID == request.ProductID);
             }
 
+            if (request.AvailableForCustom)
+            {
+                query = query.Where(x => x.AvailableForCustom == true);
+            }
+
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.Product>>(list);
@@ -194,6 +199,35 @@ namespace PeripheralTech.WebAPI.Services
             }
 
             return realResult;
+        }
+
+        public List<Model.Product> GetProductsForCustomOrder(ProductSearchRequest search)
+        {
+            var query = _context.Set<Database.Product>().Include(i => i.ProductType).AsQueryable();
+
+            query = query.Where(i => i.AmountInStock != 0 && i.ProductMadeForID == search.ProductID);
+
+            var list = query.ToList();
+            var result = _mapper.Map<List<Model.Product>>(list);
+
+            foreach (var x in result)
+            {
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                }
+                else
+                {
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                }
+                x.ProductTypeName = x.ProductType.Name;
+            }
+
+            return result;
         }
 
         public Model.Product Insert(ProductUpsertRequest request)

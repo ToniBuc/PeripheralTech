@@ -54,6 +54,11 @@ namespace PeripheralTech.WebAPI.Controllers
         {
             return _service.GetDiscountedProducts(request);
         }
+        [HttpGet("GetProductsForCustomOrder")]
+        public List<Model.Product> GetProductsForCustomOrder([FromQuery]ProductSearchRequest request)
+        {
+            return _service.GetProductsForCustomOrder(request);
+        }
         [HttpPost]
         public Model.Product Insert(ProductUpsertRequest request)
         {

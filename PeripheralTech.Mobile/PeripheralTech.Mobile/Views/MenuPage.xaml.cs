@@ -25,6 +25,7 @@ namespace PeripheralTech.Mobile.Views
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
                 new HomeMenuItem {Id = MenuItemType.ProductCatalog, Title="Product Catalog" },
+                new HomeMenuItem {Id = MenuItemType.CustomOrder, Title="Custom Order" },
                 new HomeMenuItem {Id = MenuItemType.News, Title="News" },
                 new HomeMenuItem {Id = MenuItemType.Checkout, Title="Checkout" },
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" }

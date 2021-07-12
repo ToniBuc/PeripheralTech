@@ -20,5 +20,8 @@ namespace PeripheralTech.WebAPI.Database
         public Company Company{ get; set; }
         public byte[] Thumbnail { get; set; }
         public bool AvailableForCustom { get; set; }
+        //represents the product that the product in question can be added to in a custom order
+        public int? ProductMadeForID { get; set; }
+        public Product ProductMadeFor { get; set; }
     }
 }

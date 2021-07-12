@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PeripheralTech.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="PeripheralTech.Mobile.Views.CustomOrderPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Button Text="Custom Keyboard" x:Name="keyboardButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+            <Button Text="Custom Mouse" x:Name="mouseButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+            <Button Text="Custom Controller" x:Name="controllerButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>-->
+            <ListView ItemsSource="{Binding ProductList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+                                <Image     Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="{Binding Thumbnail, Converter={StaticResource imgConv}}" 
+                                           x:Name="productImage"
+                                           Aspect="AspectFit" 
+                                           HorizontalOptions="CenterAndExpand"></Image>
+                                <Label      Grid.Row="0"
+                                            Grid.Column="1"
+                                            Text="{Binding ProductNamePrice}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="15"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
