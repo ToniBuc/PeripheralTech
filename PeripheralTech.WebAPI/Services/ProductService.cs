@@ -159,6 +159,7 @@ namespace PeripheralTech.WebAPI.Services
             query = query.Where(i => i.AmountInStock != 0);
 
             var list = query.ToList().OrderByDescending(i => i.ProductID).Take(3);
+            list = list.OrderByDescending(i => i.Name.Length);
             var result = _mapper.Map<List<Model.Product>>(list);
 
             foreach (var x in result)
@@ -186,7 +187,7 @@ namespace PeripheralTech.WebAPI.Services
 
             query = query.Where(i => i.AmountInStock != 0);
 
-            var list = query.ToList();
+            var list = query.ToList().OrderByDescending(i => i.Name.Length);
             var result = _mapper.Map<List<Model.Product>>(list);
             var realResult = new List<Model.Product>();
 

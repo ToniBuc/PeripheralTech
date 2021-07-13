@@ -32,7 +32,7 @@ namespace PeripheralTech.Mobile.ViewModels
         public async Task Init()
         {
             var product = await _productService.GetById<Model.Product>(ProductID);
-            ProductName = product.Company.Name + " " + product.Name;
+            ProductName = product.Company.Name + " " + product.Name + " Images";
             var search = new ProductImageSearchRequest()
             {
                 ProductID = ProductID.Value

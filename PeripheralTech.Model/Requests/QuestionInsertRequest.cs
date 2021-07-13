@@ -11,5 +11,6 @@ namespace PeripheralTech.Model.Requests
         public int CustomerID { get; set; }
         public bool Status { get; set; }
         public DateTime Date { get; set; }
+        public int? OrderID { get; set; }
     }
 }

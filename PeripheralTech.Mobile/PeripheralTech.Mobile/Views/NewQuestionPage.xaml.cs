@@ -14,10 +14,19 @@ namespace PeripheralTech.Mobile.Views
     public partial class NewQuestionPage : ContentPage
     {
         private NewQuestionViewModel model = null;
-        public NewQuestionPage()
+        public NewQuestionPage(int ? id = null)
         {
             InitializeComponent();
-            BindingContext = model = new NewQuestionViewModel();
+            BindingContext = model = new NewQuestionViewModel() 
+            {
+                OrderID = id
+            };
+
+            if (id != null)
+            {
+                cancelButton.IsEnabled = false;
+                cancelButton.IsVisible = false;
+            }
         }
         //protected async override void OnAppearing()
         //{

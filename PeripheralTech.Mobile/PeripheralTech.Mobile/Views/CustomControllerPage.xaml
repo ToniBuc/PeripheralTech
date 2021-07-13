@@ -16,14 +16,14 @@
             <Label Text=""
                     HorizontalOptions="CenterAndExpand" FontSize="30"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,5,0,10" x:Name="mainLabel"/>
-            <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0" x:Name="boxViewSeparator1"></BoxView>
+                    Margin="0,5,0,5" x:Name="mainLabel"/>
+            <BoxView Color="Black" HeightRequest="3" Margin="0,5,0,0" x:Name="boxViewSeparator1"></BoxView>
             <StackLayout Padding="5">
-                <Label Text="Shopping Cart"
+                <!--<Label Text="Shopping Cart"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,2,0,2"/>
-                <Button Text="Open" Clicked="openCloseOrderButton_Clicked" x:Name="openCloseOrderButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
+                    Margin="0,2,0,2"/>-->
+                <Button Text="Shopping Cart" Clicked="openCloseOrderButton_Clicked" x:Name="openCloseOrderButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
                 <CollectionView ItemsSource="{Binding CustomOrderList}" HeightRequest="190" x:Name="CustomOrderCollectionView">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Horizontal" Span="1"/>
@@ -66,21 +66,26 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+                <Label Text="{Binding TotalString}"
+                    HorizontalOptions="CenterAndExpand" FontSize="16"
+                    Style="{DynamicResource ListItemDetailTextStyle}"
+                    FontAttributes="Bold"
+                    Margin="0,2,0,2" x:Name="totalLabel"/>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0" x:Name="boxViewSeparator2"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="0,5,0,0" x:Name="boxViewSeparator2"></BoxView>
             <StackLayout Padding="5">
-                <Label Text="Casings"
+                <!--<Label Text="Casings"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,2,0,2"/>
-                <Button Text="Open" Clicked="openCloseCasingsButton_Clicked" x:Name="openCloseCasingsButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
-                <ListView ItemsSource="{Binding CasingList}" x:Name="CasingListView" HeightRequest="400">
+                    Margin="0,2,0,2"/>-->
+                <Button Text="Casings" Clicked="openCloseCasingsButton_Clicked" x:Name="openCloseCasingsButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
+                <ListView ItemsSource="{Binding CasingList}" x:Name="CasingListView" HeightRequest="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="60" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130" />
@@ -110,7 +115,6 @@
                                             BackgroundColor="#ad2828" 
                                             TextColor="White" 
                                             FontSize="12"
-                                            Margin="0,27,0,27"
                                             HorizontalOptions="CenterAndExpand"
                                             VerticalOptions="CenterAndExpand"></Button>
                                 </Grid>
@@ -121,18 +125,18 @@
             </StackLayout>
             <BoxView Color="Black" HeightRequest="1"></BoxView>
             <StackLayout Padding="5">
-                <Label Text="Button Kits"
+                <!--<Label Text="Button Kits"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,2,0,2"/>
-                <Button Text="Open" Clicked="openCloseButtonKitsButton_Clicked" x:Name="openCloseButtonKitsButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
-                <ListView ItemsSource="{Binding ButtonKitList}" x:Name="ButtonKitListView">
+                    Margin="0,2,0,2"/>-->
+                <Button Text="Button Kits" Clicked="openCloseButtonKitsButton_Clicked" x:Name="openCloseButtonKitsButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
+                <ListView ItemsSource="{Binding ButtonKitList}" x:Name="ButtonKitListView" HeightRequest="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="60" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130" />
@@ -162,7 +166,6 @@
                                             BackgroundColor="#ad2828" 
                                             TextColor="White" 
                                             FontSize="12"
-                                            Margin="0,27,0,27"
                                             HorizontalOptions="CenterAndExpand"
                                             VerticalOptions="CenterAndExpand"></Button>
                                 </Grid>
@@ -173,18 +176,18 @@
             </StackLayout>
             <BoxView Color="Black" HeightRequest="1"></BoxView>
             <StackLayout Padding="5">
-                <Label Text="Thumbsticks"
+                <!--<Label Text="Thumbsticks"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,2,0,2"/>
-                <Button Text="Open" Clicked="openCloseThumbsticksButton_Clicked" x:Name="openCloseThumbsticksButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
-                <ListView ItemsSource="{Binding ThumbstickList}" x:Name="ThumbstickListView">
+                    Margin="0,2,0,2"/>-->
+                <Button Text="Thumbsticks" Clicked="openCloseThumbsticksButton_Clicked" x:Name="openCloseThumbsticksButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
+                <ListView ItemsSource="{Binding ThumbstickList}" x:Name="ThumbstickListView" HeightRequest="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="60" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130" />
@@ -214,7 +217,6 @@
                                             BackgroundColor="#ad2828" 
                                             TextColor="White" 
                                             FontSize="12"
-                                            Margin="0,27,0,27"
                                             HorizontalOptions="CenterAndExpand"
                                             VerticalOptions="CenterAndExpand"></Button>
                                 </Grid>
@@ -225,18 +227,18 @@
             </StackLayout>
             <BoxView Color="Black" HeightRequest="1"></BoxView>
             <StackLayout Padding="5">
-                <Label Text="Paddles"
+                <!--<Label Text="Paddles"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
                     Style="{DynamicResource ListItemDetailTextStyle}"
-                    Margin="0,2,0,2"/>
-                <Button Text="Open" Clicked="openClosePaddlesButton_Clicked" x:Name="openClosePaddlesButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
-                <ListView ItemsSource="{Binding PaddlesList}" x:Name="PaddlesListView">
+                    Margin="0,2,0,2"/>-->
+                <Button Text="Paddles" Clicked="openClosePaddlesButton_Clicked" x:Name="openClosePaddlesButton" HeightRequest="30" BackgroundColor="#ad2828" TextColor="White" FontSize="14" HorizontalOptions="Center" WidthRequest="220"></Button>
+                <ListView ItemsSource="{Binding PaddlesList}" x:Name="PaddlesListView" HeightRequest="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="60" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130" />
@@ -266,7 +268,6 @@
                                             BackgroundColor="#ad2828" 
                                             TextColor="White" 
                                             FontSize="12"
-                                            Margin="0,27,0,27"
                                             HorizontalOptions="CenterAndExpand"
                                             VerticalOptions="CenterAndExpand"></Button>
                                 </Grid>
@@ -277,7 +278,7 @@
             </StackLayout>
             <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0"></BoxView>
             <StackLayout Padding="15">
-                <Button Text="tempBtn" x:Name="tempBtn" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
+                <Button Command="{Binding OrderCommand}" Text="Make Order" x:Name="orderButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

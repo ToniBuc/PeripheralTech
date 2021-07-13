@@ -21,23 +21,15 @@ namespace PeripheralTech.Mobile.Views
             {
                 ProductID = id
             };
+            CustomOrderCollectionView.IsVisible = false;
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
             mainLabel.Text = "Custom " + model.Product.Name + " Order";
-            //if (model.CustomOrderList.Count == 0)
-            //{
-            //    CustomOrderCollectionView.IsVisible = false;
-            //    boxViewSeparator2.IsVisible = false;
-            //}
-            //else
-            //{
-            //    CustomOrderCollectionView.IsVisible = true;
-            //    boxViewSeparator2.IsVisible = true;
-            //}
-            CustomOrderCollectionView.IsVisible = false;
+
+            //CustomOrderCollectionView.IsVisible = false;
             CasingListView.IsVisible = false;
             ButtonKitListView.IsVisible = false;
             ThumbstickListView.IsVisible = false;
@@ -75,20 +67,21 @@ namespace PeripheralTech.Mobile.Views
             if (CasingListView.IsVisible == false)
             {
                 CustomOrderCollectionView.IsVisible = false;
+                totalLabel.IsVisible = false;
                 CasingListView.IsVisible = true;
                 ButtonKitListView.IsVisible = false;
                 ThumbstickListView.IsVisible = false;
                 PaddlesListView.IsVisible = false;
-                openCloseCasingsButton.Text = "Close";
-                openCloseButtonKitsButton.Text = "Open";
-                openCloseThumbsticksButton.Text = "Open";
-                openClosePaddlesButton.Text = "Open";
-                openCloseOrderButton.Text = "Open";
+                //openCloseCasingsButton.Text = "Close";
+                //openCloseButtonKitsButton.Text = "Open";
+                //openCloseThumbsticksButton.Text = "Open";
+                //openClosePaddlesButton.Text = "Open";
+                //openCloseOrderButton.Text = "Open";
             }
             else
             {
                 CasingListView.IsVisible = false;
-                openCloseCasingsButton.Text = "Open";
+                //openCloseCasingsButton.Text = "Open";
             }
         }
 
@@ -97,20 +90,21 @@ namespace PeripheralTech.Mobile.Views
             if (ButtonKitListView.IsVisible == false)
             {
                 CustomOrderCollectionView.IsVisible = false;
+                totalLabel.IsVisible = false;
                 CasingListView.IsVisible = false;
                 ButtonKitListView.IsVisible = true;
                 ThumbstickListView.IsVisible = false;
                 PaddlesListView.IsVisible = false;
-                openCloseButtonKitsButton.Text = "Close";
-                openCloseCasingsButton.Text = "Open";
-                openCloseThumbsticksButton.Text = "Open";
-                openClosePaddlesButton.Text = "Open";
-                openCloseOrderButton.Text = "Open";
+                //openCloseButtonKitsButton.Text = "Close";
+                //openCloseCasingsButton.Text = "Open";
+                //openCloseThumbsticksButton.Text = "Open";
+                //openClosePaddlesButton.Text = "Open";
+                //openCloseOrderButton.Text = "Open";
             }
             else
             {
                 ButtonKitListView.IsVisible = false;
-                openCloseButtonKitsButton.Text = "Open";
+                //openCloseButtonKitsButton.Text = "Open";
             }
         }
 
@@ -119,20 +113,21 @@ namespace PeripheralTech.Mobile.Views
             if (ThumbstickListView.IsVisible == false)
             {
                 CustomOrderCollectionView.IsVisible = false;
+                totalLabel.IsVisible = false;
                 CasingListView.IsVisible = false;
                 ButtonKitListView.IsVisible = false;
                 ThumbstickListView.IsVisible = true;
                 PaddlesListView.IsVisible = false;
-                openCloseThumbsticksButton.Text = "Close";
-                openCloseButtonKitsButton.Text = "Open";
-                openCloseCasingsButton.Text = "Open";
-                openClosePaddlesButton.Text = "Open";
-                openCloseOrderButton.Text = "Open";
+                //openCloseThumbsticksButton.Text = "Close";
+                //openCloseButtonKitsButton.Text = "Open";
+                //openCloseCasingsButton.Text = "Open";
+                //openClosePaddlesButton.Text = "Open";
+                //openCloseOrderButton.Text = "Open";
             }
             else
             {
                 ThumbstickListView.IsVisible = false;
-                openCloseThumbsticksButton.Text = "Open";
+                //openCloseThumbsticksButton.Text = "Open";
             }
         }
 
@@ -140,21 +135,22 @@ namespace PeripheralTech.Mobile.Views
         {
             if (PaddlesListView.IsVisible == false)
             {
-                CustomOrderCollectionView.IsVisible = false;
+                CustomOrderCollectionView.IsVisible = false; 
+                totalLabel.IsVisible = false;
                 CasingListView.IsVisible = false;
                 ButtonKitListView.IsVisible = false;
                 ThumbstickListView.IsVisible = false;
                 PaddlesListView.IsVisible = true;
-                openClosePaddlesButton.Text = "Close";
-                openCloseThumbsticksButton.Text = "Open";
-                openCloseButtonKitsButton.Text = "Open";
-                openCloseCasingsButton.Text = "Open";
-                openCloseOrderButton.Text = "Open";
+                //openClosePaddlesButton.Text = "Close";
+                //openCloseThumbsticksButton.Text = "Open";
+                //openCloseButtonKitsButton.Text = "Open";
+                //openCloseCasingsButton.Text = "Open";
+                //openCloseOrderButton.Text = "Open";
             }
             else
             {
                 PaddlesListView.IsVisible = false;
-                openClosePaddlesButton.Text = "Open";
+                //openClosePaddlesButton.Text = "Open";
             }
         }
 
@@ -163,20 +159,22 @@ namespace PeripheralTech.Mobile.Views
             if (CustomOrderCollectionView.IsVisible == false)
             {
                 CustomOrderCollectionView.IsVisible = true;
+                totalLabel.IsVisible = true;
                 CasingListView.IsVisible = false;
                 ButtonKitListView.IsVisible = false;
                 ThumbstickListView.IsVisible = false;
                 PaddlesListView.IsVisible = false;
-                openCloseOrderButton.Text = "Close";
-                openClosePaddlesButton.Text = "Open";
-                openCloseThumbsticksButton.Text = "Open";
-                openCloseButtonKitsButton.Text = "Open";
-                openCloseCasingsButton.Text = "Open";
+                //openCloseOrderButton.Text = "Close";
+                //openClosePaddlesButton.Text = "Open";
+                //openCloseThumbsticksButton.Text = "Open";
+                //openCloseButtonKitsButton.Text = "Open";
+                //openCloseCasingsButton.Text = "Open";
             }
             else
             {
                 CustomOrderCollectionView.IsVisible = false;
-                openCloseOrderButton.Text = "Open";
+                totalLabel.IsVisible = false;
+                //openCloseOrderButton.Text = "Open";
             }
         }
 
@@ -186,7 +184,7 @@ namespace PeripheralTech.Mobile.Views
             int ProductID = Convert.ToInt32(button.CommandParameter);
             await model.RemoveProduct(ProductID);
             OnAppearing();
-            openCloseOrderButton.Text = "Open";
+            //openCloseOrderButton.Text = "Open";
             openCloseCasingsButton.IsEnabled = true;
             openCloseButtonKitsButton.IsEnabled = true;
             openCloseThumbsticksButton.IsEnabled = true;
@@ -211,33 +209,5 @@ namespace PeripheralTech.Mobile.Views
                 }
             }
         }
-        //private async void PickCasingButton_Clicked(object sender, EventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int ProductID = Convert.ToInt32(button.CommandParameter);
-        //    await model.PickProduct(ProductID);
-        //    OnAppearing();
-        //}
-        //private async void PickButtonKitButton_Clicked(object sender, EventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int ProductID = Convert.ToInt32(button.CommandParameter);
-        //    await model.PickProduct(ProductID);
-        //    OnAppearing();
-        //}
-        //private async void PickThumbsticksButton_Clicked(object sender, EventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int ProductID = Convert.ToInt32(button.CommandParameter);
-        //    await model.PickProduct(ProductID);
-        //    OnAppearing();
-        //}
-        //private async void PickPaddlesButton_Clicked(object sender, EventArgs e)
-        //{
-        //    Button button = (Button)sender;
-        //    int ProductID = Convert.ToInt32(button.CommandParameter);
-        //    await model.PickProduct(ProductID);
-        //    OnAppearing();
-        //}
     }
 }

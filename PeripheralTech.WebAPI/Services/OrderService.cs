@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace PeripheralTech.WebAPI.Services
 {
-    public class OrderService : BaseCRUDService<Model.Order, OrderSearchRequest, Database.Order, OrderInsertRequest, OrderUpdateRequest>
+    //public class OrderService : BaseCRUDService<Model.Order, OrderSearchRequest, Database.Order, OrderInsertRequest, OrderUpdateRequest>
+    public class OrderService : IOrderService
     {
-        public OrderService(PeripheralTechDbContext context, IMapper mapper) : base(context, mapper)
+        private readonly PeripheralTechDbContext _context;
+        private readonly IMapper _mapper;
+        public OrderService(PeripheralTechDbContext context, IMapper mapper)
         {
-
+            _context = context;
+            _mapper = mapper;
         }
-        public override List<Model.Order> Get(OrderSearchRequest request)
+        public List<Model.Order> Get(OrderSearchRequest request)
         {
             var query = _context.Order.Include(i => i.OrderStatus).Include(i => i.User).AsQueryable();
 
@@ -120,7 +124,7 @@ namespace PeripheralTech.WebAPI.Services
             return result;
         }
 
-        public override Model.Order GetById(int id)
+        public Model.Order GetById(int id)
         {
             var entity = _context.Order.Where(i => i.OrderID == id).Include(i => i.User).Include(i => i.User.City).Include(i => i.OrderStatus).FirstOrDefault();
 
@@ -147,6 +151,39 @@ namespace PeripheralTech.WebAPI.Services
             result.OrderStatusName = result.OrderStatus.Name;
 
             return result;
+        }
+        public Model.Order GetUnderReviewOrder(OrderSearchRequest request)
+        {
+            var query = _context.Order.Include(i => i.OrderStatus).Include(i => i.User).AsQueryable();
+
+            query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Under Review"));
+
+            var order = query.First();
+
+            var result = _mapper.Map<Model.Order>(order);
+
+            return result;
+        }
+        public Model.Order Update(int id, OrderUpdateRequest request)
+        {
+            var entity = _context.Order.Find(id);
+            _context.Order.Attach(entity);
+            _context.Order.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Order>(entity);
+        }
+        public Model.Order Insert(OrderInsertRequest request)
+        {
+            var entity = _mapper.Map<Database.Order>(request);
+
+            _context.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Order>(entity);
         }
     }
 }

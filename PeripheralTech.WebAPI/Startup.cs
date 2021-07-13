@@ -64,6 +64,7 @@ namespace PeripheralTech.WebAPI
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRecommendationService<Model.Product>, RecommendationService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderService, OrderService>();
 
             services.AddScoped<IService<Model.Country, object>, BaseService<Model.Country, object, Country>>();
             services.AddScoped<IService<Model.ProductType, object>, BaseService<Model.ProductType, object, ProductType>>();
@@ -73,7 +74,7 @@ namespace PeripheralTech.WebAPI
             services.AddScoped<ICRUDService<Model.City, CitySearchRequest, CityUpsertRequest, CityUpsertRequest>, CityService>();
             //services.AddScoped<ICRUDService<Model.Product, ProductSearchRequest, ProductUpsertRequest, ProductUpsertRequest>, ProductService>();
             services.AddScoped<ICRUDService<Model.Company, CompanySearchRequest, CompanyUpsertRequest, CompanyUpsertRequest>, CompanyService>();
-            services.AddScoped<ICRUDService<Model.Order, OrderSearchRequest, OrderInsertRequest, OrderUpdateRequest>, OrderService>();
+            //services.AddScoped<ICRUDService<Model.Order, OrderSearchRequest, OrderInsertRequest, OrderUpdateRequest>, OrderService>();
             services.AddScoped<ICRUDService<Model.UserFavoriteProduct, UserFavoriteProductSearchRequest, UserFavoriteProductUpsertRequest, UserFavoriteProductUpsertRequest>, UserFavoriteProductService>();
             services.AddScoped<ICRUDService<Model.UserReview, UserReviewSearchRequest, UserReviewUpsertRequest, UserReviewUpsertRequest>, UserReviewService>();
             services.AddScoped<ICRUDService<Model.StaffReview, StaffReviewSearchRequest, StaffReviewUpsertRequest, StaffReviewUpsertRequest>, StaffReviewService>();

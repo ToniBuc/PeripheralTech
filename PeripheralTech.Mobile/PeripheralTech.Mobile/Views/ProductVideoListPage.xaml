@@ -10,7 +10,7 @@
             <StackLayout Padding="15">
                 <Label Text="{Binding PageTitle}"
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" FontSize="24" FontAttributes="Bold"/>
+                    HorizontalOptions="CenterAndExpand" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,15,0,0"/>
                 <!--<Button Text="New Question" Clicked="NewQuestion_Clicked" x:Name="newQuestionButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>-->
             </StackLayout>
             <StackLayout>

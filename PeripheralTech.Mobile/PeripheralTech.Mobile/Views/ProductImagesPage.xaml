@@ -15,7 +15,7 @@
         <StackLayout>
             <Label Text="{Binding ProductName}"
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" FontSize="30"/>
+                    HorizontalOptions="CenterAndExpand" FontSize="30"  HorizontalTextAlignment="Center" Margin="0,15,0,0"/>
             <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0"></BoxView>
             <CollectionView ItemsSource="{Binding ProductImageList}" Margin="0,15,0,0">
                 <CollectionView.ItemsLayout>

@@ -1,4 +1,5 @@
-﻿using PeripheralTech.Model.Requests;
+﻿using PeripheralTech.Mobile.Views;
+using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,8 @@ namespace PeripheralTech.Mobile.ViewModels
 {
     public class NewQuestionViewModel : BaseViewModel
     {
-        private readonly APIService _questionService = new APIService("Question"); 
+        private readonly APIService _questionService = new APIService("Question");
+        public int? OrderID { get; set; }
         public NewQuestionViewModel()
         {
             //InitCommand = new Command(async () => await Init());
@@ -51,6 +53,11 @@ namespace PeripheralTech.Mobile.ViewModels
                 Status = true
             };
 
+            if (OrderID != null)
+            {
+                request.OrderID = OrderID;
+            }
+
             if (string.IsNullOrWhiteSpace(Content) || string.IsNullOrWhiteSpace(QuestionTitle))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Both the Title and Content fields can not be empty, please fill them in before attempting to send the question in!", "OK");
@@ -59,7 +66,14 @@ namespace PeripheralTech.Mobile.ViewModels
             {
                 await _questionService.Insert<Model.Question>(request);
                 await Application.Current.MainPage.DisplayAlert("Notification", "Your question has been successfully sent!", "OK");
-                await Application.Current.MainPage.Navigation.PopModalAsync();
+                if (OrderID != null)
+                {
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                }
+                else
+                {
+                    Application.Current.MainPage = new MainPage();
+                }
             }
         }
     }
