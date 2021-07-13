@@ -90,15 +90,16 @@ namespace PeripheralTech.WebAPI.Services
                 if (discount != null)
                 {
                     var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
-                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                     x.Discounted = true;
-                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ") KM";
                     //x.DiscountedPrice = discountedPrice.ToString();
                 }
                 else
                 {
-                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
-                }                
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString() + " KM";
+                }
+                x.PriceWithCurrency = x.Price.ToString() + " KM";
             }
 
             return result;
@@ -117,14 +118,14 @@ namespace PeripheralTech.WebAPI.Services
             if (discount != null)
             {
                 var discountedPrice = result.Price - (result.Price * discount.DiscountPercentage) / 100;
-                result.ProductNamePrice = result.Name + " - " + Math.Round(discountedPrice, 2);
+                result.ProductNamePrice = result.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                 result.Discounted = true;
-                result.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + result.Price + ")";
+                result.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + result.Price + ") KM";
                 result.DiscountedPrice = Math.Round(discountedPrice, 2).ToString();
             }
             else
             {
-                result.ProductNamePrice = result.Name + " - " + result.Price.ToString();
+                result.ProductNamePrice = result.Name + " - " + result.Price.ToString() + " KM";
             }
 
             return result;
@@ -162,13 +163,13 @@ namespace PeripheralTech.WebAPI.Services
                 if (discount != null)
                 {
                     var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
-                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                     x.Discounted = true;
-                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ") KM";
                 }
                 else
                 {
-                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString() + " KM";
                 }
             }
 
@@ -191,9 +192,9 @@ namespace PeripheralTech.WebAPI.Services
                 if (discount != null)
                 {
                     var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
-                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                     x.Discounted = true;
-                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ") KM";
                     realResult.Add(x);
                 }
             }
@@ -216,13 +217,13 @@ namespace PeripheralTech.WebAPI.Services
                 if (discount != null)
                 {
                     var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
-                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                     x.Discounted = true;
-                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ")";
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ") KM";
                 }
                 else
                 {
-                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString();
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString() + " KM";
                 }
                 x.ProductTypeName = x.ProductType.Name;
             }

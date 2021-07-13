@@ -38,6 +38,7 @@ namespace PeripheralTech.WebAPI.Services
             foreach (var x in result)
             {
                 x.UserFullname = x.Order.User.FirstName + " \"" + x.Order.User.Username + "\" " + x.Order.User.LastName;
+                x.PaymentAmountWithCurrency = x.PaymentAmount.ToString() + " KM";
             }
 
             return result;

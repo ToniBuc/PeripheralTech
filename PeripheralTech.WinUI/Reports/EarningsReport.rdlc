@@ -223,7 +223,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!PaymentAmount.Value)</Value>
+                              <Value>=Fields!PaymentAmountWithCurrency.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -272,7 +272,7 @@
         </TablixRowHierarchy>
         <DataSetName>dsEarnings</DataSetName>
         <Height>1.2cm</Height>
-        <Width>16.51cm</Width>
+        <Width>16.50999cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -334,6 +334,10 @@
         <Field Name="PaymentAmount">
           <DataField>PaymentAmount</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PaymentAmountWithCurrency">
+          <DataField>PaymentAmountWithCurrency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="UserFullname">
           <DataField>UserFullname</DataField>

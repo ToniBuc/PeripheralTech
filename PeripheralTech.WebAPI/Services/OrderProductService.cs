@@ -58,16 +58,16 @@ namespace PeripheralTech.WebAPI.Services
                 if (discount != null)
                 {
                     var discountedPrice = x.Product.Price - (x.Product.Price * discount.DiscountPercentage) / 100;
-                    x.ProductNameAndPrice = x.Product.Name + " - " + Math.Round(discountedPrice, 2);
+                    x.ProductNameAndPrice = x.Product.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
                     x.Discounted = true;
-                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Product.Price + ")";
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Product.Price + ") + KM";
                     x.DiscountedPrice = discountedPrice;
-                    x.FinalPrice = Math.Round(discountedPrice,2).ToString();
+                    x.FinalPrice = Math.Round(discountedPrice,2).ToString() + " KM";
                 }
                 else
                 {
-                    x.ProductNameAndPrice = x.Product.Name + " - " + x.Product.Price.ToString();
-                    x.FinalPrice = x.Product.Price.ToString();
+                    x.ProductNameAndPrice = x.Product.Name + " - " + x.Product.Price.ToString() + " KM";
+                    x.FinalPrice = x.Product.Price.ToString() + " KM";
                 }
             }
 

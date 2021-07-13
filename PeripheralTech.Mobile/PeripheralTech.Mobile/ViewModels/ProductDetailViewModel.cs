@@ -108,7 +108,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 }
                 else
                 {
-                    Price = Product.Price.ToString();
+                    Price = Product.Price.ToString() + " KM";
                 }
                 AmountInStock = Product.AmountInStock.ToString();
                 CompanyName = Product.CompanyName;

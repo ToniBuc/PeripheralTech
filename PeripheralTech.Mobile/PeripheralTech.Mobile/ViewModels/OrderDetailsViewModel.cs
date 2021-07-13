@@ -56,7 +56,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 OrderProductList.Add(x);
             }
 
-            DateAndPrice = Order.DateShort + " - " + Math.Round(Order.TotalPayment, 2);
+            DateAndPrice = Order.DateShort + " - " + Math.Round(Order.TotalPayment, 2) + " KM";
             Comment = Order.Comment;
         }
     }

@@ -21,5 +21,7 @@ namespace PeripheralTech.Model
         public int? AmountOfProducts { get; set; }
         public string OrderStatusName { get; set; }
         public string UserFullname { get; set; }
+        //
+        public string TotalPaymentWithCurrency { get; set; }
     }
 }

@@ -59,7 +59,7 @@ namespace PeripheralTech.WinUI.Reports
                 this.reportViewer.LocalReport.SetParameters(new ReportParameter("Address", order.User.Address));
                 this.reportViewer.LocalReport.SetParameters(new ReportParameter("User", bill[0].UserFullname));
                 this.reportViewer.LocalReport.SetParameters(new ReportParameter("Date", bill[0].Date.ToShortDateString()));
-                this.reportViewer.LocalReport.SetParameters(new ReportParameter("Total", bill[0].PaymentAmount.ToString()));
+                this.reportViewer.LocalReport.SetParameters(new ReportParameter("Total", bill[0].PaymentAmount.ToString() + " KM"));
             }
 
             this.reportViewer.RefreshReport();

@@ -36,17 +36,17 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserFullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateShort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountOfProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderStatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbOrderStatus = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserFullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateShort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountOfProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPaymentWithCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
@@ -107,7 +107,7 @@
             this.UserFullname,
             this.DateShort,
             this.AmountOfProducts,
-            this.TotalPayment,
+            this.TotalPaymentWithCurrency,
             this.OrderStatusName});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -142,53 +142,6 @@
             this.dgvOrders.Size = new System.Drawing.Size(994, 552);
             this.dgvOrders.TabIndex = 1;
             this.dgvOrders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvOrders_MouseDoubleClick);
-            // 
-            // OrderID
-            // 
-            this.OrderID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.OrderID.DataPropertyName = "OrderID";
-            this.OrderID.HeaderText = "OrderID";
-            this.OrderID.Name = "OrderID";
-            this.OrderID.ReadOnly = true;
-            this.OrderID.Visible = false;
-            this.OrderID.Width = 93;
-            // 
-            // UserFullname
-            // 
-            this.UserFullname.DataPropertyName = "UserFullname";
-            this.UserFullname.HeaderText = "User";
-            this.UserFullname.Name = "UserFullname";
-            this.UserFullname.ReadOnly = true;
-            this.UserFullname.Width = 200;
-            // 
-            // DateShort
-            // 
-            this.DateShort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateShort.DataPropertyName = "DateShort";
-            this.DateShort.HeaderText = "Date";
-            this.DateShort.Name = "DateShort";
-            this.DateShort.ReadOnly = true;
-            // 
-            // AmountOfProducts
-            // 
-            this.AmountOfProducts.DataPropertyName = "AmountOfProducts";
-            this.AmountOfProducts.HeaderText = "Amount";
-            this.AmountOfProducts.Name = "AmountOfProducts";
-            this.AmountOfProducts.ReadOnly = true;
-            // 
-            // TotalPayment
-            // 
-            this.TotalPayment.DataPropertyName = "TotalPayment";
-            this.TotalPayment.HeaderText = "Payment";
-            this.TotalPayment.Name = "TotalPayment";
-            this.TotalPayment.ReadOnly = true;
-            // 
-            // OrderStatusName
-            // 
-            this.OrderStatusName.DataPropertyName = "OrderStatusName";
-            this.OrderStatusName.HeaderText = "Status";
-            this.OrderStatusName.Name = "OrderStatusName";
-            this.OrderStatusName.ReadOnly = true;
             // 
             // panel1
             // 
@@ -256,6 +209,53 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // OrderID
+            // 
+            this.OrderID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.OrderID.DataPropertyName = "OrderID";
+            this.OrderID.HeaderText = "OrderID";
+            this.OrderID.Name = "OrderID";
+            this.OrderID.ReadOnly = true;
+            this.OrderID.Visible = false;
+            this.OrderID.Width = 91;
+            // 
+            // UserFullname
+            // 
+            this.UserFullname.DataPropertyName = "UserFullname";
+            this.UserFullname.HeaderText = "User";
+            this.UserFullname.Name = "UserFullname";
+            this.UserFullname.ReadOnly = true;
+            this.UserFullname.Width = 200;
+            // 
+            // DateShort
+            // 
+            this.DateShort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateShort.DataPropertyName = "DateShort";
+            this.DateShort.HeaderText = "Date";
+            this.DateShort.Name = "DateShort";
+            this.DateShort.ReadOnly = true;
+            // 
+            // AmountOfProducts
+            // 
+            this.AmountOfProducts.DataPropertyName = "AmountOfProducts";
+            this.AmountOfProducts.HeaderText = "Amount";
+            this.AmountOfProducts.Name = "AmountOfProducts";
+            this.AmountOfProducts.ReadOnly = true;
+            // 
+            // TotalPaymentWithCurrency
+            // 
+            this.TotalPaymentWithCurrency.DataPropertyName = "TotalPaymentWithCurrency";
+            this.TotalPaymentWithCurrency.HeaderText = "Payment";
+            this.TotalPaymentWithCurrency.Name = "TotalPaymentWithCurrency";
+            this.TotalPaymentWithCurrency.ReadOnly = true;
+            // 
+            // OrderStatusName
+            // 
+            this.OrderStatusName.DataPropertyName = "OrderStatusName";
+            this.OrderStatusName.HeaderText = "Status";
+            this.OrderStatusName.Name = "OrderStatusName";
+            this.OrderStatusName.ReadOnly = true;
+            // 
             // ucOrderOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -287,16 +287,16 @@
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserFullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateShort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountOfProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatusName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbOrderStatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserFullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateShort;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountOfProducts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPaymentWithCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatusName;
     }
 }

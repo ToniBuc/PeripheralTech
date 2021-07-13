@@ -76,7 +76,7 @@ namespace PeripheralTech.Mobile.ViewModels
                     }
                     
                 }
-                TotalPayment = "Total payment: " + Math.Round(totalPayment,2);
+                TotalPayment = "Total payment: " + Math.Round(totalPayment, 2) + " KM ";
                 //Order.Comment = Comment;
             }
         }

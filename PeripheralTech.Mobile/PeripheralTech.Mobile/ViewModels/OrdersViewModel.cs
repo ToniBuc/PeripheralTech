@@ -34,7 +34,7 @@ namespace PeripheralTech.Mobile.ViewModels
             OrderList.Clear();
             foreach (var x in orderList)
             {
-                x.TotalPayment = Math.Round(x.TotalPayment, 2);
+                //x.TotalPaymentWithCurrency = Math.Round(x.TotalPayment, 2) + " KM";
                 OrderList.Add(x);
             }
         }

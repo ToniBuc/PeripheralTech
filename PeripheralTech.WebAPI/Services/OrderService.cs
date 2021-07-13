@@ -75,6 +75,7 @@ namespace PeripheralTech.WebAPI.Services
                     }
                    
                 }
+                result[0].TotalPaymentWithCurrency = Math.Round(result[0].TotalPayment,2).ToString() + " KM";
             }
 
             if (result.Count != 0)
@@ -110,6 +111,7 @@ namespace PeripheralTech.WebAPI.Services
                         x.UserFullname = x.User.FirstName + " \"" + x.User.Username + "\" " + x.User.LastName;
                         x.DateShort = x.Date.ToShortDateString();
                         x.OrderStatusName = x.OrderStatus.Name;
+                        x.TotalPaymentWithCurrency = Math.Round(x.TotalPayment,2).ToString() + " KM";
                     }
                 }
             }

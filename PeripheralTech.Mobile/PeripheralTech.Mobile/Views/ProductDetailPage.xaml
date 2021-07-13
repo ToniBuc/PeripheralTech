@@ -39,12 +39,12 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Text="Price:" FontSize="16" Grid.Row="0" Grid.Column="0"></Label>
-                            <Entry Text="{Binding Price}" FontSize="15" Grid.Row="1" Grid.Column="0"></Entry>
+                            <Entry Text="{Binding Price}" FontSize="15" Grid.Row="1" Grid.Column="0" IsReadOnly="True"></Entry>
                             <Label Text="Amount In Stock:" FontSize="16" Grid.Row="0" Grid.Column="1"></Label>
-                            <Entry Text="{Binding AmountInStock}" FontSize="15" Grid.Row="1" Grid.Column="1"></Entry>
+                            <Entry Text="{Binding AmountInStock}" FontSize="15" Grid.Row="1" Grid.Column="1" IsReadOnly="True"></Entry>
                         </Grid>
                         <Label Text="Manufacturer:" FontSize="16" ></Label>
-                        <Entry Text="{Binding CompanyName}" FontSize="15"></Entry>
+                        <Entry Text="{Binding CompanyName}" FontSize="15" IsReadOnly="True"></Entry>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="70" />

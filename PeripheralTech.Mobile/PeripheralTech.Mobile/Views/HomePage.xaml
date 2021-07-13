@@ -32,7 +32,7 @@
                    Margin="0,20,0,0"/>
             <CollectionView ItemsSource="{Binding RecentProductList}" HeightRequest="200">
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="3" />
+                    <GridItemsLayout Orientation="Horizontal" Span="1" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

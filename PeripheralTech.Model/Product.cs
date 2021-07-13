@@ -21,6 +21,7 @@ namespace PeripheralTech.Model
         public string CompanyName { get; set; }
         public string ProductTypeName { get; set; }
         public string ProductNamePrice { get; set; }
+        public string PriceWithCurrency { get; set; }
         //for discounts
         public bool Discounted { get; set; }
         public string DiscountedString { get; set; }

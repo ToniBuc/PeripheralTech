@@ -14,5 +14,7 @@ namespace PeripheralTech.Model
         public bool IsPaid { get; set; }
         //
         public string UserFullname { get; set; }
+        //for earnings report
+        public string PaymentAmountWithCurrency { get; set; }
     }
 }
