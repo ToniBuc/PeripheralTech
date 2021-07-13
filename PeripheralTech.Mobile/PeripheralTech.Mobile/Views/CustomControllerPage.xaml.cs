@@ -49,6 +49,25 @@ namespace PeripheralTech.Mobile.Views
             int ProductID = Convert.ToInt32(button.CommandParameter);
             await model.PickProduct(ProductID);
             OnAppearing();
+            foreach(var x in model.CustomOrderList)
+            {
+                if (x.ProductTypeName == "Controller Casing")
+                {
+                    openCloseCasingsButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Button Kit")
+                {
+                    openCloseButtonKitsButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Thumbsticks")
+                {
+                    openCloseThumbsticksButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Paddles")
+                {
+                    openClosePaddlesButton.IsEnabled = false;
+                }
+            }
         }
 
         private void openCloseCasingsButton_Clicked(object sender, EventArgs e)
@@ -158,6 +177,38 @@ namespace PeripheralTech.Mobile.Views
             {
                 CustomOrderCollectionView.IsVisible = false;
                 openCloseOrderButton.Text = "Open";
+            }
+        }
+
+        private async void removeButton_Clicked(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            int ProductID = Convert.ToInt32(button.CommandParameter);
+            await model.RemoveProduct(ProductID);
+            OnAppearing();
+            openCloseOrderButton.Text = "Open";
+            openCloseCasingsButton.IsEnabled = true;
+            openCloseButtonKitsButton.IsEnabled = true;
+            openCloseThumbsticksButton.IsEnabled = true;
+            openClosePaddlesButton.IsEnabled = true;
+            foreach (var x in model.CustomOrderList)
+            {
+                if (x.ProductTypeName == "Controller Casing")
+                {
+                    openCloseCasingsButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Button Kit")
+                {
+                    openCloseButtonKitsButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Thumbsticks")
+                {
+                    openCloseThumbsticksButton.IsEnabled = false;
+                }
+                else if (x.ProductTypeName == "Controller Paddles")
+                {
+                    openClosePaddlesButton.IsEnabled = false;
+                }
             }
         }
         //private async void PickCasingButton_Clicked(object sender, EventArgs e)

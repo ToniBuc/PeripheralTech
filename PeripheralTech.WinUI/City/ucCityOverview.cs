@@ -41,6 +41,7 @@ namespace PeripheralTech.WinUI.City
         {
             await LoadCities(null);
             await LoadCountry();
+            cmbCountry.BringToFront();
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)

@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.cmbCity = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.cmbUserRole = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -60,57 +57,25 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbUserRole = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.cmbCity);
-            this.panel4.Location = new System.Drawing.Point(212, 446);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(282, 27);
-            this.panel4.TabIndex = 95;
-            // 
             // cmbCity
             // 
             this.cmbCity.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbCity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCity.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCity.FormattingEnabled = true;
-            this.cmbCity.Location = new System.Drawing.Point(0, 0);
+            this.cmbCity.Location = new System.Drawing.Point(213, 447);
             this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Size = new System.Drawing.Size(280, 27);
+            this.cmbCity.Size = new System.Drawing.Size(279, 27);
             this.cmbCity.TabIndex = 61;
             this.cmbCity.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCity_Validating);
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.cmbUserRole);
-            this.panel3.Location = new System.Drawing.Point(505, 514);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(281, 27);
-            this.panel3.TabIndex = 94;
-            // 
-            // cmbUserRole
-            // 
-            this.cmbUserRole.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbUserRole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUserRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbUserRole.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUserRole.FormattingEnabled = true;
-            this.cmbUserRole.Location = new System.Drawing.Point(0, 0);
-            this.cmbUserRole.Name = "cmbUserRole";
-            this.cmbUserRole.Size = new System.Drawing.Size(279, 27);
-            this.cmbUserRole.TabIndex = 60;
-            this.cmbUserRole.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUserRole_Validating);
             // 
             // btnSave
             // 
@@ -236,7 +201,7 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(505, 446);
+            this.txtAddress.Location = new System.Drawing.Point(505, 447);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(282, 27);
             this.txtAddress.TabIndex = 81;
@@ -368,15 +333,49 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.textBox1.Location = new System.Drawing.Point(212, 446);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(281, 29);
+            this.textBox1.TabIndex = 125;
+            // 
+            // cmbUserRole
+            // 
+            this.cmbUserRole.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbUserRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUserRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbUserRole.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUserRole.FormattingEnabled = true;
+            this.cmbUserRole.Location = new System.Drawing.Point(507, 514);
+            this.cmbUserRole.Name = "cmbUserRole";
+            this.cmbUserRole.Size = new System.Drawing.Size(279, 27);
+            this.cmbUserRole.TabIndex = 60;
+            this.cmbUserRole.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUserRole_Validating);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.textBox2.Location = new System.Drawing.Point(506, 513);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(281, 29);
+            this.textBox2.TabIndex = 126;
+            // 
             // ucStaffMemberDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cmbUserRole);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cmbCity);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.label15);
@@ -405,8 +404,6 @@
             this.Name = "ucStaffMemberDetail";
             this.Size = new System.Drawing.Size(1000, 719);
             this.Load += new System.EventHandler(this.ucStaffMemberDetail_Load);
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -415,11 +412,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cmbCity;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox cmbUserRole;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAddImage;
         private System.Windows.Forms.Label label15;
@@ -447,5 +440,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbUserRole;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

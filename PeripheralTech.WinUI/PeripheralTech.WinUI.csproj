@@ -121,6 +121,12 @@
     <Compile Include="Orders\ucOrderOverview.Designer.cs">
       <DependentUpon>ucOrderOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\frmAddAsPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmAddAsPart.Designer.cs">
+      <DependentUpon>frmAddAsPart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\ucProductDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Orders\ucOrderOverview.resx">
       <DependentUpon>ucOrderOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmAddAsPart.resx">
+      <DependentUpon>frmAddAsPart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\ucProductDetail.resx">
       <DependentUpon>ucProductDetail.cs</DependentUpon>

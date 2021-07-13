@@ -3,6 +3,7 @@ using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -67,6 +68,16 @@ namespace PeripheralTech.Mobile.ViewModels
             var product = await _productService.GetById<Model.Product>(id);
 
             CustomOrderList.Add(product);
+        }
+        public async Task RemoveProduct(int id)
+        {
+            foreach(var x in CustomOrderList.ToList())
+            {
+                if (x.ProductID == id)
+                {
+                    CustomOrderList.Remove(x);
+                }
+            }
         }
     }
 }

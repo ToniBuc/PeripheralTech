@@ -49,13 +49,13 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.btnAddNewProduct = new System.Windows.Forms.Button();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thumbnail = new System.Windows.Forms.DataGridViewImageColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceWithCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddNewProduct = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -296,23 +296,6 @@
             this.dgvProducts.TabIndex = 1;
             this.dgvProducts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvProducts_MouseDoubleClick);
             // 
-            // btnAddNewProduct
-            // 
-            this.btnAddNewProduct.BackColor = System.Drawing.Color.DarkRed;
-            this.btnAddNewProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNewProduct.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAddNewProduct.FlatAppearance.BorderSize = 0;
-            this.btnAddNewProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewProduct.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewProduct.Location = new System.Drawing.Point(831, 673);
-            this.btnAddNewProduct.Name = "btnAddNewProduct";
-            this.btnAddNewProduct.Size = new System.Drawing.Size(160, 33);
-            this.btnAddNewProduct.TabIndex = 90;
-            this.btnAddNewProduct.Text = "Add new product";
-            this.btnAddNewProduct.UseVisualStyleBackColor = false;
-            this.btnAddNewProduct.Click += new System.EventHandler(this.btnAddNewProduct_Click);
-            // 
             // ProductID
             // 
             this.ProductID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -321,7 +304,7 @@
             this.ProductID.Name = "ProductID";
             this.ProductID.ReadOnly = true;
             this.ProductID.Visible = false;
-            this.ProductID.Width = 105;
+            this.ProductID.Width = 107;
             // 
             // Thumbnail
             // 
@@ -366,6 +349,23 @@
             this.PriceWithCurrency.HeaderText = "Price";
             this.PriceWithCurrency.Name = "PriceWithCurrency";
             this.PriceWithCurrency.ReadOnly = true;
+            // 
+            // btnAddNewProduct
+            // 
+            this.btnAddNewProduct.BackColor = System.Drawing.Color.DarkRed;
+            this.btnAddNewProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewProduct.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddNewProduct.FlatAppearance.BorderSize = 0;
+            this.btnAddNewProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewProduct.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewProduct.ForeColor = System.Drawing.Color.White;
+            this.btnAddNewProduct.Location = new System.Drawing.Point(831, 673);
+            this.btnAddNewProduct.Name = "btnAddNewProduct";
+            this.btnAddNewProduct.Size = new System.Drawing.Size(160, 33);
+            this.btnAddNewProduct.TabIndex = 90;
+            this.btnAddNewProduct.Text = "Add new product";
+            this.btnAddNewProduct.UseVisualStyleBackColor = false;
+            this.btnAddNewProduct.Click += new System.EventHandler(this.btnAddNewProduct_Click);
             // 
             // ucProductOverview
             // 

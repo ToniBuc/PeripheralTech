@@ -87,6 +87,10 @@ namespace PeripheralTech.WinUI.Review
 
                 MessageBox.Show("Operation successful!");
             }
+            else
+            {
+                MessageBox.Show("You must fill out all of the mandatory fields first!");
+            }
         }
 
         private void txtSpecifications_Validating(object sender, CancelEventArgs e)
@@ -117,7 +121,7 @@ namespace PeripheralTech.WinUI.Review
 
         private void cmbRating_Validating(object sender, CancelEventArgs e)
         {
-            if (cmbRating.SelectedValue.Equals(0))
+            if (cmbRating.SelectedItem == null)
             {
                 errorProvider.SetError(cmbRating, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;

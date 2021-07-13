@@ -22,7 +22,7 @@ namespace PeripheralTech.WebAPI.Services
 
         public List<Model.Product> Get(ProductSearchRequest request)
         {
-            var query = _context.Product.Include(i => i.ProductType).Include(i => i.Company).AsQueryable();
+            var query = _context.Product.Include(i => i.ProductType).Include(i => i.Company).Include(i => i.ProductMadeFor).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request.ProductName))
             {
@@ -107,7 +107,7 @@ namespace PeripheralTech.WebAPI.Services
 
         public Model.Product GetById(int id)
         {
-            var entity = _context.Product.Where(i => i.ProductID == id).Include(i => i.ProductType).Include(i => i.Company).FirstOrDefault();
+            var entity = _context.Product.Where(i => i.ProductID == id).Include(i => i.ProductType).Include(i => i.Company).Include(i => i.ProductMadeFor).FirstOrDefault();
 
             var result = _mapper.Map<Model.Product>(entity);
 
@@ -137,6 +137,10 @@ namespace PeripheralTech.WebAPI.Services
             if (request.Thumbnail == null)
             {
                 request.Thumbnail = entity.Thumbnail;
+            }
+            if (request.ProductMadeForID == null)
+            {
+                request.ProductMadeForID = entity.ProductMadeForID;
             }
             _context.Product.Attach(entity);
             _context.Product.Update(entity);

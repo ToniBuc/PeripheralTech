@@ -34,7 +34,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtReview = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.cmbRating = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSpecifications = new System.Windows.Forms.TextBox();
@@ -42,8 +41,8 @@
             this.lblUserDate = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBack = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,30 +91,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(656, 678);
+            this.label5.Location = new System.Drawing.Point(634, 678);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 23);
             this.label5.TabIndex = 89;
             this.label5.Text = "Rating:";
             // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.cmbRating);
-            this.panel5.Location = new System.Drawing.Point(725, 677);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(96, 27);
-            this.panel5.TabIndex = 88;
-            // 
             // cmbRating
             // 
             this.cmbRating.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbRating.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRating.FormattingEnabled = true;
-            this.cmbRating.Location = new System.Drawing.Point(0, 0);
+            this.cmbRating.Location = new System.Drawing.Point(704, 676);
             this.cmbRating.Name = "cmbRating";
             this.cmbRating.Size = new System.Drawing.Size(94, 28);
             this.cmbRating.TabIndex = 63;
@@ -190,18 +179,29 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.textBox1.Location = new System.Drawing.Point(703, 675);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(96, 30);
+            this.textBox1.TabIndex = 125;
+            // 
             // ucStaffReview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cmbRating);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblUserDate);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtReview);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSpecifications);
             this.Controls.Add(this.btnAdd);
@@ -211,7 +211,6 @@
             this.Size = new System.Drawing.Size(1000, 719);
             this.Load += new System.EventHandler(this.ucStaffReview_Load);
             this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,7 +224,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtReview;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cmbRating;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSpecifications;
@@ -233,5 +231,6 @@
         private System.Windows.Forms.Label lblUserDate;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

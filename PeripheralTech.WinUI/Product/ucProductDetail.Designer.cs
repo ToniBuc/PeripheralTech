@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnGallery = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblProduct = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numInStock = new System.Windows.Forms.NumericUpDown();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.cmbManufacturer = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddImage = new System.Windows.Forms.Button();
@@ -70,10 +68,11 @@
             this.ToShortDateString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cbxCustomizable = new System.Windows.Forms.CheckBox();
+            this.btnAddAsPart = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -133,47 +132,27 @@
             this.numInStock.Size = new System.Drawing.Size(69, 30);
             this.numInStock.TabIndex = 116;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.cmbManufacturer);
-            this.panel4.Location = new System.Drawing.Point(308, 255);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(289, 27);
-            this.panel4.TabIndex = 115;
-            // 
             // cmbManufacturer
             // 
             this.cmbManufacturer.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbManufacturer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbManufacturer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbManufacturer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbManufacturer.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbManufacturer.FormattingEnabled = true;
-            this.cmbManufacturer.Location = new System.Drawing.Point(0, 0);
+            this.cmbManufacturer.Location = new System.Drawing.Point(308, 257);
             this.cmbManufacturer.Name = "cmbManufacturer";
             this.cmbManufacturer.Size = new System.Drawing.Size(287, 27);
             this.cmbManufacturer.TabIndex = 61;
             this.cmbManufacturer.Validating += new System.ComponentModel.CancelEventHandler(this.cmbManufacturer_Validating);
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.cmbProductType);
-            this.panel3.Location = new System.Drawing.Point(307, 189);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(289, 28);
-            this.panel3.TabIndex = 114;
-            // 
             // cmbProductType
             // 
             this.cmbProductType.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbProductType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbProductType.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProductType.FormattingEnabled = true;
-            this.cmbProductType.Location = new System.Drawing.Point(0, 0);
+            this.cmbProductType.Location = new System.Drawing.Point(309, 191);
             this.cmbProductType.Name = "cmbProductType";
             this.cmbProductType.Size = new System.Drawing.Size(287, 27);
             this.cmbProductType.TabIndex = 60;
@@ -329,9 +308,9 @@
             this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReview.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReview.ForeColor = System.Drawing.Color.White;
-            this.btnReview.Location = new System.Drawing.Point(431, 353);
+            this.btnReview.Location = new System.Drawing.Point(422, 353);
             this.btnReview.Name = "btnReview";
-            this.btnReview.Size = new System.Drawing.Size(118, 32);
+            this.btnReview.Size = new System.Drawing.Size(108, 32);
             this.btnReview.TabIndex = 120;
             this.btnReview.Text = "Staff Review";
             this.btnReview.UseVisualStyleBackColor = false;
@@ -348,7 +327,7 @@
             this.btnUserReviews.ForeColor = System.Drawing.Color.White;
             this.btnUserReviews.Location = new System.Drawing.Point(307, 353);
             this.btnUserReviews.Name = "btnUserReviews";
-            this.btnUserReviews.Size = new System.Drawing.Size(118, 32);
+            this.btnUserReviews.Size = new System.Drawing.Size(109, 32);
             this.btnUserReviews.TabIndex = 121;
             this.btnUserReviews.Text = "User Review";
             this.btnUserReviews.UseVisualStyleBackColor = false;
@@ -380,7 +359,7 @@
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDiscount.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
-            this.btnDiscount.Location = new System.Drawing.Point(679, 353);
+            this.btnDiscount.Location = new System.Drawing.Point(774, 677);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(140, 32);
             this.btnDiscount.TabIndex = 123;
@@ -397,7 +376,7 @@
             this.btnAddNewDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewDiscount.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewDiscount.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewDiscount.Location = new System.Drawing.Point(555, 353);
+            this.btnAddNewDiscount.Location = new System.Drawing.Point(650, 677);
             this.btnAddNewDiscount.Name = "btnAddNewDiscount";
             this.btnAddNewDiscount.Size = new System.Drawing.Size(118, 32);
             this.btnAddNewDiscount.TabIndex = 124;
@@ -411,7 +390,7 @@
             this.panel1.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(87, 391);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(826, 309);
+            this.panel1.Size = new System.Drawing.Size(826, 280);
             this.panel1.TabIndex = 126;
             // 
             // dgvDiscounts
@@ -424,14 +403,14 @@
             this.dgvDiscounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDiscounts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDiscounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiscounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiscounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dgvDiscounts.ColumnHeadersHeight = 24;
             this.dgvDiscounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDiscounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -440,35 +419,35 @@
             this.FromShortDateString,
             this.ToShortDateString,
             this.Active});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiscounts.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiscounts.DefaultCellStyle = dataGridViewCellStyle42;
             this.dgvDiscounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDiscounts.EnableHeadersVisualStyles = false;
             this.dgvDiscounts.GridColor = System.Drawing.SystemColors.Control;
             this.dgvDiscounts.Location = new System.Drawing.Point(0, 0);
             this.dgvDiscounts.Name = "dgvDiscounts";
             this.dgvDiscounts.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiscounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiscounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dgvDiscounts.RowHeadersVisible = false;
             this.dgvDiscounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDiscounts.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDiscounts.RowsDefaultCellStyle = dataGridViewCellStyle44;
             this.dgvDiscounts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvDiscounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDiscounts.Size = new System.Drawing.Size(826, 309);
+            this.dgvDiscounts.Size = new System.Drawing.Size(826, 280);
             this.dgvDiscounts.TabIndex = 1;
             this.dgvDiscounts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDiscounts_MouseDoubleClick);
             // 
@@ -526,11 +505,52 @@
             this.cbxCustomizable.Text = "Customizable";
             this.cbxCustomizable.UseVisualStyleBackColor = true;
             // 
+            // btnAddAsPart
+            // 
+            this.btnAddAsPart.BackColor = System.Drawing.Color.DarkRed;
+            this.btnAddAsPart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAsPart.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddAsPart.FlatAppearance.BorderSize = 0;
+            this.btnAddAsPart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAsPart.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAsPart.ForeColor = System.Drawing.Color.White;
+            this.btnAddAsPart.Location = new System.Drawing.Point(536, 353);
+            this.btnAddAsPart.Name = "btnAddAsPart";
+            this.btnAddAsPart.Size = new System.Drawing.Size(283, 32);
+            this.btnAddAsPart.TabIndex = 128;
+            this.btnAddAsPart.Text = "Add as part to a custom product";
+            this.btnAddAsPart.UseVisualStyleBackColor = false;
+            this.btnAddAsPart.Click += new System.EventHandler(this.btnAddAsPart_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.textBox1.Location = new System.Drawing.Point(307, 189);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(290, 30);
+            this.textBox1.TabIndex = 129;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.textBox2.Location = new System.Drawing.Point(306, 255);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(290, 30);
+            this.textBox2.TabIndex = 130;
+            // 
             // ucProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cmbManufacturer);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cmbProductType);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnAddAsPart);
             this.Controls.Add(this.cbxCustomizable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAddNewDiscount);
@@ -542,8 +562,6 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numInStock);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.label15);
@@ -564,8 +582,6 @@
             this.Load += new System.EventHandler(this.ucProductDetail_Load);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -582,9 +598,7 @@
         private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numInStock;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cmbManufacturer;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cmbProductType;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAddImage;
@@ -614,5 +628,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ToShortDateString;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
         private System.Windows.Forms.CheckBox cbxCustomizable;
+        private System.Windows.Forms.Button btnAddAsPart;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

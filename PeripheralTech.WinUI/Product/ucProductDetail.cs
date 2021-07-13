@@ -104,6 +104,12 @@ namespace PeripheralTech.WinUI.Product
             else
             {
                 pictureBox.Image = PeripheralTech.WinUI.Properties.Resources.no_image_available;
+                btnAddAsPart.Enabled = false;
+                btnAddNewDiscount.Enabled = false;
+                btnDiscount.Enabled = false;
+                btnGallery.Enabled = false;
+                btnReview.Enabled = false;
+                btnUserReviews.Enabled = false;
             }
         }
 
@@ -141,6 +147,10 @@ namespace PeripheralTech.WinUI.Product
 
                 MessageBox.Show("Operation successful!");
             }
+            else
+            {
+                MessageBox.Show("You must fill out all of the mandatory fields first!");
+            }
         }
 
         private void btnAddImage_Click(object sender, EventArgs e)
@@ -162,6 +172,8 @@ namespace PeripheralTech.WinUI.Product
 
         private void txtProductName_Validating(object sender, CancelEventArgs e)
         {
+            //errorProvider.SetError(txtProductName, Properties.Resources.Validation_RequiredField);
+            //e.Cancel = true;
             if (string.IsNullOrWhiteSpace(txtProductName.Text))
             {
                 errorProvider.SetError(txtProductName, Properties.Resources.Validation_RequiredField);
@@ -359,6 +371,18 @@ namespace PeripheralTech.WinUI.Product
                 this.Parent.Controls.Remove(this);
             }
             
+        }
+
+        private void btnAddAsPart_Click(object sender, EventArgs e)
+        {
+            if (_id.HasValue)
+            {
+                frmAddAsPart frm = new frmAddAsPart(_id);
+                //frm.FormBorderStyle = FormBorderStyle.FixedSingle;
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.Show();
+            }
         }
     }
 }

@@ -14,5 +14,6 @@ namespace PeripheralTech.Model.Requests
         public int CompanyID { get; set; }
         public byte[] Thumbnail { get; set; }
         public bool AvailableForCustom { get; set; }
+        public int? ProductMadeForID { get; set; }
     }
 }
