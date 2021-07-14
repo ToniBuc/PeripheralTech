@@ -34,6 +34,11 @@ namespace PeripheralTech.WebAPI.Controllers
         {
             return _service.GetUnderReviewOrder(request);
         }
+        [HttpGet("GetApprovedOrder")]
+        public Model.Order GetApprovedOrder([FromQuery]OrderSearchRequest request)
+        {
+            return _service.GetApprovedOrder(request);
+        }
         [HttpPost]
         public Model.Order Insert(OrderInsertRequest request)
         {

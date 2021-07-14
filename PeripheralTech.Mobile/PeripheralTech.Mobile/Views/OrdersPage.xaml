@@ -22,9 +22,11 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label Text="Date" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                             <Label Text="Total" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Status" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                         </Grid>
                         <BoxView Color="Black" HeightRequest="1"></BoxView>
                     </StackLayout>
@@ -54,6 +56,14 @@
                                 <Label      Grid.Row="0"
                                             Grid.Column="1"
                                             Text="{Binding TotalPaymentWithCurrency}"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand"/>
+                                <Label      Grid.Row="0"
+                                            Grid.Column="2"
+                                            Text="{Binding OrderStatusName}"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
                                             FontSize="18"
                                             FontAttributes="Bold"

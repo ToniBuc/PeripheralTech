@@ -50,6 +50,11 @@ namespace PeripheralTech.WebAPI.Services
                 query = query.Where(x => x.CustomerID == request.CustomerID);
             }
 
+            if (request.OrderID.HasValue)
+            {
+                query = query.Where(x => x.OrderID == request.OrderID);
+            }
+
             query = query.OrderByDescending(x => x.Date);
 
             var list = query.ToList();

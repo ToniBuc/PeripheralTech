@@ -10,6 +10,7 @@ namespace PeripheralTech.WebAPI.Services
     {
         List<Model.Order> Get(OrderSearchRequest request);
         Model.Order GetUnderReviewOrder(OrderSearchRequest request);
+        Model.Order GetApprovedOrder(OrderSearchRequest request);
         Model.Order GetById(int id);
         Model.Order Insert(OrderInsertRequest request);
         Model.Order Update(int id, OrderUpdateRequest request);

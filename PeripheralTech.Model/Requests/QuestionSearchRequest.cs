@@ -11,5 +11,7 @@ namespace PeripheralTech.Model.Requests
         public int? StaffID { get; set; }
         public bool? Status { get; set; }
         public string Claim { get; set; }
+        //
+        public int? OrderID { get; set; }
     }
 }

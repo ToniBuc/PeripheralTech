@@ -18,13 +18,14 @@ namespace PeripheralTech.Mobile.ViewModels
     {
         private readonly APIService _billService = new APIService("Bill");
         private readonly APIService _orderService = new APIService("Order");
-
+        private readonly APIService _productService = new APIService("Product");
         public INavigation Navigation { get; set; }
 
         #region Variable
 
         //public Bill Bill { get; set; }
         public Model.Order Order { get; set; }
+        public List<Model.Product> ProductList { get; set; }
         private CreditCardModel _creditCardModel;
         private TokenService Tokenservice;
         private Token stripeToken;
@@ -142,7 +143,7 @@ namespace PeripheralTech.Mobile.ViewModels
 
                     await _billService.Insert<Model.Bill>(request);
 
-                    //changed from done to pending
+                    //changed from active or approved to pending
                     var orderRequest = new OrderUpdateRequest()
                     {
                         OrderStatusID = 3,
@@ -151,6 +152,24 @@ namespace PeripheralTech.Mobile.ViewModels
                     };
 
                     await _orderService.Update<Model.Order>(Order.OrderID, orderRequest);
+
+                    foreach (var x in ProductList)
+                    {
+                        var updateProduct = new ProductUpsertRequest()
+                        {
+                            AmountInStock = x.AmountInStock - 1,
+                            AvailableForCustom = x.AvailableForCustom,
+                            CompanyID = x.CompanyID,
+                            Description = x.Description,
+                            Name = x.Name,
+                            Price = x.Price,
+                            ProductMadeForID = x.ProductMadeForID,
+                            ProductTypeID = x.ProductTypeID,
+                            Thumbnail = x.Thumbnail
+                        };
+
+                        await _productService.Update<Model.Product>(x.ProductID, updateProduct);
+                    }
 
                     UserDialogs.Instance.Alert("Payment successful!,", "OK", "OK");
                     UserDialogs.Instance.HideLoading();

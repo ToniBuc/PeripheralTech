@@ -15,12 +15,13 @@ namespace PeripheralTech.Mobile.Views
     public partial class BillPaymentGatewayPage : ContentPage
     {
         private PaymentGatewayPageViewModel model = null;
-        public BillPaymentGatewayPage(Order order)
+        public BillPaymentGatewayPage(Order order, List<Model.Product> list)
         {
             InitializeComponent();
             BindingContext = model = new PaymentGatewayPageViewModel
             {
-                Order = order
+                Order = order,
+                ProductList = list
             };
             model.Navigation = Navigation;
         }

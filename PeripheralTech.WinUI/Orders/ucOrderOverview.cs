@@ -36,9 +36,23 @@ namespace PeripheralTech.WinUI.Orders
 
         private async Task LoadOrderStatus()
         {
-            cmbOrderStatus.Items.Insert(0, "");
-            cmbOrderStatus.Items.Insert(1, "Done");
-            cmbOrderStatus.Items.Insert(2, "Pending");
+            //cmbOrderStatus.Items.Insert(0, "");
+            //cmbOrderStatus.Items.Insert(1, "Done");
+            //cmbOrderStatus.Items.Insert(2, "Pending");
+            var result = await _orderStatusService.Get<List<Model.OrderStatus>>(null);
+            foreach (var x in result.ToList())
+            {
+                if (x.Name.Equals("Active"))
+                {
+                    result.Remove(x);
+                }
+            }
+
+            result.Insert(0, new Model.OrderStatus());
+            
+            cmbOrderStatus.DisplayMember = "Name";
+            cmbOrderStatus.ValueMember = "OrderStatusID";
+            cmbOrderStatus.DataSource = result;
         }
 
         private async void ucOrderOverview_Load(object sender, EventArgs e)
@@ -66,20 +80,43 @@ namespace PeripheralTech.WinUI.Orders
             {
                 search.OrderStatus = "Pending";
             }
+            else if (cmbOrderStatus.Text == "Under Review")
+            {
+                search.OrderStatus = "Under Review";
+            }
+            else if (cmbOrderStatus.Text == "Approved")
+            {
+                search.OrderStatus = "Approved";
+            }
 
             await LoadOrders(search);
         }
 
-        private void dgvOrders_MouseDoubleClick(object sender, MouseEventArgs e)
+        private async void dgvOrders_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (!dgvOrders.RowCount.Equals(0))
             {
                 var id = dgvOrders.SelectedRows[0].Cells[0].Value;
-                ucBillReport uc = new ucBillReport(int.Parse(id.ToString()));
-                this.Parent.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;
-                uc.BringToFront();
-                this.Parent.Controls.Remove(this);
+
+                var order = await _orderService.GetById<Model.Order>(int.Parse(id.ToString()));
+
+                if (order.OrderStatus.Name.Equals("Under Review") || order.OrderStatus.Name.Equals("Approved"))
+                {
+                    ucCustomOrderDetail uc = new ucCustomOrderDetail(int.Parse(id.ToString()));
+                    this.Parent.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                    uc.BringToFront();
+                    this.Parent.Controls.Remove(this);
+                }
+                else
+                {
+                    ucBillReport uc = new ucBillReport(int.Parse(id.ToString()));
+                    this.Parent.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                    uc.BringToFront();
+                    this.Parent.Controls.Remove(this);
+                }
+                
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using PeripheralTech.Mobile.ViewModels;
 using PeripheralTech.Model;
+using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,9 +83,16 @@ namespace PeripheralTech.Mobile.Views
                 }
                 else
                 {
+                    List<Model.Product> list = new List<Model.Product>();
+                    foreach (var x in model.OrderProductList)
+                    {
+                        var product = await _productService.GetById<Model.Product>(x.ProductID);
+                        list.Add(product);
+                    }
+
                     var item = model.Order;
                     item.Comment = model.Comment;
-                    await Navigation.PushAsync(new BillPaymentGatewayPage(item));
+                    await Navigation.PushAsync(new BillPaymentGatewayPage(item, list));
                 }
             }
         }

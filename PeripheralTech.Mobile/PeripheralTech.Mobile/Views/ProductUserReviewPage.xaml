@@ -7,7 +7,7 @@
              x:Class="PeripheralTech.Mobile.Views.ProductUserReviewPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Product}" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="{Binding Product}" FontSize="30" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"></Label>
             <Grid HorizontalOptions="CenterAndExpand" Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>

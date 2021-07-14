@@ -50,6 +50,7 @@ namespace PeripheralTech.Mobile.ViewModels
 
             var order = await _orderService.Get<List<Model.Order>>(searchOrder);
 
+            OrderProductList.Clear();
             if (order.Count > 0)
             {
                 Order = order[0];
@@ -62,7 +63,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 var orderProductList = await _orderProductService.Get<List<Model.OrderProduct>>(searchOrderProduct);
 
                 var totalPayment = new decimal();
-                OrderProductList.Clear();
+                //OrderProductList.Clear();
                 foreach (var x in orderProductList)
                 {
                     OrderProductList.Add(x);

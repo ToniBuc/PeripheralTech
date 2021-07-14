@@ -32,7 +32,8 @@ namespace PeripheralTech.WebAPI.Services
                 else if (request.OrderStatus.Equals("NotActive"))
                 {
                     //this might need fixing, keep it in mind
-                    query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Done") || x.UserID == request.UserID && x.OrderStatus.Name.Equals("Pending"));
+                    //query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Done") || x.UserID == request.UserID && x.OrderStatus.Name.Equals("Pending
+                    query = query.Where(x => x.UserID == request.UserID && !x.OrderStatus.Name.Equals("Active"));
                 }
             }
 
@@ -44,7 +45,8 @@ namespace PeripheralTech.WebAPI.Services
                 }
                 else if (request.OrderStatus.Equals("NotActive"))
                 {
-                    query = query.Where(x => x.OrderStatus.Name.Equals("Done") || x.OrderStatus.Name.Equals("Pending"));
+                    //query = query.Where(x => x.OrderStatus.Name.Equals("Done") || x.OrderStatus.Name.Equals("Pending"));
+                    query = query.Where(x => !x.OrderStatus.Name.Equals("Active"));
                 }
                 else if (request.OrderStatus.Equals("Done"))
                 {
@@ -53,6 +55,14 @@ namespace PeripheralTech.WebAPI.Services
                 else if (request.OrderStatus.Equals("Pending"))
                 {
                     query = query.Where(x => x.OrderStatus.Name.Equals("Pending"));
+                }
+                else if (request.OrderStatus.Equals("Under Review"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals("Under Review"));
+                }
+                else if (request.OrderStatus.Equals("Approved"))
+                {
+                    query = query.Where(x => x.OrderStatus.Name.Equals("Approved"));
                 }
             }
 
@@ -149,6 +159,7 @@ namespace PeripheralTech.WebAPI.Services
             }
 
             result.OrderStatusName = result.OrderStatus.Name;
+            result.UserFullname = result.User.FirstName + " \"" + result.User.Username + "\" " + result.User.LastName;
 
             return result;
         }
@@ -158,12 +169,26 @@ namespace PeripheralTech.WebAPI.Services
 
             query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Under Review"));
 
-            var order = query.First();
+            var order = query.FirstOrDefault();
 
             var result = _mapper.Map<Model.Order>(order);
 
             return result;
         }
+
+        public Model.Order GetApprovedOrder(OrderSearchRequest request)
+        {
+            var query = _context.Order.Include(i => i.OrderStatus).Include(i => i.User).AsQueryable();
+
+            query = query.Where(x => x.UserID == request.UserID && x.OrderStatus.Name.Equals("Approved"));
+
+            var order = query.FirstOrDefault();
+
+            var result = _mapper.Map<Model.Order>(order);
+
+            return result;
+        }
+
         public Model.Order Update(int id, OrderUpdateRequest request)
         {
             var entity = _context.Order.Find(id);

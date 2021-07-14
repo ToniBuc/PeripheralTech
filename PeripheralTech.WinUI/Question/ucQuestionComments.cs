@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PeripheralTech.Model.Requests;
+using PeripheralTech.WinUI.Orders;
 
 namespace PeripheralTech.WinUI.Question
 {
@@ -16,29 +17,68 @@ namespace PeripheralTech.WinUI.Question
         private readonly APIService _questionService = new APIService("Question");
         private readonly APIService _commentsService = new APIService("QuestionComment");
         private int? _id = null;
-        public ucQuestionComments(int? Id = null)
+        private int? _orderId = null;
+        private int? _secondQId = null;
+        public ucQuestionComments(int? Id = null, int ? orderId = null)
         {
             InitializeComponent();
             _id = Id;
+            _orderId = orderId;
         }
 
         private async Task LoadReplies()
         {
-            var search = new QuestionCommentSearchRequest()
+            if (_id != null)
             {
-                QuestionID = _id
-            };
-            var replyList = await _commentsService.Get<List<Model.QuestionComment>>(search);
+                var search = new QuestionCommentSearchRequest()
+                {
+                    QuestionID = _id
+                };
+                var replyList = await _commentsService.Get<List<Model.QuestionComment>>(search);
 
-            dgvReplies.AutoGenerateColumns = false;
-            dgvReplies.DataSource = replyList;
+                dgvReplies.AutoGenerateColumns = false;
+                dgvReplies.DataSource = replyList;
+            }
+            else if (_secondQId != null)
+            {
+                var search = new QuestionCommentSearchRequest()
+                {
+                    QuestionID = _secondQId
+                };
+                var replyList = await _commentsService.Get<List<Model.QuestionComment>>(search);
+
+                dgvReplies.AutoGenerateColumns = false;
+                dgvReplies.DataSource = replyList;
+            }
         }
 
         private async void ucQuestionComments_Load(object sender, EventArgs e)
         {
+            if (_id == null)
+            {
+                var questionSearch = new QuestionSearchRequest()
+                {
+                    OrderID = _orderId
+                };
+                var q = await _questionService.Get<List<Model.Question>>(questionSearch);
+                if (q.Count > 0)
+                {
+                    _secondQId = q[0].QuestionID;
+                }
+            }
+
             await LoadReplies();
 
-            var question = await _questionService.GetById<Model.Question>(_id);
+            Model.Question question = new Model.Question();
+            if (_id != null)
+            {
+                question = await _questionService.GetById<Model.Question>(_id);
+            }
+            else if (_secondQId != null)
+            {
+                question = await _questionService.GetById<Model.Question>(_secondQId);
+            }
+            
             txtQuestion.Text = question.Content;
 
             if (!question.StaffID.HasValue)
@@ -66,10 +106,19 @@ namespace PeripheralTech.WinUI.Question
                 var request = new QuestionCommentUpsertRequest()
                 {
                     UserID = APIService.UserID,
-                    QuestionID = _id.Value,
+                    //QuestionID = _id.Value,
                     Content = txtReply.Text,
                     Date = DateTime.Now
                 };
+
+                if (_id != null)
+                {
+                    request.QuestionID = _id.Value;
+                }
+                else if (_secondQId != null)
+                {
+                    request.QuestionID = _secondQId.Value;
+                }
 
                 await _commentsService.Insert<Model.QuestionComment>(request);
                 await LoadReplies();
@@ -78,11 +127,22 @@ namespace PeripheralTech.WinUI.Question
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            ucQuestionOverview uc = new ucQuestionOverview();
-            this.Parent.Controls.Add(uc);
-            uc.Dock = DockStyle.Fill;
-            uc.BringToFront();
-            this.Parent.Controls.Remove(this);
+            if (_id != null)
+            {
+                ucQuestionOverview uc = new ucQuestionOverview();
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
+            else if (_orderId != null)
+            {
+                ucCustomOrderDetail uc = new ucCustomOrderDetail(_orderId);
+                this.Parent.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+                uc.BringToFront();
+                this.Parent.Controls.Remove(this);
+            }
         }
 
         private async void btnClaim_Click(object sender, EventArgs e)
@@ -92,7 +152,14 @@ namespace PeripheralTech.WinUI.Question
                 StaffID = APIService.UserID
             };
 
-            await _questionService.Update<Model.Question>(_id, request);
+            if (_id != null)
+            {
+                await _questionService.Update<Model.Question>(_id, request);
+            }
+            else if (_secondQId != null)
+            {
+                await _questionService.Update<Model.Question>(_secondQId, request);
+            }
 
             MessageBox.Show("Question claimed!");
 
@@ -108,7 +175,14 @@ namespace PeripheralTech.WinUI.Question
                 Status = false
             };
 
-            await _questionService.Update<Model.Question>(_id, request);
+            if (_id != null)
+            {
+                await _questionService.Update<Model.Question>(_id, request);
+            }
+            else if (_secondQId != null)
+            {
+                await _questionService.Update<Model.Question>(_secondQId, request);
+            }
 
             MessageBox.Show("Question closed!");
 

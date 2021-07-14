@@ -38,7 +38,6 @@
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReport = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -147,22 +146,6 @@
             this.StaffRole.ReadOnly = true;
             this.StaffRole.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.DarkRed;
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(779, 628);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(108, 37);
-            this.btnReport.TabIndex = 24;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = false;
-            // 
             // btnAddStaff
             // 
             this.btnAddStaff.BackColor = System.Drawing.Color.DarkRed;
@@ -221,7 +204,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnAddStaff);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
@@ -246,7 +228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffRole;
-        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnAddStaff;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;

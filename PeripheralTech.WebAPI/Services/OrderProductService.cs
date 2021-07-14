@@ -26,12 +26,22 @@ namespace PeripheralTech.WebAPI.Services
 
             if (request.OrderID.HasValue && !request.MyOrdersCheck)
             {
-                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Active"));
+                if (!request.CustomOrderProductsCheck)
+                {
+                    query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Active"));
+                }
+                //query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Active"));
             }
 
             if (request.OrderID.HasValue && request.MyOrdersCheck)
             {
-                query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done") || x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Pending"));
+                //query = query.Where(x => x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Done") || x.OrderID == request.OrderID && x.Order.OrderStatus.Name.Equals("Pending"));
+                query = query.Where(x => x.OrderID == request.OrderID && !x.Order.OrderStatus.Name.Equals("Active"));
+            }
+
+            if (request.OrderID.HasValue && request.CustomOrderProductsCheck)
+            {
+                query = query.Where(x => x.OrderID == request.OrderID);
             }
 
             var list = query.ToList();

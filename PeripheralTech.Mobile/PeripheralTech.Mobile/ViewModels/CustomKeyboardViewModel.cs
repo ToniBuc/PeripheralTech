@@ -12,24 +12,23 @@ using Xamarin.Forms;
 
 namespace PeripheralTech.Mobile.ViewModels
 {
-    public class CustomControllerViewModel : BaseViewModel
+    public class CustomKeyboardViewModel : BaseViewModel
     {
         private readonly APIService _productService = new APIService("Product");
         private readonly APIService _orderService = new APIService("Order");
         private readonly APIService _orderUnderReviewService = new APIService("Order/GetUnderReviewOrder");
         private readonly APIService _orderProductService = new APIService("OrderProduct");
-        private readonly APIService _productCustomService = new APIService("Product/GetProductsForCustomOrder"); 
+        private readonly APIService _productCustomService = new APIService("Product/GetProductsForCustomOrder");
         public int? ProductID { get; set; }
-        public CustomControllerViewModel()
+        public CustomKeyboardViewModel()
         {
             InitCommand = new Command(async () => await Init());
             OrderCommand = new Command(async () => await Order());
         }
         public ObservableCollection<Product> CustomOrderList { get; set; } = new ObservableCollection<Product>();
         public ObservableCollection<Product> CasingList { get; set; } = new ObservableCollection<Product>();
-        public ObservableCollection<Product> ButtonKitList { get; set; } = new ObservableCollection<Product>();
-        public ObservableCollection<Product> ThumbstickList { get; set; } = new ObservableCollection<Product>();
-        public ObservableCollection<Product> PaddlesList { get; set; } = new ObservableCollection<Product>();
+        public ObservableCollection<Product> KeycapList { get; set; } = new ObservableCollection<Product>();
+        public ObservableCollection<Product> SoundDampenerList { get; set; } = new ObservableCollection<Product>();
 
         public ICommand InitCommand { get; set; }
         public ICommand PickProductCommand { get; set; }
@@ -51,14 +50,14 @@ namespace PeripheralTech.Mobile.ViewModels
             };
 
             bool prodCheck = true;
-            foreach(var x in CustomOrderList)
+            foreach (var x in CustomOrderList)
             {
                 if (x.ProductID == Product.ProductID)
                 {
                     prodCheck = false;
                 }
             }
-            
+
             if (prodCheck)
             {
                 CustomOrderList.Add(Product);
@@ -67,26 +66,21 @@ namespace PeripheralTech.Mobile.ViewModels
             var list = await _productCustomService.Get<IEnumerable<Product>>(search);
 
             CasingList.Clear();
-            ButtonKitList.Clear();
-            ThumbstickList.Clear();
-            PaddlesList.Clear();
+            KeycapList.Clear();
+            SoundDampenerList.Clear();
             foreach (var x in list)
             {
-                if (x.ProductTypeName.Equals("Controller Casing"))
+                if (x.ProductTypeName.Equals("Keyboard Casing"))
                 {
                     CasingList.Add(x);
                 }
-                else if (x.ProductTypeName.Equals("Controller Button Kit"))
+                else if (x.ProductTypeName.Equals("Keycaps"))
                 {
-                    ButtonKitList.Add(x);
+                    KeycapList.Add(x);
                 }
-                else if (x.ProductTypeName.Equals("Controller Thumbsticks"))
+                else if (x.ProductTypeName.Equals("Keyboard Sound Dampeners"))
                 {
-                    ThumbstickList.Add(x);
-                }
-                else if (x.ProductTypeName.Equals("Controller Paddles"))
-                {
-                    PaddlesList.Add(x);
+                    SoundDampenerList.Add(x);
                 }
             }
         }
@@ -103,7 +97,7 @@ namespace PeripheralTech.Mobile.ViewModels
             list = list.OrderByDescending(i => i.ProductNamePrice).ToList();
             decimal total = 0;
             CustomOrderList.Clear();
-            foreach(var x in list)
+            foreach (var x in list)
             {
                 CustomOrderList.Add(x);
                 total += x.Price;
@@ -143,7 +137,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 check = true;
             }
 
-            int ? tempId = null;
+            int? tempId = null;
             if (!check)
             {
                 var searchOrder = new OrderSearchRequest()

@@ -115,6 +115,12 @@
     <Compile Include="News\ucNewsOverview.Designer.cs">
       <DependentUpon>ucNewsOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orders\ucCustomOrderDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Orders\ucCustomOrderDetail.Designer.cs">
+      <DependentUpon>ucCustomOrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Orders\ucOrderOverview.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="News\ucNewsOverview.resx">
       <DependentUpon>ucNewsOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\ucCustomOrderDetail.resx">
+      <DependentUpon>ucCustomOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orders\ucOrderOverview.resx">
       <DependentUpon>ucOrderOverview.cs</DependentUpon>
