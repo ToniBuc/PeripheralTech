@@ -46,6 +46,10 @@ namespace PeripheralTech.Mobile.Views
                 {
                     await Navigation.PushAsync(new CustomKeyboardPage(id));
                 }
+                if (item.ProductTypeName == "Mouse")
+                {
+                    await Navigation.PushAsync(new CustomMousePage(id));
+                }
             }
         }
     }

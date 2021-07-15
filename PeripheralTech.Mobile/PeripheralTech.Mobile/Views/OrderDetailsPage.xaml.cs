@@ -1,4 +1,5 @@
 ﻿using PeripheralTech.Mobile.ViewModels;
+using PeripheralTech.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace PeripheralTech.Mobile.Views
     {
         private OrderDetailsViewModel model = null;
         private readonly APIService _productService = new APIService("Product");
+        private readonly APIService _orderService = new APIService("Order");
+        private readonly APIService _orderProductService = new APIService("OrderProduct");
+        private readonly APIService _questionService = new APIService("Question");
         public OrderDetailsPage(int ? id)
         {
             InitializeComponent(); 
@@ -36,15 +40,25 @@ namespace PeripheralTech.Mobile.Views
             {
                 payButton.IsVisible = false;
                 payButton.IsEnabled = false;
+                cancelButton.IsVisible = false;
+                cancelButton.IsEnabled = false;
             }
         }
 
         private async void reviewButton_Clicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            int id = Convert.ToInt32(button.CommandParameter);
-            await Navigation.PushAsync(new ProductUserReviewPage(id));
-            OnAppearing();
+            if (model.Order.OrderStatusName.Equals("Done") || model.Order.OrderStatusName.Equals("Pending"))
+            {
+                Button button = (Button)sender;
+                int id = Convert.ToInt32(button.CommandParameter);
+                await Navigation.PushAsync(new ProductUserReviewPage(id));
+                OnAppearing();
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You have to yet to purchase the products in this order. Once the order is Approved and " +
+                                                                         "the products are paid for, you will be able to review them!", "OK");
+            }
         }
 
         private async void payButton_Clicked(object sender, EventArgs e)
@@ -71,7 +85,7 @@ namespace PeripheralTech.Mobile.Views
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "You must add both a City and Address (your residence to be delivered to) " +
                         "to your profile information before you can purchase products! If your resident city is not available in the options, please send in a request" +
-                        "for it to be added through the app's question system.", "OK");
+                        " for it to be added through the app's question system.", "OK");
                 }
                 else
                 {
@@ -87,6 +101,21 @@ namespace PeripheralTech.Mobile.Views
                     await Navigation.PushAsync(new BillPaymentGatewayPage(item, list));
                 }
             }
+        }
+
+        private async void cancelButton_Clicked(object sender, EventArgs e)
+        {
+            var order = await _orderService.GetById<Model.Order>(model.OrderID);
+            var request = new OrderUpdateRequest()
+            {
+                Comment = order.Comment,
+                Date = order.Date,
+                OrderStatusID = 6
+            };
+
+            await _orderService.Update<Model.Order>(order.OrderID, request);
+
+            await Application.Current.MainPage.DisplayAlert("Error", "You have successfully cancelled this custom order!", "OK");
         }
     }
 }
