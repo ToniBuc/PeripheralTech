@@ -11,7 +11,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="20" HorizontalOptions="FillAndExpand">
-            <StackLayout Orientation="Horizontal" HeightRequest="300">
+            <StackLayout Orientation="Horizontal" HeightRequest="250">
                 <Image x:Name="Logo" Aspect="AspectFit" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"></Image>
             </StackLayout>
             <Label Text="PeripheralTech"

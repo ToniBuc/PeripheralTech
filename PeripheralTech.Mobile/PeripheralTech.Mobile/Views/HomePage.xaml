@@ -24,7 +24,7 @@
                 HorizontalOptions="CenterAndExpand" 
                 Style="{DynamicResource ListItemTextStyle}" 
                 FontSize="24"/>
-            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="15,0,15,0"></BoxView>
             <Label Text="Recently added:"
                 HorizontalOptions="CenterAndExpand" 
                 Style="{DynamicResource ListItemTextStyle}" 
@@ -64,7 +64,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <BoxView Color="Black" HeightRequest="1" Margin="15,0,15,0"></BoxView>
             <Label Text="Currently on discount:"
                 HorizontalOptions="CenterAndExpand" 
                 Style="{DynamicResource ListItemTextStyle}" 

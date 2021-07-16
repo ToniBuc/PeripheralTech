@@ -23,7 +23,7 @@
                     HorizontalOptions="CenterAndExpand" FontSize="30"
                     Style="{DynamicResource ListItemDetailTextStyle}"
                     Margin="0,5,0,10"/>
-            <BoxView Color="Black" HeightRequest="1" Margin="0,5,0,10"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="0,5,0,10"></BoxView>
             <ListView ItemsSource="{Binding OrderProductList}">
                 <!--<ListView.Header>
                     <StackLayout>

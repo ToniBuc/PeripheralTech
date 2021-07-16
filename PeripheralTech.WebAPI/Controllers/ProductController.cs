@@ -42,7 +42,7 @@ namespace PeripheralTech.WebAPI.Controllers
         public List<Model.Product> RecommendedProcedures(int ProductID)
         {
             //keep in mind
-            return _recommendationService.GetSimilarProducts(ProductID).Take(3).ToList();
+            return _recommendationService.GetSimilarProducts(ProductID).Take(3).OrderByDescending(i => i.Name.Length).ToList();
         }
         [HttpGet("GetRecentProducts")]
         public List<Model.Product> GetRecentProducts([FromQuery]ProductSearchRequest request)

@@ -28,7 +28,7 @@
                             <Label Text="Total" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                             <Label Text="Status" Style="{DynamicResource ListItemTextStyle}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                         </Grid>
-                        <BoxView Color="Black" HeightRequest="1"></BoxView>
+                        <BoxView Color="Black" HeightRequest="3"></BoxView>
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>

@@ -17,7 +17,7 @@
                     HorizontalOptions="CenterAndExpand" FontSize="30"
                     Style="{DynamicResource ListItemDetailTextStyle}"
                     Margin="0,5,0,5" x:Name="mainLabel"/>
-            <BoxView Color="Black" HeightRequest="3" Margin="0,5,0,0" x:Name="boxViewSeparator1"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="15,5,15,0" x:Name="boxViewSeparator1"></BoxView>
             <StackLayout Padding="5">
                 <!--<Label Text="Shopping Cart"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
@@ -72,7 +72,7 @@
                     FontAttributes="Bold"
                     Margin="0,2,0,2" x:Name="totalLabel"/>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="3" Margin="0,5,0,0" x:Name="boxViewSeparator2"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="15,5,15,0" x:Name="boxViewSeparator2"></BoxView>
             <StackLayout Padding="5">
                 <!--<Label Text="Casings"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
@@ -123,7 +123,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <BoxView Color="Black" HeightRequest="1" Margin="15,0,15,0"></BoxView>
             <StackLayout Padding="5">
                 <!--<Label Text="Button Kits"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
@@ -174,7 +174,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <BoxView Color="Black" HeightRequest="1" Margin="15,0,15,0"></BoxView>
             <StackLayout Padding="5">
                 <!--<Label Text="Thumbsticks"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
@@ -225,7 +225,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="1"></BoxView>
+            <BoxView Color="Black" HeightRequest="1" Margin="15,0,15,0"></BoxView>
             <StackLayout Padding="5">
                 <!--<Label Text="Paddles"
                     HorizontalOptions="CenterAndExpand" FontSize="20"
@@ -276,7 +276,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <BoxView Color="Black" HeightRequest="3" Margin="0,10,0,0"></BoxView>
+            <BoxView Color="Black" HeightRequest="3" Margin="15,10,15,0"></BoxView>
             <StackLayout Padding="15">
                 <Button Command="{Binding OrderCommand}" Text="Make Order" x:Name="orderButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
             </StackLayout>

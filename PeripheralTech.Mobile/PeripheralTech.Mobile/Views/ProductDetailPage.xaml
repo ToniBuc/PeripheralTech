@@ -61,11 +61,11 @@
                         <Button Text="Product Videos" Clicked="productVideos_Clicked" x:Name="productVideosButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
                     </StackLayout>
                 </Grid>
-                <BoxView Color="Black" HeightRequest="3" Margin="0,0,0,10"></BoxView>
+                <BoxView Color="Black" HeightRequest="3" Margin="15,0,15,10"></BoxView>
                 <Label Text="Recommended products:" HorizontalOptions="CenterAndExpand" FontSize="20" Style="{DynamicResource ListItemTextStyle}"></Label>
-                <CollectionView ItemsSource="{Binding RecommendedProductList}" HeightRequest="300">
+                <CollectionView ItemsSource="{Binding RecommendedProductList}" HeightRequest="200">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="3" />
+                        <GridItemsLayout Orientation="Horizontal" Span="1" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
