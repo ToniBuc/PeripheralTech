@@ -52,5 +52,9 @@ namespace PeripheralTech.Mobile.Views
                 }
             }
         }
+        private async void Filter_Clicked(object sender, EventArgs e)
+        {
+            await model.Init();
+        }
     }
 }

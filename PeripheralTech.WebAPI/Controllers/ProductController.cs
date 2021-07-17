@@ -54,6 +54,11 @@ namespace PeripheralTech.WebAPI.Controllers
         {
             return _service.GetDiscountedProducts(request);
         }
+        [HttpGet("GetCustomizableProducts")]
+        public List<Model.Product> GetCustomizableProducts([FromQuery]ProductSearchRequest request)
+        {
+            return _service.GetCustomizableProducts(request);
+        }
         [HttpGet("GetProductsForCustomOrder")]
         public List<Model.Product> GetProductsForCustomOrder([FromQuery]ProductSearchRequest request)
         {

@@ -207,6 +207,35 @@ namespace PeripheralTech.WebAPI.Services
             return realResult;
         }
 
+        public List<Model.Product> GetCustomizableProducts(ProductSearchRequest search)
+        {
+            var query = _context.Set<Database.Product>().Include(i => i.ProductType).AsQueryable();
+
+            query = query.Where(i => i.AmountInStock > 0 && i.AvailableForCustom == true);
+
+            var list = query.ToList();
+            var result = _mapper.Map<List<Model.Product>>(list);
+
+            foreach (var x in result)
+            {
+                var discount = _context.Discount.Where(i => i.ProductID == x.ProductID && i.From.Date <= DateTime.Now.Date && i.To.Date >= DateTime.Now.Date).FirstOrDefault();
+                if (discount != null)
+                {
+                    var discountedPrice = x.Price - (x.Price * discount.DiscountPercentage) / 100;
+                    x.ProductNamePrice = x.Name + " - " + Math.Round(discountedPrice, 2) + " KM";
+                    x.Discounted = true;
+                    x.DiscountedString = " (-" + Math.Round(discount.DiscountPercentage, 0) + "% from " + x.Price + ") KM";
+                }
+                else
+                {
+                    x.ProductNamePrice = x.Name + " - " + x.Price.ToString() + " KM";
+                }
+                x.ProductTypeName = x.ProductType.Name;
+            }
+
+            return result;
+        }
+
         public List<Model.Product> GetProductsForCustomOrder(ProductSearchRequest search)
         {
             var query = _context.Set<Database.Product>().Include(i => i.ProductType).AsQueryable();

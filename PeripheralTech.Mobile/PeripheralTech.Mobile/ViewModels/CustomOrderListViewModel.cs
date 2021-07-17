@@ -12,7 +12,7 @@ namespace PeripheralTech.Mobile.ViewModels
 {
     public class CustomOrderListViewModel : BaseViewModel
     {
-        private readonly APIService _productService = new APIService("Product");
+        private readonly APIService _productCustomizableService = new APIService("Product/GetCustomizableProducts");
         private readonly APIService _orderUnderReviewService = new APIService("Order/GetUnderReviewOrder");
         private readonly APIService _orderApprovedService = new APIService("Order/GetApprovedOrder");
         public CustomOrderListViewModel()
@@ -30,10 +30,45 @@ namespace PeripheralTech.Mobile.ViewModels
             get { return _checkOrder; }
             set { SetProperty(ref _checkOrder, value); }
         }
+        private string _searchText = null;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                SetProperty(ref _searchText, value);
+                OnPropertyChanged();
+            }
+
+        }
 
         public async Task Init()
         {
-            //UserId = APIService.UserID;
+            //var search = new ProductSearchRequest()
+            //{
+            //    AvailableForCustom = true
+            //};
+            //var list = await _productService.Get<IEnumerable<Model.Product>>(search);
+
+            //ProcedureList.Clear();
+            //if (_searchText != null)
+            //{
+            //    var normalizedQuery = _searchText?.ToLower() ?? "";
+            //    foreach (var x in list)
+            //    {
+            //        if (x.Name.ToLowerInvariant().Contains(normalizedQuery))
+            //        {
+            //            ProcedureList.Add(x);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (var x in list)
+            //    {
+            //        ProcedureList.Add(x);
+            //    }
+            //}
 
             var orderSearch = new OrderSearchRequest()
             {
@@ -52,19 +87,32 @@ namespace PeripheralTech.Mobile.ViewModels
                 CheckOrder = true;
             }
 
-            var search = new ProductSearchRequest()
-            {
-                AvailableForCustom = true
-            };
-
-            var list = await _productService.Get<IEnumerable<Product>>(search);
+            var list = await _productCustomizableService.Get<IEnumerable<Product>>(null);
 
             ProductList.Clear();
-
-            foreach (var x in list)
+            if (_searchText != null)
             {
-                ProductList.Add(x);
+                var normalizedQuery = _searchText?.ToLower() ?? "";
+                foreach (var x in list)
+                {
+                    if (x.Name.ToLowerInvariant().Contains(normalizedQuery))
+                    {
+                        ProductList.Add(x);
+                    }
+                }
             }
+            else
+            {
+                foreach (var x in list)
+                {
+                    ProductList.Add(x);
+                }
+            }
+
+            //foreach (var x in list)
+            //{
+            //    ProductList.Add(x);
+            //}
         }
     }
 }
