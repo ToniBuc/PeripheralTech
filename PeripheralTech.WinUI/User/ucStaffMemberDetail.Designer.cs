@@ -285,7 +285,7 @@
             this.pictureBox.Location = new System.Drawing.Point(212, 59);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(281, 281);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 72;
             this.pictureBox.TabStop = false;
             // 
