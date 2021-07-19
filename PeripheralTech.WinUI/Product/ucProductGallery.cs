@@ -98,16 +98,19 @@ namespace PeripheralTech.WinUI.Product
                 txtImageInput.Text = fileName;
             }
 
-            await _productImageService.Insert<Model.ProductImage>(request);
-
-            MessageBox.Show("Operation successful!");
-
-            var search = new ProductImageSearchRequest()
+            if (request.Image != null)
             {
-                ProductID = _id
-            };
+                await _productImageService.Insert<Model.ProductImage>(request);
 
-            await LoadProductImages(search);
+                MessageBox.Show("Operation successful!");
+
+                var search = new ProductImageSearchRequest()
+                {
+                    ProductID = _id
+                };
+
+                await LoadProductImages(search);
+            }
         }
 
         private void dgvImages_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -184,17 +187,20 @@ namespace PeripheralTech.WinUI.Product
             }
             else
             {
-                await _productVideoService.Insert<Model.ProductVideo>(request);
-
-                MessageBox.Show("Operation successful!");
-
-                var search = new ProductVideoSearchRequest()
+                if (request.Video != null)
                 {
-                    ProductID = _id
-                };
+                    await _productVideoService.Insert<Model.ProductVideo>(request);
 
-                await LoadProductVideos(search);
+                    MessageBox.Show("Operation successful!");
 
+                    var search = new ProductVideoSearchRequest()
+                    {
+                        ProductID = _id
+                    };
+
+                    await LoadProductVideos(search);
+                    txtVideoInput.Text = null;
+                }
             }
         }
 
