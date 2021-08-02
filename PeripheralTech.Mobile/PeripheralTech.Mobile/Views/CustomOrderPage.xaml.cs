@@ -40,15 +40,18 @@ namespace PeripheralTech.Mobile.Views
                 var id = item.ProductID;
                 if (item.ProductTypeName == "Controller")
                 {
-                    await Navigation.PushAsync(new CustomControllerPage(id));
+                    //await Navigation.PushAsync(new CustomControllerPage(id));
+                    await Navigation.PushModalAsync(new NavigationPage(new CustomControllerPage(id)));
                 }
                 if (item.ProductTypeName == "Keyboard")
                 {
-                    await Navigation.PushAsync(new CustomKeyboardPage(id));
+                    //await Navigation.PushAsync(new CustomKeyboardPage(id));
+                    await Navigation.PushModalAsync(new NavigationPage(new CustomKeyboardPage(id)));
                 }
                 if (item.ProductTypeName == "Mouse")
                 {
-                    await Navigation.PushAsync(new CustomMousePage(id));
+                    //await Navigation.PushAsync(new CustomMousePage(id));
+                    await Navigation.PushModalAsync(new NavigationPage(new CustomMousePage(id)));
                 }
             }
         }

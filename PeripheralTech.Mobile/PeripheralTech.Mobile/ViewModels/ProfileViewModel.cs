@@ -165,6 +165,11 @@ namespace PeripheralTech.Mobile.ViewModels
             try
             {
                 await _userService.Update<Model.User>(APIService.UserID, request);
+                //for checkout
+                var user = await _userService.GetById<Model.User>(APIService.UserID);
+                APIService.User.Address = user.Address;
+                APIService.User.CityID = user.CityID;
+                //
                 await Application.Current.MainPage.DisplayAlert("Notification", "You have successfully updated your personal information!", "OK");
             }
             catch (Exception)

@@ -69,6 +69,7 @@ namespace PeripheralTech.Mobile.ViewModels
                 if (OrderID != null)
                 {
                     await Application.Current.MainPage.Navigation.PopModalAsync();
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
                 }
                 else
                 {
