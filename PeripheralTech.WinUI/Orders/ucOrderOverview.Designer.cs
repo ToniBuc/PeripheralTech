@@ -137,6 +137,8 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.dgvOrders.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvOrders.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightCoral;
+            this.dgvOrders.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvOrders.RowTemplate.Height = 50;
             this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrders.Size = new System.Drawing.Size(994, 552);

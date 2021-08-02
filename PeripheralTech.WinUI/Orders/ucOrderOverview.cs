@@ -100,23 +100,29 @@ namespace PeripheralTech.WinUI.Orders
 
                 var order = await _orderService.GetById<Model.Order>(int.Parse(id.ToString()));
 
-                if (order.OrderStatus.Name.Equals("Under Review") || order.OrderStatus.Name.Equals("Approved"))
+                if (!order.OrderStatus.Name.Equals("Cancelled"))
                 {
-                    ucCustomOrderDetail uc = new ucCustomOrderDetail(int.Parse(id.ToString()));
-                    this.Parent.Controls.Add(uc);
-                    uc.Dock = DockStyle.Fill;
-                    uc.BringToFront();
-                    this.Parent.Controls.Remove(this);
+                    if (order.OrderStatus.Name.Equals("Under Review") || order.OrderStatus.Name.Equals("Approved"))
+                    {
+                        ucCustomOrderDetail uc = new ucCustomOrderDetail(int.Parse(id.ToString()));
+                        this.Parent.Controls.Add(uc);
+                        uc.Dock = DockStyle.Fill;
+                        uc.BringToFront();
+                        this.Parent.Controls.Remove(this);
+                    }
+                    else
+                    {
+                        ucBillReport uc = new ucBillReport(int.Parse(id.ToString()));
+                        this.Parent.Controls.Add(uc);
+                        uc.Dock = DockStyle.Fill;
+                        uc.BringToFront();
+                        this.Parent.Controls.Remove(this);
+                    }
                 }
                 else
                 {
-                    ucBillReport uc = new ucBillReport(int.Parse(id.ToString()));
-                    this.Parent.Controls.Add(uc);
-                    uc.Dock = DockStyle.Fill;
-                    uc.BringToFront();
-                    this.Parent.Controls.Remove(this);
+                    MessageBox.Show("This order was cancelled and thus does not have an associated bill report!");
                 }
-                
             }
         }
 
