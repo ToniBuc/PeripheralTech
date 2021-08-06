@@ -65,7 +65,7 @@ namespace PeripheralTech.WebAPI.Services
                     query = query.Where(x => x.OrderStatus.Name.Equals("Approved"));
                 }
             }
-
+            query = query.OrderByDescending(x => x.Date);
             var list = query.ToList();
 
             var result = _mapper.Map<List<Model.Order>>(list);

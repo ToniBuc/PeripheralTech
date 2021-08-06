@@ -45,6 +45,12 @@ namespace PeripheralTech.WinUI.User
         {
             await LoadUserRole();
             await LoadCity();
+
+            if (APIService.Role != "Administrator")
+            {
+                cmbUserRole.Enabled = false;
+            }
+
             if (_id.HasValue)
             {
                 var user = await _service.GetById<Model.User>(_id);
