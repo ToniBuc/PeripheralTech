@@ -119,64 +119,67 @@ namespace PeripheralTech.Mobile.ViewModels
         }
         public async Task Order()
         {
-            bool check = false;
-            var request = new OrderInsertRequest()
-            {
-                Date = DateTime.Now,
-                UserID = APIService.UserID,
-                OrderStatusID = 4
-            };
+            bool isCustomOrder = true;
+            await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new NewQuestionPage(CustomOrderList, isCustomOrder)));
 
-            try
-            {
-                await _orderService.Insert<Model.Order>(request);
-            }
-            catch (Exception)
-            {
-                await Application.Current.MainPage.DisplayAlert("Error", "There was an error during the ordering process, please make sure you have entered all the required information correctly.", "OK");
-                check = true;
-            }
+            //bool check = false;
+            //var request = new OrderInsertRequest()
+            //{
+            //    Date = DateTime.Now,
+            //    UserID = APIService.UserID,
+            //    OrderStatusID = 4
+            //};
 
-            int? tempId = null;
-            if (!check)
-            {
-                var searchOrder = new OrderSearchRequest()
-                {
-                    UserID = APIService.UserID
-                };
-                var order = await _orderUnderReviewService.Get<Model.Order>(searchOrder);
+            //try
+            //{
+            //    await _orderService.Insert<Model.Order>(request);
+            //}
+            //catch (Exception)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Error", "There was an error during the ordering process, please make sure you have entered all the required information correctly.", "OK");
+            //    check = true;
+            //}
 
-                if (order != null)
-                {
-                    foreach (var x in CustomOrderList)
-                    {
-                        var orderProductRequest = new OrderProductUpsertRequest()
-                        {
-                            OrderID = order.OrderID,
-                            ProductID = x.ProductID
-                        };
-                        try
-                        {
-                            await _orderProductService.Insert<Model.Product>(orderProductRequest);
-                        }
-                        catch (Exception)
-                        {
-                            check = true;
-                        }
-                    }
-                    tempId = order.OrderID;
-                }
-                else
-                {
-                    check = true;
-                }
-            }
+            //int? tempId = null;
+            //if (!check)
+            //{
+            //    var searchOrder = new OrderSearchRequest()
+            //    {
+            //        UserID = APIService.UserID
+            //    };
+            //    var order = await _orderUnderReviewService.Get<Model.Order>(searchOrder);
 
-            if (!check)
-            {
-                await Application.Current.MainPage.DisplayAlert("Notification", "You have successfully placed a custom order!", "OK");
-                await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new NewQuestionPage(tempId)));
-            }
+            //    if (order != null)
+            //    {
+            //        foreach (var x in CustomOrderList)
+            //        {
+            //            var orderProductRequest = new OrderProductUpsertRequest()
+            //            {
+            //                OrderID = order.OrderID,
+            //                ProductID = x.ProductID
+            //            };
+            //            try
+            //            {
+            //                await _orderProductService.Insert<Model.Product>(orderProductRequest);
+            //            }
+            //            catch (Exception)
+            //            {
+            //                check = true;
+            //            }
+            //        }
+            //        tempId = order.OrderID;
+            //    }
+            //    else
+            //    {
+            //        check = true;
+            //    }
+            //}
+
+            //if (!check)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Notification", "You have successfully placed a custom order!", "OK");
+            //    await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new NewQuestionPage(tempId)));
+            //}
         }
     }
 }

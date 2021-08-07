@@ -1,6 +1,8 @@
 ﻿using PeripheralTech.Mobile.ViewModels;
+using PeripheralTech.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +16,17 @@ namespace PeripheralTech.Mobile.Views
     public partial class NewQuestionPage : ContentPage
     {
         private NewQuestionViewModel model = null;
-        public NewQuestionPage(int ? id = null)
+        public NewQuestionPage(ObservableCollection<Product> CustomOrderList = null, bool ? check = null)
         {
             InitializeComponent();
             BindingContext = model = new NewQuestionViewModel() 
             {
-                OrderID = id
+                //OrderID = id
+                CustomOrderList = CustomOrderList,
+                CustomOrderCheck = check
             };
 
-            if (id != null)
+            if (check != null)
             {
                 cancelButton.IsEnabled = false;
                 cancelButton.IsVisible = false;
