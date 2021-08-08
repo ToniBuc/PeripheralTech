@@ -31,11 +31,18 @@ namespace PeripheralTech.Mobile.ViewModels
             get { return _questionTitle; }
             set { SetProperty(ref _questionTitle, value); }
         }
+        private string _questionContent = string.Empty;
+        public string QuestionContent
+        {
+            get { return _questionContent; }
+            set { SetProperty(ref _questionContent, value); }
+        }
 
         public async Task Init()
         {
             Question = await _questionService.GetById<Model.Question>(QuestionID);
             QuestionTitle = Question.Title;
+            QuestionContent = Question.Content;
             Status = Question.Status;
 
             var search = new QuestionCommentSearchRequest()

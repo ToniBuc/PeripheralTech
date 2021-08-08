@@ -26,7 +26,7 @@
                 <BoxView Color="Black" HeightRequest="3" Margin="15,0,15,0"></BoxView>
                 <StackLayout Padding="15">
                     <StackLayout Margin="0,10,0,0">
-                        <Editor Text="{Binding Content}" FontSize="15" AutoSize="TextChanges"></Editor>
+                        <Editor Text="{Binding Content}" FontSize="15" AutoSize="TextChanges" IsReadOnly="True"></Editor>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

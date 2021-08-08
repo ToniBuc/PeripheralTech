@@ -24,9 +24,9 @@
                 <StackLayout Padding="15">
                     <StackLayout Margin="0,7,0,0">
                         <Label Text="Specifications:" FontSize="16"></Label>
-                        <Editor Text="{Binding Specifications}" FontSize="15" AutoSize="TextChanges"></Editor>
+                        <Editor Text="{Binding Specifications}" FontSize="15" AutoSize="TextChanges" IsReadOnly="True"></Editor>
                         <Label Text="Review:" FontSize="16"></Label>
-                        <Editor Text="{Binding ReviewContent}" FontSize="15" AutoSize="TextChanges"></Editor>
+                        <Editor Text="{Binding ReviewContent}" FontSize="15" AutoSize="TextChanges" IsReadOnly="True"></Editor>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="70" />

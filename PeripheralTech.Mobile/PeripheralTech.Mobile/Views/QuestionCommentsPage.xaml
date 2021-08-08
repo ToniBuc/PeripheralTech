@@ -15,6 +15,7 @@
                 <Label Text="{Binding QuestionTitle}"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" FontSize="20"/>
+                <Editor Text="{Binding QuestionContent}" FontSize="15" AutoSize="TextChanges" IsReadOnly="True"></Editor>
                 <Button Text="New Reply" Clicked="SendReply_Clicked" x:Name="replyButton" HeightRequest="50" BackgroundColor="#ad2828" TextColor="White" FontSize="18"></Button>
             </StackLayout>
                 <BoxView Color="Black" HeightRequest="3" Margin="15,10,15,0"></BoxView>
