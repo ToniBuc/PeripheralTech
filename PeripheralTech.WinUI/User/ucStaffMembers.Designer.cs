@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaffMembers)).BeginInit();
             this.SuspendLayout();
@@ -50,9 +51,9 @@
             // 
             this.panel3.Controls.Add(this.dgvStaffMembers);
             this.panel3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(117, 89);
+            this.panel3.Location = new System.Drawing.Point(117, 123);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(770, 533);
+            this.panel3.Size = new System.Drawing.Size(770, 499);
             this.panel3.TabIndex = 26;
             // 
             // dgvStaffMembers
@@ -107,7 +108,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvStaffMembers.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStaffMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStaffMembers.Size = new System.Drawing.Size(770, 533);
+            this.dgvStaffMembers.Size = new System.Drawing.Size(770, 499);
             this.dgvStaffMembers.TabIndex = 1;
             this.dgvStaffMembers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvStaffMembers_MouseDoubleClick);
             // 
@@ -167,7 +168,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(113, 30);
+            this.label1.Location = new System.Drawing.Point(113, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 23);
             this.label1.TabIndex = 22;
@@ -176,7 +177,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(117, 56);
+            this.txtSearch.Location = new System.Drawing.Point(117, 90);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(317, 27);
             this.txtSearch.TabIndex = 21;
@@ -190,7 +191,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(440, 56);
+            this.btnSearch.Location = new System.Drawing.Point(440, 90);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 27);
             this.btnSearch.TabIndex = 20;
@@ -198,11 +199,23 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // lblProductName
+            // 
+            this.lblProductName.Font = new System.Drawing.Font("Calibri Light", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.Location = new System.Drawing.Point(98, 0);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblProductName.Size = new System.Drawing.Size(804, 65);
+            this.lblProductName.TabIndex = 48;
+            this.lblProductName.Text = "Staff";
+            this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucStaffMembers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnAddStaff);
             this.Controls.Add(this.label1);
@@ -232,5 +245,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblProductName;
     }
 }

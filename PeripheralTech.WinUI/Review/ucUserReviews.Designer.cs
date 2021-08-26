@@ -70,6 +70,7 @@
             this.dgvUserReviews.AllowUserToDeleteRows = false;
             this.dgvUserReviews.AllowUserToResizeColumns = false;
             this.dgvUserReviews.AllowUserToResizeRows = false;
+            this.dgvUserReviews.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUserReviews.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvUserReviews.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUserReviews.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;

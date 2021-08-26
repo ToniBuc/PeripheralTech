@@ -45,6 +45,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.cmbClaimed = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).BeginInit();
             this.panel5.SuspendLayout();
@@ -54,9 +55,9 @@
             // 
             this.panel3.Controls.Add(this.dgvQuestions);
             this.panel3.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(3, 71);
+            this.panel3.Location = new System.Drawing.Point(3, 124);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 645);
+            this.panel3.Size = new System.Drawing.Size(994, 592);
             this.panel3.TabIndex = 27;
             // 
             // dgvQuestions
@@ -113,7 +114,7 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvQuestions.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQuestions.Size = new System.Drawing.Size(994, 645);
+            this.dgvQuestions.Size = new System.Drawing.Size(994, 592);
             this.dgvQuestions.TabIndex = 1;
             this.dgvQuestions.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvQuestions_MouseDoubleClick);
             // 
@@ -171,7 +172,7 @@
             // cbxActive
             // 
             this.cbxActive.AutoSize = true;
-            this.cbxActive.Location = new System.Drawing.Point(819, 38);
+            this.cbxActive.Location = new System.Drawing.Point(819, 91);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(75, 27);
             this.cbxActive.TabIndex = 87;
@@ -187,7 +188,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(900, 36);
+            this.btnSearch.Location = new System.Drawing.Point(900, 89);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(97, 29);
             this.btnSearch.TabIndex = 88;
@@ -199,7 +200,7 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.cmbClaimed);
-            this.panel5.Location = new System.Drawing.Point(687, 37);
+            this.panel5.Location = new System.Drawing.Point(687, 90);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(126, 28);
             this.panel5.TabIndex = 90;
@@ -221,17 +222,29 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(683, 12);
+            this.label3.Location = new System.Drawing.Point(683, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 23);
             this.label3.TabIndex = 89;
             this.label3.Text = "Claimed:";
+            // 
+            // lblProductName
+            // 
+            this.lblProductName.Font = new System.Drawing.Font("Calibri Light", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.Location = new System.Drawing.Point(98, 0);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblProductName.Size = new System.Drawing.Size(804, 65);
+            this.lblProductName.TabIndex = 91;
+            this.lblProductName.Text = "Questions";
+            this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSearch);
@@ -265,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
+        private System.Windows.Forms.Label lblProductName;
     }
 }
